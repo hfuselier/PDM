@@ -23,14 +23,6 @@ def brute_force_two_sets(data_a,data_b,data_c):
             P2_coeff = [P2.A,P2.B,P2.C]
             sP1 = np.dot(np.transpose(P1.sig123),P1_coeff)
             sP2 = np.dot(np.transpose(P2.sig123),P2_coeff)
-            #q_fitP1 = ((P1.bc)/(cos(P1.t)-P1.k*sin(P1.t)))*((P1.p/P1.Vo)+1)
-            #q_fitP2 = ((P2.bc)/(cos(P2.t)-P2.k*sin(P2.t)))*((P2.p/P2.Vo)+1)
-            #f_P1 = q_fitP1
-            #y_P1 = P1.q
-            #f_P2 = q_fitP2
-            #y_P2 = P2.q 
-            #err_P1 = abs(y_P1-f_P1)
-            #err_P2 = abs(y_P2-f_P2)
             err_P1 = abs(1-sP1)
             err_P2 = abs(1-sP2)
             sumP1 = np.sum(err_P1)
@@ -70,14 +62,6 @@ def brute_force_three_sets(data_a,data_b,data_c):
                 P2_coeff = [P2.A,P2.B,P2.C]
                 sP1 = np.dot(np.transpose(P1.sig123),P1_coeff)
                 sP2 = np.dot(np.transpose(P2.sig123),P2_coeff)
-                #q_fitP1 = ((P1.bc)/(cos(P1.t)-P1.k*sin(P1.t)))*((P1.p/P1.Vo)+1)
-                #q_fitP2 = ((P2.bc)/(cos(P2.t)-P2.k*sin(P2.t)))*((P2.p/P2.Vo)+1)
-                #f_P1 = q_fitP1
-                #y_P1 = P1.q
-                #f_P2 = q_fitP2
-                #y_P2 = P2.q 
-                #err_P1 = abs(y_P1-f_P1)
-                #err_P2 = abs(y_P2-f_P2)
                 err_P1 = abs(1-sP1)
                 err_P2 = abs(1-sP2)
                 sumP1 = np.sum(err_P1)
@@ -140,19 +124,12 @@ def planes_def(data,d):
     sP2 = np.dot(np.transpose(P2.sig123),P2_coeff) #yi P2
     sP = np.concatenate((sP1,sP2),axis=None) #yi
     nb_err = sP.size
-    
-    ## Error based on q computation
-    q_fitP1 = ((P1.bc)/(cos(P1.t)-P1.k*sin(P1.t)))*((P1.p/P1.Vo)+1)
-    q_fitP2 = ((P2.bc)/(cos(P2.t)-P2.k*sin(P2.t)))*((P2.p/P2.Vo)+1)
-    
-    f_P1 = q_fitP1
-    y_P1 = P1.q
-    f_P2 = q_fitP2
-    y_P2 = P2.q 
+    err_P1 = abs(1-sP1)
+    err_P2 = abs(1-sP2)
+    err = abs(1-sP)
+    f_P1 = 1*np.ones(err_P1.shape)
+    f_P2 = 1*np.ones(err_P1.shape)
     f = np.concatenate((f_P1,f_P2),axis=None)
-    err_P1 = y_P1-f_P1
-    err_P2 = y_P2-f_P2
-    err = np.concatenate((err_P1,err_P2),axis=None)
     
     # R^2 = 1 - SSres/SStot
     #SSres = Sum(yi-fi)^2
