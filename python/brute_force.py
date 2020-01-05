@@ -17,8 +17,6 @@ def brute_force_two_sets(data_a,data_b,data_c):
             P1_b = data_b[j:,:]
             P2_b = data_b[:j,:]
             P1, P2 = create_P1_and_P2_iteration(P1_a,P2_a,P1_b,P2_b,P1_c,P2_c)
-            #if P1.phyC > P1.phyE or P2.phyC > P2.phyE:
-            #    break
             P1_coeff = [P1.A,P1.B,P1.C]
             P2_coeff = [P2.A,P2.B,P2.C]
             sP1 = np.dot(np.transpose(P1.sig123),P1_coeff)
@@ -56,8 +54,6 @@ def brute_force_three_sets(data_a,data_b,data_c):
                 P1_c=data_c[k:,:]
                 P2_c=data_c[:k,:]
                 P1, P2 = create_P1_and_P2_iteration(P1_a,P2_a,P1_b,P2_b,P1_c,P2_c) 
-                #if P1.phyC > P1.phyE or P2.phyC > P2.phyE:
-                #    break
                 P1_coeff = [P1.A,P1.B,P1.C]
                 P2_coeff = [P2.A,P2.B,P2.C]
                 sP1 = np.dot(np.transpose(P1.sig123),P1_coeff)
@@ -120,16 +116,29 @@ def planes_def(data,d):
     ## Error based on Asig1+Bsig2+Csig3=1
     P1_coeff = [P1.A,P1.B,P1.C]
     P2_coeff = [P2.A,P2.B,P2.C]
-    sP1 = np.dot(np.transpose(P1.sig123),P1_coeff) #yi P1
-    sP2 = np.dot(np.transpose(P2.sig123),P2_coeff) #yi P2
+    sP1 = np.dot(P1.data[:,:3],P1_coeff) #yi P1
+    sP2 = np.dot(P2.data[:,:3],P2_coeff) #yi P2
     sP = np.concatenate((sP1,sP2),axis=None) #yi
+    print(sP)
     nb_err = sP.size
-    err_P1 = abs(1-sP1)
-    err_P2 = abs(1-sP2)
-    err = abs(1-sP)
-    f_P1 = 1*np.ones(err_P1.shape)
-    f_P2 = 1*np.ones(err_P1.shape)
-    f = np.concatenate((f_P1,f_P2),axis=None)
+    err_P1 = sP1-1
+    err_P2 = sP2-1
+    err = sP-1
+    sum_err = np.sum(abs(err))
+    print(sum_err)
+    mean_err = np.mean(abs(err))
+    
+    ## Error based on q
+
+    #Fitting fonction
+    #qfitP1 = (P1.bc/(P1.Vo*(cos(P1.t)-P1.k*sin(P1.t))))*P1.p+(P1.bc/(cos(P1.t)-P1.k*sin(P1.t)))
+    #qfitP2 = (P2.bc/(P2.Vo*(cos(P2.t)-P2.k*sin(P2.t))))*P2.p+(P2.bc/(cos(P2.t)-P2.k*sin(P2.t)))
+    #qfit = np.concatenate((qfitP1,qfitP2),axis=None) #yi
+    #q = np.concatenate((P1.q,P2.q),axis=None) #yi
+    #err_P1 = P1.q-qfitP1
+    #err_P2 = P2.q-qfitP2
+    #err = q-qfit
+    #print(err)
     
     # R^2 = 1 - SSres/SStot
     #SSres = Sum(yi-fi)^2
@@ -141,29 +150,29 @@ def planes_def(data,d):
     SSres_P1 = 0
     SSres_P2 = 0
     for i in range(0,nb_err-1,1) :
-        SSres = SSres + (err[i])**2
+        SSres = SSres + np.square(err[i])
     for j in range(0,nb_err_P1-1,1) :
-        SSres_P1 = SSres_P1 + (err_P1[j])**2
+        SSres_P1 = SSres_P1 + np.square(err_P1[j])
     for k in range(0,nb_err_P2-1,1) :
-        SSres_P2 = SSres_P2 + (err_P2[k])**2
+        SSres_P2 = SSres_P2 + np.square(err_P2[k])
         
     # SStot = Sum(yi-ymean)^2
-    ymean = np.mean(abs(err))
+    ymean = np.mean(err)
     SStot = 0
-    ymean_P1 = np.mean(abs(err_P1))
+    ymean_P1 = np.mean(err_P1)
     SStot_P1 = 0
-    ymean_P2 = np.mean(abs(err_P2))
+    ymean_P2 = np.mean(err_P2)
     SStot_P2 = 0
     for i in range(0,nb_err-1,1) :
-        SStot = SStot + (f[i]-ymean)**2
+        SStot = SStot + np.square(err[i]-ymean)
     for j in range(0,nb_err_P1-1,1) :
-        SStot_P1 = SStot_P1 + (f_P1[j]-ymean_P1)**2
+        SStot_P1 = SStot_P1 + np.square(err_P1[j]-ymean_P1)
     for k in range(0,nb_err_P2-1,1) :
-        SStot_P2 = SStot_P2 + (f_P2[k]-ymean_P2)**2
+        SStot_P2 = SStot_P2 + np.square(err_P2[k]-ymean_P2)
         
     # R^2 = 1 - SSres/SStot
-    Rsqu = 1 - SSres/SStot
-    Rsqu_P1 = 1 - SSres_P1/SStot_P1
-    Rsqu_P2 = 1 - SSres_P2/SStot_P2
+    Rsqu = (SSres/SStot)**(-1)# 1 - SSres/SStot
+    Rsqu_P1 = 1 - SSres_P1/SStot_P1 #(SSres_P1/SStot_P1)**(-1)
+    Rsqu_P2 = 1 - SSres_P2/SStot_P2 #(SSres_P2/SStot_P2)**(-1)
 
     return P1, P2, Rsqu, Rsqu_P1, Rsqu_P2
