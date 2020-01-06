@@ -163,10 +163,11 @@ class Plane:
         self.bc = bc
         self.be = be
         self.phyC = arcsin(3*bc/(6*self.Vo+bc))
-        if np.isin(60*pi/180, self.t)== True :
-            self.phyE = arcsin(3*be/(6*self.Vo-be))
-        elif np.isin(60*pi/180, self.t)== False:
-            self.phyE = self.phyC
+        self.phyE = arcsin(3*be/(6*self.Vo-be))
+        #if np.isin(60*pi/180, self.t)== True :
+        #    self.phyE = arcsin(3*be/(6*self.Vo-be))
+        #elif np.isin(60*pi/180, self.t)== False:
+        #    self.phyE = self.phyC
         self.sol = np.array([bc, be, k, self.Vo, self.phyC*180/pi, self.phyE*180/pi])
         
         # Computation of Planes Coefficients
