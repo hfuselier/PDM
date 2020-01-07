@@ -133,4 +133,8 @@ def planes_def(data,d):
     print(P1.sol)
     print(P2.sol)
     
-    return P1, P2, Err, Err_P1, Err_P2
+    S_P1 = standard_dev(P1)
+    S_P2 = standard_dev(P2)
+    
+    
+    return P1, P2, S_P1, S_P2

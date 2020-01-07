@@ -86,8 +86,9 @@ class Plane_MC:
         self.t = get_t(self.data)
         self.t = self.t * pi/180
         
-        self.phi = arcsin(-(get_C(data)[:,2]-get_C(data)[:,0]+1)/(get_C(data)[:,2]+get_C(data)[:,0]-1))
-        self.phim = np.mean(self.phi)
+        #self.phi = arcsin(-(get_C(data)[:,2]-get_C(data)[:,0]+1)/(get_C(data)[:,2]+get_C(data)[:,0]-1))
+        #self.phim = np.mean(self.phi)
+        self.phim = 29.98*pi/180
         self.Kp= (1+sin(self.phim))/(1-sin(self.phim))
         self.Co = data[0,0]
         self.Vo = self.Co/(self.Kp-1) 

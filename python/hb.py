@@ -16,7 +16,6 @@ def get_q(data): # Gives deviatoric stress of all the points
 def get_t(data): # Gives Lodge angle of all the points
     return data[:,5]
 
-def 
             
 def qCfit(P,x): # Compute q for plane fitting of compression data (p-q coordinate system)
     phy = P.phy
@@ -95,12 +94,17 @@ class Plane_HB:
         self.t = self.t * pi/180
        
         self.Co = data[0,0] 
-        self.mc = (self.Co./get_C(data)[:,3]).*(((get_C(data)[:,1]-get_C(data)[:,3])./self.Co).^2-1) ;
-        self.m = nanmean(self.mc) ;
-        #self.mC = self.m ;
-        #self.mE = self.m ;
+        self.mc = (self.Co/get_C(data)[:,2])*(np.square((get_C(data)[:,0]-get_C(data)[:,2])/self.Co)-1)
+        #self.m = np.nanmean(self.mc)
         
-        den1 = self.Co*np.sqrt((self.m/self.Co)*s1st) 
+        mtC = np.array([])
+        for i in range(self.mc.size-1):
+                if np.isnan(self.mc[i]) == False and np.isinf(self.mc[i]) == False :
+                    mtC = np.append(mtC, self.mc[i])
+        
+        self.m = np.mean(mtC)
+        
+        #den1 = self.Co*np.sqrt((self.m/self.Co)*s1st) 
         
         #self.A = 1/self.den
         #self.B = 0

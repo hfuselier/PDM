@@ -22,25 +22,54 @@ def error_computation(P1,P2):
     sum_err = np.sum(abs(err))
     mean_err = np.mean(abs(err))
     
-    # R^2 = 1 - SSres/SStot
-    #SSres = Sum(yi-fi)^2
-    
-    SSres = np.sum(np.square(err))
-    SSres_P1 = np.sum(np.square(err_P1))
-    SSres_P2 = np.sum(np.square(err_P2))
-        
-    # SStot = Sum(yi-ymean)^2
-    ymean = np.mean(sP)
-    SStot = np.sum(np.square(sP-ymean))
-    ymean_P1 = np.mean(sP1)
-    SStot_P1 = np.sum(np.square(sP1-ymean))
-    ymean_P2 = np.mean(sP2)
-    SStot_P2 = np.sum(np.square(sP2-ymean))
-        
-    # R^2 = 1 - SSres/SStot
-    Rsqu = 1- (SSres/SStot)
-    Rsqu_P1 = 1 - SSres_P1/SStot_P1
-    Rsqu_P2 = 1 - SSres_P2/SStot_P2
-
     return mean_err, mean_err_P1, mean_err_P2
-    #return Rsqu, Rsqu_P1, Rsqu_P2
+
+def standard_dev(P):
+    #Standard deviation
+    d = convert(P.data)
+    m = np.unique(d['C'][:,1]).size + np.unique(d['E'][:,1]).size + np.unique(d['o'][:,1]).size
+    conf = np.unique(P.data[:,1])
+    mconf = conf.size
+    nC = 0
+    setC = 0
+    nE = 0
+    setE = 0
+    no = 0
+    seto = 0
+    Si_int = 0
+    for i in range(mconf):
+        for j in range(P.data[:,0].size):
+            if P.data[j,1]==conf[i] and P.data[j,5] == 0:
+                nC = nC+1
+                sig_test = P.data[j,0]
+                sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                setC = setC + np.square(sig_test-sig_calc)
+            elif P.data[j,1]==conf[i] and P.data[j,5] == 60:
+                nE = nE+1
+                sig_test = P.data[j,0]
+                sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                setE = setE + np.square(sig_test-sig_calc)
+            elif P.data[j,1]==conf[i] and P.data[j,5] != 0 and P.data[j,5] != 60:
+                no = no+1
+                sig_test = P.data[j,0]
+                sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                setE = setE + np.square(sig_test-sig_calc)
+        
+        if nC ==0:
+            sC=0 
+        else:
+            sC = np.sqrt((1/nC)*setC)
+        if nE ==0:
+            sE=0 
+        else:
+            sE = np.sqrt((1/nE)*setE)
+        if no ==0:
+            so=0 
+        else:
+            so = np.sqrt((1/no)*seto)
+    
+        Si_int = Si_int + sC+sE+so
+        
+    S = Si_int/m
+    
+    return S
