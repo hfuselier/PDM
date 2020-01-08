@@ -55,6 +55,8 @@ class Plane_HB:
         m = bset[np.argmin(abs(err))]
         self.m = m
         
+        self.sol = np.array([self.Co,self.m])
+        
     def get_pC(self):
         return get_p(get_C(self.data))
     

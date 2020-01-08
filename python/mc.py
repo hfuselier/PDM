@@ -106,7 +106,7 @@ class Plane_MC:
         self.phi = arcsin((self.Kp-1)/(self.Kp+1))
         self.Vo = self.Co/(self.Kp-1) 
         self.c = self.Co*(1-sin(self.phi))/(2*cos(self.phi))
-        
+        self.sol = np.array([self.phi*180/pi,self.c,self.Co,self.Kp,self.Vo])
         self.A = 1/self.Co
         self.B = 0
         self.C = -self.Kp/self.Co
