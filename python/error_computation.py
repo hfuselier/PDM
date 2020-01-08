@@ -39,27 +39,36 @@ def standard_dev(P,criterion):
     Si_int = 0
     for i in range(mconf):
         for j in range(P.data[:,0].size):
+            # Standard deviation of COMPRESSION data
             if P.data[j,1]==conf[i] and P.data[j,5] == 0:
                 nC = nC+1
                 sig_test = P.data[j,0]
+                # Mohr-Coulomb and Paul-Mohr-Coulomb criteria
                 if criterion == 'MC' or criterion == 'PMC':
                     sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                # Hoek-Brown criterion
                 elif criterion == 'HB':
                     sig_calc = P.data[j,2]+P.Co*np.sqrt((P.m/P.Co)*P.data[j,2]+1)
                 setC = setC + np.square(sig_test-sig_calc)
+            # Standard deviation of EXTENSION data
             elif P.data[j,1]==conf[i] and P.data[j,5] == 60:
                 nE = nE+1
                 sig_test = P.data[j,0]
+                # Mohr-Coulomb and Paul-Mohr-Coulomb criteria
                 if criterion == 'MC' or criterion == 'PMC':
                     sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                # Hoek-Brown criterion
                 elif criterion == 'HB':
                     sig_calc = P.data[j,2]+P.Co*np.sqrt((P.m/P.Co)*P.data[j,2]+1)
                 setE = setE + np.square(sig_test-sig_calc)
+            # Standard deviation of MULTI AXIAL data
             elif P.data[j,1]==conf[i] and P.data[j,5] != 0 and P.data[j,5] != 60:
                 no = no+1
                 sig_test = P.data[j,0]
+                # Mohr-Coulomb and Paul-Mohr-Coulomb criteria
                 if criterion == 'MC' or criterion == 'PMC':
                     sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                # Hoek-Brown criterion
                 elif criterion == 'HB':
                     sig_calc = P.data[j,2]+P.Co*np.sqrt((P.m/P.Co)*P.data[j,2]+1)
                 setE = setE + np.square(sig_test-sig_calc)

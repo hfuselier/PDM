@@ -75,6 +75,19 @@ This database was used for the evaluation of Mohr-Coulomb,Hoek-Brown and Paul-Mo
 
 The Mohr-Coulomb, Hoek-Brown and Paul-Mohr-Coulomb failure criteria presented in Chapter \ref{ch2:title} were fitted to the experiment results from Table \ref{tb5:database}. A computation program was developed for the fittings using the programming language Python. All the resources needed to access the program files are listed in Appendix REF{APPENDIX B}. 
 
+The three failure criterion fittings are evaluated through their representation in the three coordinates systems presented in Chapter \ref{ch2:title}, and their accuracy in terms of how good they fit the data. In this study, this "accuracy" is chosen to be evaluated by comparing the least mean standard deviation misfits, as proposed by Benz et al. (2008) \cite{Benz2008}. 
+
+The standard deviation $s_{i}$ of one test series $i$ formed by $j$ experiments subject to the same minor stress (i.e. $\sigma_{III}$) is defined by Equation \ref{eq5:standdev}. In this expression, $n$ is the number of experiments in the test series $i$, $\sigma_{I,j}^{\mathrm{test}}$ is the maximum stress at failure for a data point $j$ (obtained from the database) and $\sigma_{I,j}^{\mathrm{calc}}$ is the calculated one using the considered criterion formulation. 
+
+\begin{equation}\label{eq5:standdev}
+    s_{i}=\sqrt{\frac{1}{n} \sum_{j}\left(\sigma_{I,j}^{\mathrm{calc}}-\sigma_{I,j}^{\mathrm{test}}\right)^{2}}
+\end{equation}
+
+Finally, the mean standard deviation misfit is computed following Equation \ref{eq5:mean_standdev}, where $m$ is the number of test series.
+
+\begin{equation}\label{eq5:mean_standdev}
+    \bar{S}=\frac{1}{m} \sum_{i} s_{i}
+\end{equation}
 \subsection{Mohr-Coulomb failure criterion}
 
 The Mohr-Coulomb failure criterion is formulated in terms two principal stresses (cf. Equations \ref{eq2:MCfinalform} and \ref{eq2:MCcondenseform}) and unique strength parameters (i.e. $\phi$,$c$), therefore, the parameters fitting was done using only axisymmetric triaxial compression tests results (i.e. $\theta = 0^\circ$). 
@@ -95,7 +108,7 @@ From this fitting, the coefficient $K_p$ was determined and the other parameters
 
 Knowing the strength parameters, the Mohr-Coulomb failure surface is plotted in the $(\sigma_3-\sigma_1)$ plane using Equation \ref{eq2:MCfinalform}(cf. Figure \ref{fig5:mc_sig1sig3}).
 
-\begin{figure}[tb]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\columnwidth]{ch5/mc_sig1sig3}
     \caption{Mohr-Coulomb criterion failure surface in  $(\sigma_3-\sigma_1)$ plane}
@@ -118,24 +131,22 @@ The criterion was also fitted in the $(p-q)$ plane, for which the plot obtained 
 \end{equation}
 
 
-\begin{figure}[tb]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\columnwidth]{ch5/mc_pq}
     \caption{Mohr-Coulomb criterion failure surface in  $(p-q)$ plane}
     \label{fig5:mc_pq}
 \end{figure} 
 
-Finally, the Mohr-Coulomb criterion is presented in the $\pi$-plane, obtained following the procedure described in section \ref{ch2:MC_pi} (cf. Figure \ref{fig5:mc_pi_plane}). 
+Finally, the Mohr-Coulomb criterion is presented in the $\pi$-plane, obtained following the procedure described in section \ref{ch2:MC_pi}. Figure \ref{fig5:mc_pi_plane} shows Mohr-Coulomb failure criterion in the pi-plane at different values of the mean stress $p$.
 
-\begin{figure}[tb]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\columnwidth]{ch5/mc_pi_plane1}
     \includegraphics[width=0.7\columnwidth]{ch5/mc_pi_plane2}
     \caption{Mohr-Coulomb criterion failure surface in  $pi$- plane}
     \label{fig5:mc_pi_plane}
 \end{figure} 
-
-
 
 \subsection{Hoek-Brown failure criterion}
 \subsection{Paul-Mohr-Coulomb failure criterion}
