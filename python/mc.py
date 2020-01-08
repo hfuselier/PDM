@@ -86,13 +86,26 @@ class Plane_MC:
         self.t = get_t(self.data)
         self.t = self.t * pi/180
         
-        #self.phi = arcsin(-(get_C(data)[:,2]-get_C(data)[:,0]+1)/(get_C(data)[:,2]+get_C(data)[:,0]-1))
-        #self.phim = np.mean(self.phi)
-        self.phim = 29.98*pi/180
-        self.Kp= (1+sin(self.phim))/(1-sin(self.phim))
+        
         self.Co = data[0,0]
+        self.K = (get_C(data)[:,0]-self.Co)/get_C(data)[:,2]
+        K = []
+        err = []
+        bset = []
+        for i in range(self.K.size):
+                if np.isnan(self.K[i]) == False and np.isinf(self.K[i]) == False :
+                    K.append(self.K[i])
+        for j in np.linspace(2.0, 5.0, num=50):
+            bset.append(j)
+            diff_calc = get_C(data)[:,2]*j+self.Co-get_C(data)[:,0]
+            diff = np.mean(diff_calc)
+            err.append(diff)
+        err = np.array(err)
+        Kp = bset[np.argmin(abs(err))]
+        self.Kp = Kp
+        self.phi = arcsin((self.Kp-1)/(self.Kp+1))
         self.Vo = self.Co/(self.Kp-1) 
-        self.c = self.Co*(1-sin(self.phim))/(2*cos(self.phim))
+        self.c = self.Co*(1-sin(self.phi))/(2*cos(self.phi))
         
         self.A = 1/self.Co
         self.B = 0

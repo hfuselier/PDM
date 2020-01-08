@@ -16,62 +16,6 @@ def get_q(data): # Gives deviatoric stress of all the points
 def get_t(data): # Gives Lodge angle of all the points
     return data[:,5]
 
-            
-def qCfit(P,x): # Compute q for plane fitting of compression data (p-q coordinate system)
-    phy = P.phy
-    c = P.c
-    return (6*sin(phy)/(3-sin(phy)))*x+(6*c*cos(phy)/(3-sin(phy)));
-
-def qEfit(P,x): # Compute q for plane fitting of extension data (p-q coordinate system)
-    phy = P.phy
-    c = P.c
-    return (6*sin(phy)/(3+sin(phy)))*x+(6*c*cos(phy)/(3+sin(phy)));
-
-conf_cycle = [1,2,2,3,3,1]
-form_cycle = ['x','x','y','y','x','y']
-conf_cycle = [1,3,3,2,2,1]
-form_cycle = ['y','x','y','y','x','x']
-#conf_cycle = [1,2,3,3,2,1]
-#form_cycle = ['x','y','x','y','x','y']
-
-def get_plane_normal_6_cycle(P,num):
-    return get_plane_normal(P,conf_cycle[num%6],form_cycle[num%6])
-
-def get_plane_normal(P,sigma,form):
-    
-    # 1st 1/6 part
-    if sigma == 1 and form == 'x' : 
-        normal = [P.A,P.B,P.C]
-    # 2nd 1/6 part
-    if sigma == 1 and form == 'y' : 
-        normal = [P.A,P.C,P.B]
-    # 3rd 1/6 part
-    if sigma == 2 and form == 'x' : 
-        normal = [P.B,P.A,P.C]
-    # 4th 1/6 part
-    if sigma == 2 and form == 'y' : 
-        normal = [P.C,P.A,P.B]
-    # 5th 1/6 part
-    if sigma == 3 and form == 'x' : 
-        normal = [P.B,P.C,P.A]
-    # 6th 1/6 part
-    if sigma == 3 and form == 'y' : 
-        normal = [P.C,P.B,P.A]
-    
-    return np.array(normal) #origin
-
-def p_plane_intersection_6(P,plane_dist):
-    p_plane_n = np.ones(3)/np.sqrt(3)
-    p_plane_o = p_plane_n*plane_dist
-
-    eq = np.zeros((6,3,3))
-    b = np.array([[1,1,np.dot(p_plane_n,p_plane_o)]])
-    for i in range(6):
-        eq[i] = np.array([get_plane_normal_6_cycle(P,i),get_plane_normal_6_cycle(P,i-1),p_plane_n])
-    
-    pts = np.linalg.solve(eq,b).transpose()
-    return pts
-
 # From the Plane class we get all necessary data for P1 or P2
 class Plane_HB:
     def __init__(self,data):
@@ -95,20 +39,21 @@ class Plane_HB:
        
         self.Co = data[0,0] 
         self.mc = (self.Co/get_C(data)[:,2])*(np.square((get_C(data)[:,0]-get_C(data)[:,2])/self.Co)-1)
-        #self.m = np.nanmean(self.mc)
         
-        mtC = np.array([])
-        for i in range(self.mc.size-1):
+        mtC = []
+        bset = []
+        err = []
+        for i in range(self.mc.size):
                 if np.isnan(self.mc[i]) == False and np.isinf(self.mc[i]) == False :
-                    mtC = np.append(mtC, self.mc[i])
-        
-        self.m = np.mean(mtC)
-        
-        #den1 = self.Co*np.sqrt((self.m/self.Co)*s1st) 
-        
-        #self.A = 1/self.den
-        #self.B = 0
-        #self.C = -1/self.den
+                    mtC.append(self.mc[i])
+        for j in np.linspace(int(np.min(mtC)), int(np.max(mtC)), num=100):
+            bset.append(j)
+            diff_calc = get_C(data)[:,2]+self.Co*np.sqrt((j/self.Co)*get_C(data)[:,2]+1)-get_C(data)[:,0]
+            diff = np.mean(diff_calc)
+            err.append(diff)
+        err = np.array(err)
+        m = bset[np.argmin(abs(err))]
+        self.m = m
         
     def get_pC(self):
         return get_p(get_C(self.data))

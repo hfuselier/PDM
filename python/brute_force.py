@@ -21,14 +21,6 @@ def brute_force_two_sets(data_a,data_b,data_c):
             P2_b = data_b[:j,:]
             P1, P2 = create_P1_and_P2_iteration(P1_a,P2_a,P1_b,P2_b,P1_c,P2_c)
             mean_err, mean_err_P1, mean_err_P2 = error_computation(P1,P2)
-            #P1_coeff = [P1.A,P1.B,P1.C]
-            #P2_coeff = [P2.A,P2.B,P2.C]
-            #sP1 = np.dot(np.transpose(P1.sig123),P1_coeff)
-            #sP2 = np.dot(np.transpose(P2.sig123),P2_coeff)
-            #err_P1 = abs(1-sP1)
-            #err_P2 = abs(1-sP2)
-            #sumP1 = np.sum(err_P1)
-            #sumP2 = np.sum(err_P2)
             mean_error.append(mean_err)
             mean_error_P1.append(mean_err_P1)
             mean_error_P2.append(mean_err_P2)
@@ -68,14 +60,6 @@ def brute_force_three_sets(data_a,data_b,data_c):
                 P2_c=data_c[:k,:]
                 P1, P2 = create_P1_and_P2_iteration(P1_a,P2_a,P1_b,P2_b,P1_c,P2_c) 
                 mean_err, mean_err_P1, mean_err_P2 = error_computation(P1,P2)
-                #P1_coeff = [P1.A,P1.B,P1.C]
-                #P2_coeff = [P2.A,P2.B,P2.C]
-                #sP1 = np.dot(np.transpose(P1.sig123),P1_coeff)
-                #sP2 = np.dot(np.transpose(P2.sig123),P2_coeff)
-                #err_P1 = abs(1-sP1)
-                #err_P2 = abs(1-sP2)
-                #sumP1 = np.sum(err_P1)
-                #sumP2 = np.sum(err_P2)
                 mean_error.append(mean_err)
                 mean_error_P1.append(mean_err_P1)
                 mean_error_P2.append(mean_err_P2)

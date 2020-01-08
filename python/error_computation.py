@@ -24,7 +24,7 @@ def error_computation(P1,P2):
     
     return mean_err, mean_err_P1, mean_err_P2
 
-def standard_dev(P):
+def standard_dev(P,criterion):
     #Standard deviation
     d = convert(P.data)
     m = np.unique(d['C'][:,1]).size + np.unique(d['E'][:,1]).size + np.unique(d['o'][:,1]).size
@@ -42,17 +42,26 @@ def standard_dev(P):
             if P.data[j,1]==conf[i] and P.data[j,5] == 0:
                 nC = nC+1
                 sig_test = P.data[j,0]
-                sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                if criterion == 'MC' or criterion == 'PMC':
+                    sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                elif criterion == 'HB':
+                    sig_calc = P.data[j,2]+P.Co*np.sqrt((P.m/P.Co)*P.data[j,2]+1)
                 setC = setC + np.square(sig_test-sig_calc)
             elif P.data[j,1]==conf[i] and P.data[j,5] == 60:
                 nE = nE+1
                 sig_test = P.data[j,0]
-                sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                if criterion == 'MC' or criterion == 'PMC':
+                    sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                elif criterion == 'HB':
+                    sig_calc = P.data[j,2]+P.Co*np.sqrt((P.m/P.Co)*P.data[j,2]+1)
                 setE = setE + np.square(sig_test-sig_calc)
             elif P.data[j,1]==conf[i] and P.data[j,5] != 0 and P.data[j,5] != 60:
                 no = no+1
                 sig_test = P.data[j,0]
-                sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                if criterion == 'MC' or criterion == 'PMC':
+                    sig_calc = (1/P.A)*(-P.B*P.data[j,1]-P.C*P.data[j,2]+1)
+                elif criterion == 'HB':
+                    sig_calc = P.data[j,2]+P.Co*np.sqrt((P.m/P.Co)*P.data[j,2]+1)
                 setE = setE + np.square(sig_test-sig_calc)
         
         if nC ==0:
