@@ -72,7 +72,71 @@ This database was used for the evaluation of Mohr-Coulomb,Hoek-Brown and Paul-Mo
 \end{table}
 
 \section{Evaluation of the failure criteria}\label{ch5:evaluation}
+
+The Mohr-Coulomb, Hoek-Brown and Paul-Mohr-Coulomb failure criteria presented in Chapter \ref{ch2:title} were fitted to the experiment results from Table \ref{tb5:database}. A computation program was developed for the fittings using the programming language Python. All the resources needed to access the program files are listed in Appendix REF{APPENDIX B}. 
+
 \subsection{Mohr-Coulomb failure criterion}
+
+The Mohr-Coulomb failure criterion is formulated in terms two principal stresses (cf. Equations \ref{eq2:MCfinalform} and \ref{eq2:MCcondenseform}) and unique strength parameters (i.e. $\phi$,$c$), therefore, the parameters fitting was done using only axisymmetric triaxial compression tests results (i.e. $\theta = 0^\circ$). 
+
+From this fitting, the coefficient $K_p$ was determined and the other parameters were computed: 
+\begin{equation}
+    K_p = 2.55 \quad \textrm{and} \quad C_0 = 29.7
+\end{equation}
+\begin{equation}
+    \phi = \frac{K_p-1}{K_p+1} = 25.9^\circ
+\end{equation}
+\begin{equation}
+    c = \frac{C_0(1-sin\phi)}{2cos\phi} = 9.30
+\end{equation}
+\begin{equation}
+    V_0 = \frac{C_0}{K_p-1} = 19.2
+\end{equation}
+
+Knowing the strength parameters, the Mohr-Coulomb failure surface is plotted in the $(\sigma_3-\sigma_1)$ plane using Equation \ref{eq2:MCfinalform}(cf. Figure \ref{fig5:mc_sig1sig3}).
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=\columnwidth]{ch5/mc_sig1sig3}
+    \caption{Mohr-Coulomb criterion failure surface in  $(\sigma_3-\sigma_1)$ plane}
+    \label{fig5:mc_sig1sig3}
+\end{figure} 
+
+The criterion was also fitted in the $(p-q)$ plane, for which the plot obtained is shown in Figure \ref{fig5:mc_pq}. The coefficients $m_{c,e}$ and $b_{c,e}$ were computed using Equations \ref{eq2:MC_mc_q} to \ref{eq2:MC_be_q}:
+
+\begin{equation}
+    m_c = \frac{6 \sin \phi}{3-\sin \phi} = 1.02
+\end{equation}
+\begin{equation}
+    m_e = \frac{6 \sin \phi}{3+\sin \phi} = 0.76
+\end{equation}
+\begin{equation}
+    b_c = \frac{6 c \cos \phi}{3-\sin \phi} = 19.6
+\end{equation}
+\begin{equation}
+    b_e = \frac{6 c \cos \phi}{3+\sin \phi} = 14.6
+\end{equation}
+
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=\columnwidth]{ch5/mc_pq}
+    \caption{Mohr-Coulomb criterion failure surface in  $(p-q)$ plane}
+    \label{fig5:mc_pq}
+\end{figure} 
+
+Finally, the Mohr-Coulomb criterion is presented in the $\pi$-plane, obtained following the procedure described in section \ref{ch2:MC_pi} (cf. Figure \ref{fig5:mc_pi_plane}). 
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\columnwidth]{ch5/mc_pi_plane1}
+    \includegraphics[width=0.7\columnwidth]{ch5/mc_pi_plane2}
+    \caption{Mohr-Coulomb criterion failure surface in  $pi$- plane}
+    \label{fig5:mc_pi_plane}
+\end{figure} 
+
+
+
 \subsection{Hoek-Brown failure criterion}
 \subsection{Paul-Mohr-Coulomb failure criterion}
 \section{Bi-linear Paul-Mohr-Coulomb failure criterion}\label{ch5:PMC}

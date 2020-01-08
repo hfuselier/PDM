@@ -1,4 +1,4 @@
-\chapter{Failure criteria}
+\chapter{Failure criteria}\label{ch2:title}
 
 Failure criteria aim to describe in the most accurate way rock failure. The most successful criteria are a usually a generalization of experiments results, from a combination of axisymmetric and multi-axial tests. Indeed, failure criteria are a theoretical conjecture aimed to describe what is observed from material behavior. In this chapter, a presentation of the mathematical formulation of selected criteria is provided. The theory presented is based on the work of Labuz (2018) [1] and Folta (2016) [2], in which detailed descriptions of the failure criteria can be found.
 
@@ -48,7 +48,7 @@ From these invariants, three others can be defined, and will be used in this the
     q=\sqrt{3 J_{2}}=\frac{1}{6} \sqrt{\left[\left(\sigma_{I}-\sigma_{II}\right)^{2}+\left(\sigma_{II}-\sigma_{III}\right)^{2}+\left(\sigma_{III}-\sigma_{I}\right)^{2}\right]}
 \end{equation}
 
-\begin{equation}
+\begin{equation}\label{eq2:theta}
     \theta=\frac{1}{3} \arccos \left(\frac{3 \sqrt{3}}{2} \frac{J_{3}}{J_{2}^{3 / 2}}\right)=\arctan \left[\frac{\sqrt{3}\left(\sigma_{M}-\sigma_{M}\right)}{2 \sigma_{I}-\sigma_{I I}-\sigma_{M I}}\right]
 \end{equation}
 
@@ -95,13 +95,13 @@ This criterion was developed considering failure of isotropic materials without 
 
 Then in its final form:
 
-\begin{equation} \label{eq2:finalform}
+\begin{equation} \label{eq2:MCfinalform}
     \sigma_{I}=\frac{1+\sin \phi}{1-\sin \phi} \sigma_{I I I}+\frac{2 c \cos \phi}{1-\sin \phi}
 \end{equation}
 
 or
 
-\begin{equation}\label{eq2:sigIK}
+\begin{equation}\label{eq2:MCcondenseform}
     \sigma_I = K_p \sigma_{III} + C_0
 \end{equation}
 
@@ -111,7 +111,7 @@ where $K_p$ is the slope of the failure surface in $(\sigma_3 -\sigma_1)$plane a
 
 Fig \ref{fig2:mc_sig1sig3} present the graphical construction of MC envelop in the $(\sigma_3 -\sigma_1)$ plane. The common vertex of the failure surfaces in extension and compression can be expressed using $\sigma_I = \sigma_{III} = -V_0$ :
 
-\begin{equation}
+\begin{equation}\label{eq2:MC_Vo}
     V_0 = \frac{C_0}{K_p-1}
 \end{equation}
 
@@ -150,7 +150,7 @@ The following development of the MC criterion is presented for CTC and can be ad
     q &= \sigma_a - \sigma_r \label{eq2:q2}
 \end{align}
 
-By rearranging Equation \ref{eq2:finalform} and including the CTC conditions, MC criterion becomes:
+By rearranging Equation \ref{eq2:MCfinalform} and including the CTC conditions, MC criterion becomes:
 
 \begin{equation}\label{eq2:MCcrit}
     \sigma_a - \sigma_r = ()\sigma_a+2\sigma_r)\sin \phi + 2 \cos \phi
@@ -178,7 +178,20 @@ or in the condensed form:
     q = m_{c,e} p + b_{c,e}
 \end{equation}
 
-where $c$ and $e$  defines $m$ and $b$ for compression or extension surfaces. 
+where $c$ and $e$  defines $m$ and $b$ for compression or extension surfaces:
+
+\begin{equation}\label{eq2:MC_mc_q}
+    m_c=\frac{6 \sin \phi}{3-\sin \phi} 
+\end{equation}
+\begin{equation}\label{eq2:MC_me_q}
+    m_e=\frac{6 \sin \phi}{3+\sin \phi} 
+\end{equation}
+\begin{equation}\label{eq2:MC_bc_q}
+    b_c=\frac{6 c \cos \phi}{3-\sin \phi}
+\end{equation}
+\begin{equation}\label{eq2:MC_be_q}
+    b_e=\frac{6 c \cos \phi}{3+\sin \phi}
+\end{equation}
 
 Fig. \ref{fig2:mc_pq} present the graphical construction of the failure surfaces in the  $(p-q)$plane. In order to distinguish compression from extension data, the failure surface in extension is showed using a negative deviatoric stress $-q$. 
 
@@ -186,18 +199,18 @@ Fig. \ref{fig2:mc_pq} present the graphical construction of the failure surfaces
 \begin{figure}[tb]
     \centering
     \includegraphics[width=\columnwidth]{ch2/mc_pq}
-    \caption{Mohr-Coulomb criterion failure surface in  $(p-s)$plane}
+    \caption{Schematic representation of Mohr-Coulomb criterion failure surface in  $(p-s)$plane}
     \label{fig2:mc_pq}
 \end{figure} 
 
-\subsection{Mohr-Coulomb in the \texorpdfstring{$\pi$}{pi}-plane}
+\subsection{Mohr-Coulomb in the \texorpdfstring{$\pi$}{pi}-plane}\label{ch2:MC_pi}
 
-The Mohr-Coulomb failure envelop in the $\pi$-plane is presented in Fig \ref{fig2:mc_pi}. The failure surfaces can be obtained by inserting Equation \ref{eq2:sig1} and \ref{eq2:sig3} in the criterion formulation defined by \ref{eq2:sigIK}. 
+The Mohr-Coulomb failure envelop in the $\pi$-plane is presented in Fig \ref{fig2:mc_pi}. The failure surfaces can be obtained by inserting Equation \ref{eq2:sig1} and \ref{eq2:sig3} in the criterion formulation defined by \ref{eq2:MCcondenseform}. 
 
 \begin{figure}[tb]
     \centering
     \includegraphics[width=\columnwidth]{ch2/mc_pi}
-    \caption{Mohr-Coulomb criterion failure surface in  $\pi$plane}
+    \caption{Schematic representation of Mohr-Coulomb criterion failure surface in  $\pi$plane}
     \label{fig2:mc_pi}
 \end{figure} 
 
@@ -236,7 +249,7 @@ Fig. \ref{fig2:hb_sig1sig3} present the HB failure surfaces in the $(\sigma_3 -\
 \begin{figure}[tb]
     \centering
     \includegraphics[width=0.8\columnwidth]{ch2/hb_sig1sig3}
-    \caption{Hoek-Brown criterion failure surface in $(\sigma_3 -\sigma_1)$ plane.}
+    \caption{Schematic representation of Hoek-Brown criterion failure surface in $(\sigma_3 -\sigma_1)$ plane.}
     \label{fig2:hb_sig1sig3}
 \end{figure} 
 
@@ -261,7 +274,7 @@ The HB criterion surface fitting in the  plane is presented in Fig \ref{fig2:hb_
 \begin{figure}[tb]
     \centering
     \includegraphics[width=\columnwidth]{ch2/hb_pq}
-    \caption{Hoek-Brown criterion failure surface in $(p-q)$ plane.}
+    \caption{Schematic representation of Hoek-Brown criterion failure surface in $(p-q)$ plane.}
     \label{fig2:hb_pq}
 \end{figure} 
 
@@ -272,7 +285,7 @@ The Hoek-Brown failure envelop in the -plane is presented in Fig \ref{fig2:hb_pi
 \begin{figure}[tb]
     \centering
     \includegraphics[width=\columnwidth]{ch2/hb_pi}
-    \caption{Hoek-Brown criterion failure surface in $\pi$ plane.}
+    \caption{Schematic representation of Hoek-Brown criterion failure surface in $\pi$ plane.}
     \label{fig2:hb_pi}
 \end{figure} 
 
@@ -328,7 +341,7 @@ PMC failure surfaces in $(\sigma_3 -\sigma_1)$ plane are presented in Fig. \ref{
 \begin{figure}[tb]
     \centering
     \includegraphics[width=\columnwidth]{ch2/pmc_sig1sig3}
-    \caption{Paul-Mohr-Coulomb criterion failure surface in $(\sigma_3 -\sigma_1)$ plane.}
+    \caption{Schematic representation of Paul-Mohr-Coulomb criterion failure surface in $(\sigma_3 -\sigma_1)$ plane.}
     \label{fig2:pmc_sig1sig3}
 \end{figure} 
 
@@ -392,13 +405,11 @@ Each data point $i$ from a conventional triaxial or multi-axial experiment is de
 with $A$ a m-by-3 matrix, $b$ a m-row vector and $x$  a 3-row vector. 
 
 From the system defined in Equation \ref{eq2:mat-eq}, $b_c$ , $k$ and $V_0$  and can be determined. $k$ and $b_c$  are given by the second and third row of parameter vector $x$ , and $V_0$  is computed using the first row :
-
 \begin{equation}
     V_0 = \frac{b_c}{x_1}
 \end{equation}
 
 The rock parameters can now be defined by solving Equations for \ref{eq2:pmc-q-CTC} and \ref{eq2:pmc-q-CTE} for $q=0$  and $p=-V_0$ :
-
 \begin{align}
     \sin \phi_c &= \frac{3b_c}{6V_0+b_c} \\
     \sin \phi_e &= \frac{3b_c}{6V_0-b_e} 
