@@ -174,7 +174,7 @@ Finally, the MC failure surface formulation in the  plane is defined by Equation
 
 or in the condensed form: 
 
-\begin{equation}
+\begin{equation}\label{MC_q}
     q = m_{c,e} p + b_{c,e}
 \end{equation}
 
@@ -218,7 +218,7 @@ The Mohr-Coulomb failure envelop in the $\pi$-plane is presented in Fig \ref{fig
 
 The Hoek-Brown (HB) criterion is a non-linear criterion for isotropic rocks that doesn’t take into account the intermediate stress effect. The empirical relationship developed between the principal stresses can be written as follow:
 
-\begin{equation}\label{eq2:HC-crit}
+\begin{equation}\label{eq2:HB-crit}
     \sigma_{I}=\sigma_{I I I}+C_{0} \sqrt{m \frac{\sigma_{I I I}}{C_{0}}+s}
 \end{equation}
 
@@ -226,19 +226,19 @@ Hoek and Brown (1980) \cite{Hoek1980} define $m$ and $s$  are constant depending
 
 \subsection{Hoek-Brown in the \texorpdfstring{$(\sigma_3 -\sigma_1)$}{sigma 3 - sigma 1} plane}
 
-For conventional triaxial compression, the conditions presented in section \ref{ch2:MC-pq} can be inserted in Equation \ref{eq2:HC-crit} to obtain the criterion formulation in terms of the axial and radial stresses:
+For conventional triaxial compression, the conditions presented in section \ref{ch2:MC-pq} can be inserted in Equation \ref{eq2:HB-crit} to obtain the criterion formulation in terms of the axial and radial stresses:
 
-\begin{equation}\label{eq2:HBsig1}
+\begin{equation}\label{eq2:HBsig1_CTC}
     \sigma_{1}=\sigma_{3}+C_{0} \sqrt{m \frac{\sigma_{1}}{C_{0}}+1}
 \end{equation}
 
 Similarly, the formulation for conventional triaxial extension is written as:
 
-\begin{equation}
+\begin{equation}\label{eq2:HBsig1_CTE}
     \sigma_{1}=\sigma_{3} - \frac{\sqrt{4 m C_{0} \sigma_{3}+m^{2} C_{0}^{2}+4 C_{0}^{2}}-m C_{0}}{2}
 \end{equation}
 
-From Equation \ref{eq2:HBsig1} (2.28), the theoretical isotropic tensile strength $V_0$ can be expressed as a function of the uniaxial compression strength $C_0$, using : $\sigma_a = \sigma_r = -V_0$:
+From Equation \ref{eq2:HBsig1_CTC}, the theoretical isotropic tensile strength $V_0$ can be expressed as a function of the uniaxial compression strength $C_0$, using : $\sigma_a = \sigma_r = -V_0$:
 
 \begin{equation}
     V_0 = \frac{C_0}{m}
@@ -255,7 +255,7 @@ Fig. \ref{fig2:hb_sig1sig3} present the HB failure surfaces in the $(\sigma_3 -\
 
 \subsection{Hoek-Brown in the \texorpdfstring{$(p-q)$}{p-q} plane}
 
-HB criterion can be expressed with the stress invariants  and . By rearranging Equation\ref{eq2:HBsig1} (2.27) the formulation become:
+HB criterion can be expressed with the stress invariants  and . By rearranging Equation \ref{eq2:HB-crit} the formulation become:
 
 \begin{equation}\label{eq2:HB-crit-pq}
     \left(\sigma_{I}-\sigma_{I I I}\right)^{2}=C_{0}^{2}\left(m \frac{\sigma_{I I}}{C_{0}}+s\right)
@@ -278,9 +278,9 @@ The HB criterion surface fitting in the  plane is presented in Fig \ref{fig2:hb_
     \label{fig2:hb_pq}
 \end{figure} 
 
-\subsection{Hoek-Brown in the \texorpdfstring{$\pi$}{pi} plane}
+\subsection{Hoek-Brown in the \texorpdfstring{$\pi$}{pi} plane}\label{ch2:HB_pi}
 
-The Hoek-Brown failure envelop in the -plane is presented in Fig \ref{fig2:hb_pi} The failure surfaces can be obtained by inserting Equation \ref{eq2:sig1} (2.11) and \ref{eq2:sig3}  (2.13) in the criterion formulation defined by \ref{eq2:HC-crit}. In Fig 7, the surfaces are exaggerated to show the non-linearity of the criterion.  
+The Hoek-Brown failure envelop in the -plane is presented in Fig \ref{fig2:hb_pi} The failure surfaces can be obtained by inserting Equation \ref{eq2:sig1} (2.11) and \ref{eq2:sig3}  (2.13) in the criterion formulation defined by \ref{eq2:HB-crit}. In Fig 7, the surfaces are exaggerated to show the non-linearity of the criterion.  
 
 \begin{figure}[tb]
     \centering
@@ -311,27 +311,27 @@ In their work, \cite[Meyer and Labuz (2013)]{Meyer2013} provides the expression 
 
 Equation \ref{eq2:PMC} can therefore be written in its complete form as follow:
 
-\begin{equation}\label{eq2:PMCsin}
+\begin{equation}\label{eq2:PMC_dev}
     \sigma_{I}\left[\frac{1-\sin \phi_{c}}{2 V_{0} \sin \phi_{C}}\right]+\sigma_{I}\left[\frac{\sin \phi_{c}-\sin \phi_{e}}{2 V_{0} \sin \phi_{e} \sin \phi_{C}}\right]+\sigma_{I I I}\left[\frac{-1+\sin \phi_{e}}{2 V_{0} \sin \phi_{e}}\right]=1
 \end{equation}
 
-PMC refines failure criterion definition by considering different values of the rock properties.  It is shown in Equation \ref{eq2:PMCsin} by the subscripts $c$ and $e$, defining the variables for compression or extension.
+PMC refines failure criterion definition by considering different values of the rock properties.  It is shown in Equation \ref{eq2:PMC_dev} by the subscripts $c$ and $e$, defining the variables for compression or extension.
 
 \subsection{Paul-Mohr-Coulomb in the \texorpdfstring{$(\sigma_3 -\sigma_1)$}{sigma 3 - sigma 1} plane}\label{ch2:PMCsig1sig3}
 
-Paul-Mohr-Coulomb is a “involved” version of the Mohr-Coulomb criterion, therefore its expression in the  $(\sigma_3 -\sigma_1)$plane is an adjustment of Equation \ref{eq2:PMCsin} considering different friction angles and cohesion for compression and extension conditions: 
+Paul-Mohr-Coulomb is based on the Mohr-Coulomb criterion, therefore its expression in the  $(\sigma_3 -\sigma_1)$plane is an adjustment of Equation \ref{eq2:PMC_dev} considering different friction angles and cohesion for compression and extension conditions: 
 
-\begin{equation}
+\begin{equation}\label{eq2:PMC_sig1sig3}
     \sigma_I = M_{c,e}\sigma_{III}+C{c,e}
 \end{equation}
 
 Where:
 
-\begin{equation}
+\begin{equation}\label{eq2:PMC_sig1sig3_Mce}
     M_{c,e} = \frac{1+\sin \phi_{c,e}}{1-\sin \phi_{c,e}}
 \end{equation}
 
-\begin{equation}
+\begin{equation}\label{eq2:PMC_sig1sig3_Cce}
     C_{c,e} = \frac{2c_{c,e}\cos \phi_{c,e}}{1-\sin \phi_{c,e}}
 \end{equation}
 
@@ -347,7 +347,7 @@ PMC failure surfaces in $(\sigma_3 -\sigma_1)$ plane are presented in Fig. \ref{
 
 \subsection{Paul-Mohr-Coulomb in the \texorpdfstring{$(p-q)$}{p-q} plane}
 
-To represent PMC in the  plane, an adjusted version of Equations \ref{eq2:q-CTC} and \ref{eq2:q-CTE} defined for MC can be used:
+To represent PMC in the $(p-q)$ plane, an adjusted version of Equations \ref{eq2:q-CTC} and \ref{eq2:q-CTE} defined for MC can be used:
 
 \begin{equation}\label{eq2:pmc-q-CTC}
     q=\frac{6 \sin \phi_{c}}{3-\sin \phi_{c}} p+\frac{6 c_{c} \cos \phi_{c}}{3-\sin \phi_{c}}
@@ -359,7 +359,7 @@ To represent PMC in the  plane, an adjusted version of Equations \ref{eq2:q-CTC}
 
 or in the simplifies form:
 
-\begin{equation}
+\begin{equation}\label{eq2:PMC_pq}
     q = m_{c,e}p+b{c,e}
 \end{equation}
 
@@ -404,13 +404,23 @@ Each data point $i$ from a conventional triaxial or multi-axial experiment is de
 
 with $A$ a m-by-3 matrix, $b$ a m-row vector and $x$  a 3-row vector. 
 
-From the system defined in Equation \ref{eq2:mat-eq}, $b_c$ , $k$ and $V_0$  and can be determined. $k$ and $b_c$  are given by the second and third row of parameter vector $x$ , and $V_0$  is computed using the first row :
-\begin{equation}
+From the system defined in Equation \ref{eq2:mat-eq}, $b_c$ , $k$ and $V_0$  and can be determined. $k$ and $b_c$  are given by the second and third row of parameter vector $x$, $V_0$  and the extension parameter $b_e$ are computed as follow: 
+\begin{equation}\label{eq2:pmc_vo}
     V_0 = \frac{b_c}{x_1}
 \end{equation}
+\begin{equation}\label{eq2:pmc_be}
+    b_e = \frac{2b_c}{(1-\sqrt{3}k)} 
+\end{equation}
 
-The rock parameters can now be defined by solving Equations for \ref{eq2:pmc-q-CTC} and \ref{eq2:pmc-q-CTE} for $q=0$  and $p=-V_0$ :
-\begin{align}
+The rock parameters can now be defined by solving Equations for \ref{eq2:pmc-q-CTC} and \ref{eq2:pmc-q-CTE} for $q(p=-V_0)=0$:
+
+\begin{align}\label{eq2:pmc_phi}
     \sin \phi_c &= \frac{3b_c}{6V_0+b_c} \\
-    \sin \phi_e &= \frac{3b_c}{6V_0-b_e} 
+    \sin \phi_e &= \frac{3b_e}{6V_0-b_e} 
+\end{align}
+
+and $q(p=0)=b_{c,e}$:
+\begin{align}\label{eq2:pmc_c}
+    c_{c} =\frac{b_{c}\left(3-\sin \phi_{c}\right)}{6 \cos \phi_{c}} \\
+    c_{e} =\frac{b_{e}\left(3+\sin \phi_{e}\right)}{6 \cos \phi_{e}}
 \end{align}

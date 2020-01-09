@@ -171,12 +171,21 @@ class Plane:
         self.sol = np.array([bc, be, k, self.Vo, self.phyC*180/pi, self.phyE*180/pi])
         
         # Computation of Planes Coefficients
+        self.cc = (self.bc*(3-sin(self.phyC)))/(6*cos(self.phyC))
+        self.ce = (self.be*(3-sin(self.phyE)))/(6*cos(self.phyE))
+        
+        self.Mc = (1+sin(self.phyC))/(1-sin(self.phyC))
+        self.Me = (1+sin(self.phyE))/(1-sin(self.phyE))
+        self.Cc = (2*self.cc*cos(self.phyC))/(1-sin(self.phyC))
+        self.Ce = (2*self.ce*cos(self.phyE))/(1-sin(self.phyE))
         self.Nc = (1-sin(self.phyC))/(2*sin(self.phyC))
         self.Ne = (1-sin(self.phyE))/(2*sin(self.phyE))
         
         self.A = ((1-sin(self.phyC))/(2*sin(self.phyC)))/self.Vo
         self.B = ((sin(self.phyC)-sin(self.phyE))/(2*sin(self.phyC)*sin(self.phyE)))/self.Vo
         self.C = -((1+sin(self.phyE))/(2*sin(self.phyE)))/self.Vo
+              
+        
         
     def get_pC(self):
         return get_p(get_C(self.data))
