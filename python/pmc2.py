@@ -178,6 +178,10 @@ class Plane:
         self.Me = (1+sin(self.phyE))/(1-sin(self.phyE))
         self.Cc = (2*self.cc*cos(self.phyC))/(1-sin(self.phyC))
         self.Ce = (2*self.ce*cos(self.phyE))/(1-sin(self.phyE))
+        
+        self.mc = (6*sin(self.phyC)/(3-sin(self.phyC)))
+        self.me = (6*sin(self.phyE)/(3+sin(self.phyE)))
+        
         self.Nc = (1-sin(self.phyC))/(2*sin(self.phyC))
         self.Ne = (1-sin(self.phyE))/(2*sin(self.phyE))
         

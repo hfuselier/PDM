@@ -176,7 +176,7 @@ Knowing the strength parameters, the Hoek-Brown failure surface is plotted in th
     \label{fig5:hb_sig1sig3}
 \end{figure} 
 
-In the $(p-q)$ plane, the Hoek-Brown failure criterion is plotted using Equations \ref{eq2:HB-q-CTC} for compression and \ref{eq2:HB-q-CTE} for extension. These surfaces are expressed in terms of $m$ and $C_0$ previously defined. 
+In the $(p-q)$ plane, the Hoek-Brown failure criterion is plotted using Equations \ref{eq2:HB-q-CTC} for compression and \ref{eq2:HB-q-CTE} for extension, and showed in Figure \ref{fig5:hb_pq}. These surfaces are expressed in terms of $m$ and $C_0$ previously defined. 
 
 \begin{figure}[tb]
     \centering
@@ -185,7 +185,7 @@ In the $(p-q)$ plane, the Hoek-Brown failure criterion is plotted using Equation
     \label{fig5:hb_pq}
 \end{figure} 
 
-Finally, the Hoek-Brown criterion is presented in the $\pi$-plane, obtained following the procedure described in Section \ref{ch2:HB_pi}. Figure \ref{fig5:hb_pi_plane} shows Mohr-Coulomb failure criterion in the pi-plane at different values of the mean stress $p$.
+Finally, the Hoek-Brown criterion is presented in the $\pi$-plane, obtained following the procedure described in Section \ref{ch2:HB_pi}. Figure \ref{fig5:hb_pi_plane} shows Hoek-Brown failure criterion in the pi-plane at different values of the mean stress $p$.
 
 \begin{figure}[tb]
     \centering
@@ -210,7 +210,7 @@ From the least-square solution fitting describe in Chapter 2 (cf. Section \ref{c
 \begin{equation}
     x_2 = k = -0.91
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq5:pmc_bc}
     x_3 = b_c = \SI{28.77}{\mega\pascal}
 \end{equation}
 
@@ -219,7 +219,7 @@ Following Equations \ref{eq2:pmc_vo} to \ref{eq2:pmc_c}, the strength parameters
 \begin{equation}
     V_0 = \frac{0.81}{b_c} = \SI{35.62}{\mega\pascal}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq5:pmc_be}
     b_e = \frac{2b_c}{(1-\sqrt{3}k)} = \SI{22.31}{\mega\pascal}
 \end{equation}
 \begin{equation}
@@ -235,9 +235,9 @@ Following Equations \ref{eq2:pmc_vo} to \ref{eq2:pmc_c}, the strength parameters
     c_{e}=\frac{b_{e}\left(3+\sin \phi_{e}\right)}{6 \cos \phi_{e}} = \SI{10.52}{\mega\pascal}
 \end{equation}
 
-Knowing the strength parameters, the Paul-Mohr-Coulomb failure surface could be plotted in the $(\sigma_3-\sigma_1)$ plane using Equations \ref{eq2:PMC_sig1sig3} to \ref{eq2:PMC_sig1sig3_Cce}. The graph obtained is presented in Figure \ref{fig5:pmc_sig1sig3}.
+Knowing the strength parameters, the Paul-Mohr-Coulomb failure surface could be plotted in the $(\sigma_3-\sigma_1)$ plane using Equations \ref{eq2:PMC_sig1sig3} to \ref{eq2:PMC_sig1sig3_Cce}. The graph obtained, using the coefficients computed in Equations \ref{eq5:pmc_Mc} to \ref{eq5:pmc_Ce}, is presented in Figure \ref{fig5:pmc_sig1sig3}.
 
-\begin{equation}
+\begin{equation}\label{eq5:pmc_Mc}
     M_c = \frac{1+\sin \phi_c}{1-\sin \phi_c} = 2.11
 \end{equation}
 \begin{equation}
@@ -246,7 +246,7 @@ Knowing the strength parameters, the Paul-Mohr-Coulomb failure surface could be 
 \begin{equation}
     C_c = \frac{2c_c\cos \phi_c}{1-\sin \phi_c} = \SI{39.38}{\mega\pascal}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq5:pmc_Ce}
     C_e = \frac{2c_e\cos \phi_e}{1-\sin \phi_e} = \SI{30.31}{\mega\pascal}
 \end{equation}
 
@@ -257,8 +257,35 @@ Knowing the strength parameters, the Paul-Mohr-Coulomb failure surface could be 
     \label{fig5:pmc_sig1sig3}
 \end{figure}
 
-The 
+In the $(p-q)$ plane, the Paul-Mohr-Coulomb failure criterion is plotted using Equations \ref{eq2:PMC_pq} to \ref{eq2:pmc_b_pq}, and the graph obtained in presented in Figure \ref{fig5:pmc_pq}. These surfaces are expressed in terms of $b_{c,e}$,defined by Equations \ref{eq5:pmc_bc} and \ref{eq5:pmc_be}, and $m_{c,e}$ computes as follow: 
 
+\begin{equation}\label{eq5:pmc_mc}
+    m_c=\frac{6 \sin \phi_{c}}{3-\sin \phi_{c}} = 0.81
+\end{equation}
+\begin{equation}\label{eq5:pmc_me}
+    m_e=\frac{6 \sin \phi_{e}}{3+\sin \phi_{e}} = 0.63
+\end{equation}
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{ch5/pmc3p_pq}
+    \caption{Paul-Mohr-Coulomb criterion failure surface in $(p-q)$ plane}
+    \label{fig5:pmc_pq}
+\end{figure} 
+
+Finally, the Paul-Mohr-Coulomb criterion is presented in the $\pi$-plane, obtained following the procedure described in Section \ref{ch2:PMC}. Figure \ref{fig5:pmc_pi_plane} shows Paul-Mohr-Coulomb failure criterion in the $\pi$-plane at different values of the mean stress $p$.
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.5\columnwidth]{ch5/pmc3p_pi_pts1}
+    \includegraphics[width=0.9\columnwidth]{ch5/pmc3p_pi_pts2}
+    \caption{Paul-Mohr-Coulomb criterion failure surface in  $\pi$-plane}
+    \label{fig5:pmc_pi_plane}
+\end{figure} 
+
+The mean standard deviation misfit obtained for the Hoek-Brown failure criterion is $9.37$ [\si{\mega\pascal}]. 
+
+ 
 \section{Bi-linear Paul-Mohr-Coulomb failure criterion}\label{ch5:PMC}
 
 Published data from rock testing in conventional triaxial and multi axial testing showed that the failure envelop is non-linear. This non-linearity can be approximated by fitting the experiments data using two planes instead of one, resulting in six parameters describing the envelop. 

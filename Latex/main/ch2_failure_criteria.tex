@@ -289,7 +289,7 @@ The Hoek-Brown failure envelop in the -plane is presented in Fig \ref{fig2:hb_pi
     \label{fig2:hb_pi}
 \end{figure} 
 
-\section{Paul-Mohr-Coulomb criterion}
+\section{Paul-Mohr-Coulomb criterion}\label{ch2:PMC}
 
 The Paul-Mohr-Coulomb criterion (PMC) is a linear criterion formulated in terms of the three principal stresses. Unlike the Mohr-Coulomb and Hoek-Brown, PMC is representative of all multi-axial experiments. Its formulation is based on the one developed by Mohr-Coulomb, for which the intermediate stress effect is added \cite[Paul (1968)]{Paul1968}). 
 
@@ -354,14 +354,22 @@ To represent PMC in the $(p-q)$ plane, an adjusted version of Equations \ref{eq2
 \end{equation}
 
 \begin{equation}\label{eq2:pmc-q-CTE}
-    q=\frac{6 \sin \phi_{e}}{3+\sin \phi_{e}} p+\frac{6 \operatorname{ccos} \phi_{e}}{3+\sin \phi_{e}}
+    q=\frac{6 \sin \phi_{e}}{3+\sin \phi_{e}} p+\frac{6 c_{e} \cos  \phi_{e}}{3+\sin \phi_{e}}
 \end{equation}
 
 or in the simplifies form:
 
 \begin{equation}\label{eq2:PMC_pq}
-    q = m_{c,e}p+b{c,e}
+    q = m_{c,e}p+b_{c,e}
 \end{equation}
+
+where the coefficients $m_{c,e}$ and $b_{c,e}$ are defined as follow:
+\begin{align}\label{eq2:pmc_m_pq}
+    m_c=\frac{6 \sin \phi_{c}}{3-\sin \phi_{c}} \quad \textrm{and} \quad m_e=\frac{6 \sin \phi_{e}}{3+\sin \phi_{e}} 
+\end{align}
+\begin{align}\label{eq2:pmc_b_pq}
+    b_c=\frac{6 c_{c} \cos \phi_{c}}{3-\sin \phi_{c}}\quad \textrm{and} \quad b_e=\frac{6 c_{e} \cos \phi_{e}}{3+\sin \phi_{e}}
+\end{align}
 
 The same sketch of the failure surface as presented in Fig. \ref{fig2:mc_pq} for Mohr-Coulomb can be used to represent Paul-Mohr-Coulomb criterion. The only difference is the non-equal values of the friction angles and cohesions in the computation of $m_{c,e}$ and $b_{c,e}$.
 
