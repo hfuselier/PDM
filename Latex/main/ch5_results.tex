@@ -67,6 +67,7 @@ This database was used for the evaluation of Mohr-Coulomb,Hoek-Brown and Paul-Mo
         TT 2 & \(\perp\) & 99.98 & 20 & 20 & 46.65 & 62.28 & 0 \\
         \hline
     \end{tabular}
+    \captionsetup{justification=centering}
     \caption{Database of experiments results for Dunnville Sandstone. The "Published" data are from Zeng et al. \cite{Zeng2019}}
     \label{tb5:database}
 \end{table}
@@ -112,9 +113,9 @@ From this fitting, the coefficient $K_p$ was determined and the other parameters
 
 Knowing the strength parameters, the Mohr-Coulomb failure surface is plotted in the $(\sigma_3-\sigma_1)$ plane using Equation \ref{eq2:MCfinalform}(cf. Figure \ref{fig5:mc_sig1sig3}).
 
-\begin{figure}[tb]
+\begin{figure}[p]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ch5/mc_sig1sig3}
+    \includegraphics[width=0.7\columnwidth]{ch5/mc_sig1sig3}
     \caption{Mohr-Coulomb criterion failure surface in  $(\sigma_3-\sigma_1)$ plane}
     \label{fig5:mc_sig1sig3}
 \end{figure} 
@@ -134,9 +135,9 @@ The criterion was also fitted in the $(p-q)$ plane, for which the plot obtained 
     b_e = \frac{6 c \cos \phi}{3+\sin \phi} = \SI{14.6}{\mega\pascal}
 \end{equation}
 
-\begin{figure}[tb]
+\begin{figure}[p]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ch5/mc_pq}
+    \includegraphics[width=0.7\columnwidth]{ch5/mc_pq}
     \caption{Mohr-Coulomb criterion failure surface in  $(p-q)$ plane}
     \label{fig5:mc_pq}
 \end{figure} 
@@ -146,12 +147,12 @@ Finally, the Mohr-Coulomb criterion is presented in the $\pi$-plane, obtained fo
 \begin{figure}[tb]
     \centering
     \includegraphics[width=0.5\columnwidth]{ch5/mc_pi_plane1}
-    \includegraphics[width=0.9\columnwidth]{ch5/mc_pi_plane2}
+    \includegraphics[width=0.8\columnwidth]{ch5/mc_pi_plane2}
     \caption{Mohr-Coulomb criterion failure surface in  $\pi$-plane}
     \label{fig5:mc_pi_plane}
 \end{figure} 
 
-The mean standard deviation misfit obtained for the Mohr-Coulomb failure criterion is $14.0$ [\si{\mega\pascal}]. 
+The mean standard deviation misfit obtained with the Mohr-Coulomb failure criterion is $14.0$ [\si{\mega\pascal}]. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hoek-Brown failure criterion}
@@ -169,18 +170,18 @@ From this fitting, the strength parameter $m$ was determined and $V_0$ was compu
 
 Knowing the strength parameters, the Hoek-Brown failure surface is plotted in the $(\sigma_3-\sigma_1)$ plane using Equations \ref{eq2:HBsig1_CTC} for the compression line and \ref{eq2:HBsig1_CTE} for extension (cf. Figure \ref{fig5:mc_sig1sig3}).
 
-\begin{figure}[tb]
+\begin{figure}[p]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ch5/hb_sig1sig3}
+    \includegraphics[width=0.7\columnwidth]{ch5/hb_sig1sig3}
     \caption{Hoek-Brown criterion failure surface in  $(\sigma_3-\sigma_1)$ plane}
     \label{fig5:hb_sig1sig3}
 \end{figure} 
 
 In the $(p-q)$ plane, the Hoek-Brown failure criterion is plotted using Equations \ref{eq2:HB-q-CTC} for compression and \ref{eq2:HB-q-CTE} for extension, and showed in Figure \ref{fig5:hb_pq}. These surfaces are expressed in terms of $m$ and $C_0$ previously defined. 
 
-\begin{figure}[tb]
+\begin{figure}[p]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ch5/hb_pq}
+    \includegraphics[width=0.7\columnwidth]{ch5/hb_pq}
     \caption{Hoek-Brown criterion failure surface in  $(p-q)$ plane}
     \label{fig5:hb_pq}
 \end{figure} 
@@ -190,12 +191,12 @@ Finally, the Hoek-Brown criterion is presented in the $\pi$-plane, obtained foll
 \begin{figure}[tb]
     \centering
     \includegraphics[width=0.5\columnwidth]{ch5/hb_pi_plane1}
-    \includegraphics[width=0.9\columnwidth]{ch5/hb_pi_plane2}
+    \includegraphics[width=0.8\columnwidth]{ch5/hb_pi_plane2}
     \caption{Hoek-Brown criterion failure surface in  $\pi$-plane}
     \label{fig5:hb_pi_plane}
 \end{figure} 
 
-The mean standard deviation misfit obtained for the Hoek-Brown failure criterion is $9.37$ [\si{\mega\pascal}]. 
+The mean standard deviation misfit obtained with the Hoek-Brown failure criterion is $9.37$ [\si{\mega\pascal}]. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Paul-Mohr-Coulomb failure criterion}
@@ -250,9 +251,9 @@ Knowing the strength parameters, the Paul-Mohr-Coulomb failure surface could be 
     C_e = \frac{2c_e\cos \phi_e}{1-\sin \phi_e} = \SI{30.31}{\mega\pascal}
 \end{equation}
 
-\begin{figure}[tb]
+\begin{figure}[p]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ch5/pmc3p_sig1sig3}
+    \includegraphics[width=0.7\columnwidth]{ch5/pmc3p_sig1sig3}
     \caption{Paul-Mohr-Coulomb criterion failure surface in  $(\sigma_3-\sigma_1)$ plane}
     \label{fig5:pmc_sig1sig3}
 \end{figure}
@@ -262,34 +263,65 @@ In the $(p-q)$ plane, the Paul-Mohr-Coulomb failure criterion is plotted using E
 \begin{equation}\label{eq5:pmc_mc}
     m_c=\frac{6 \sin \phi_{c}}{3-\sin \phi_{c}} = 0.81
 \end{equation}
-\begin{equation}\label{eq5:pmc_me}
-    m_e=\frac{6 \sin \phi_{e}}{3+\sin \phi_{e}} = 0.63
-\end{equation}
 
-\begin{figure}[tb]
+\begin{figure}[p]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ch5/pmc3p_pq}
+    \includegraphics[width=0.7\columnwidth]{ch5/pmc3p_pq}
     \caption{Paul-Mohr-Coulomb criterion failure surface in $(p-q)$ plane}
     \label{fig5:pmc_pq}
 \end{figure} 
 
-Finally, the Paul-Mohr-Coulomb criterion is presented in the $\pi$-plane, obtained following the procedure described in Section \ref{ch2:PMC}. Figure \ref{fig5:pmc_pi_plane} shows Paul-Mohr-Coulomb failure criterion in the $\pi$-plane at different values of the mean stress $p$.
+Finally, the Paul-Mohr-Coulomb criterion is presented in the $\pi$-plane, obtained following the procedure described in Section \ref{ch2:PMC}. Figure \ref{fig5:pmc_pi_plane} shows the failure criterion in the $\pi$-plane at different mean stresses $p$, corresponding to true-triaxial experiments mean stresses at failure (i.e. data points where $0^\circ < \theta < 60^\circ$ in Table \ref{tb5:database}).
 
 \begin{figure}[tb]
     \centering
     \includegraphics[width=0.5\columnwidth]{ch5/pmc3p_pi_pts1}
-    \includegraphics[width=0.9\columnwidth]{ch5/pmc3p_pi_pts2}
+    \includegraphics[width=0.8\columnwidth]{ch5/pmc3p_pi_pts2}
     \caption{Paul-Mohr-Coulomb criterion failure surface in  $\pi$-plane}
     \label{fig5:pmc_pi_plane}
 \end{figure} 
 
-The mean standard deviation misfit obtained for the Hoek-Brown failure criterion is $9.37$ [\si{\mega\pascal}]. 
+The mean standard deviation misfit obtained with the Paul-Mohr-Coulomb failure criterion is $13.2$ [\si{\mega\pascal}]. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Comparison of the failure criteria}
+
+The mean standard deviation misfits obtained for the three failure criteria show that Hoek-Brown provide a better approximation of the data points (cf. Table \ref{tb5:stand_dev}). However, it should be kept in mind that this criterion was fitted only for data points related to axisymmetric compression experiments. Therefore, its prediction of true triaxial experiments is less accurate than the one provided by the Paul-Mohr-Coulomb criterion. This can be easily noticed with the observation of both predictions in the $\pi$-plane (cf. Figures \ref{fig5:hb_pi_plane} and \ref{fig5:pmc_pi_plane}). 
+
+\begin{table}
+    \centering
+    \begin{tabular}{ccc}
+        \hline 
+        Criterion & Mean standard deviation misfit $\bar{S}$ \\
+        \hline
+        \hline
+        Mohr-Coulomb & 14.0 \\
+        Hoek-Brown & 9.37 \\
+        Paul-Mohr-Coulomb & 13.2 \\
+        \hline
+    \end{tabular}
+    \captionsetup{justification=centering}
+    \caption{Summary of the mean standard deviation misfits obtained for the three failure criteria evaluated}
+    \label{tb5:stand_dev}
+\end{table}
  
 \section{Bi-linear Paul-Mohr-Coulomb failure criterion}\label{ch5:PMC}
 
 Published data from rock testing in conventional triaxial and multi axial testing showed that the failure envelop is non-linear. This non-linearity can be approximated by fitting the experiments data using two planes instead of one, resulting in six parameters describing the envelop. 
 
 The six-parameters fitting splits the data points in two sets in order to create two planes. These planes will give a better approximation of the failure envelop. The fitting procedure presented in 4.3.1. should then be applied to the two set of data points, resulting in different values of $\phi_c$,$\phi_e$ and $V_0$ for each plane.  
+
+The integration of the intermediate stress in the Paul-Mohr-Coulomb general equation (cf. Equation \ref{eq2:PMC}) makes relevant the representation of the criterion in the $(\sigma_2-\sigma_1)$ plane. Indeed, this plane presents the advantage to gather the data points for axisymmetric experiments, shown on compression and extension lines, as well as true-triaxial ones in the same plot. The Paul-Mohr-Coulomb failure surfaces are plotted for a chosen value of $\sigma_3$, using the following equation, based the rearrangement of Equation \ref{eq2:PMC}:
+
+\begin{equation}\label{eq5:pmc_sig2sig1}
+    \sigma_1 = \frac{1}{A}\left(1-B\sigma_2-C\sigma_3\right)
+\end{equation}
+
+with:
+\begin{align}
+    A = \frac{1-\sin \phi_c}{2V_0\sin \phi_c} = \num{2.5d-2}\\
+    B = \frac{\sin \phi_c - \sin \phi_e}{2V_0 \sin \phi_e \sin \phi_c} = \num{7.1d-4} \\
+    C = \frac{-1+\sin \phi_e}{2V_0\sin \phi_e} = -\num{5.4d-2} \\
+\end{align}
 
 \section{Discussion}

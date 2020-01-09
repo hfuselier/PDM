@@ -37,6 +37,7 @@ class Plane_HB:
         self.t = get_t(self.data)
         self.t = self.t * pi/180
        
+        # Fitting parameters and coefficients for Hoek-Brown
         self.Co = data[0,0] 
         self.mc = (self.Co/get_C(data)[:,2])*(np.square((get_C(data)[:,0]-get_C(data)[:,2])/self.Co)-1)
         

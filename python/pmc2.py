@@ -17,23 +17,7 @@ def get_t(data): # Gives Lodge angle of all the points
     return data[:,5]
 
 # Creates fitting Planes P2 and P1
-def create_P1_and_P2_initialization(data,bpC,bpE): 
-    P1_C = get_C(data)[get_p(get_C(data)) >= bpC]
-    P2_C = get_C(data)[get_p(get_C(data)) < bpC]
-
-    P1_E = get_E(data)[get_p(get_E(data)) >= bpE]
-    P2_E = get_E(data)[get_p(get_E(data)) < bpE]
-    
-    # The factor 2 shouldn't be changed. Normally is the same for all the cases
-    P1_o = get_o(data)[get_o(data)[:,0] > 2*get_o(data)[:,1]]
-    P2_o = get_o(data)[get_o(data)[:,0] >= 2*get_o(data)[:,1]]
-
-    P1 = Plane((P1_C,P1_E,P1_o))
-    P2 = Plane((P2_C,P2_E,P2_o))
-    
-    return P1, P2
-
-def create_P1_and_P2_iteration(P1_C,P2_C,P1_E,P2_E,P1_o,P2_o): 
+def create_P1_and_P2(P1_C,P2_C,P1_E,P2_E,P1_o,P2_o): 
     P1 = Plane((P1_C,P1_E,P1_o))
     P2 = Plane((P2_C,P2_E,P2_o))
     
@@ -110,10 +94,10 @@ def p_plane_intersection_6(P,plane_dist):
     pts = np.linalg.solve(eq,b).transpose()
     return pts
 
-def p_planes(pconst,P1,P2,p_trans):
+def p_planes(pconst,P1,P2,p_trans,offset):
     
     if pconst<= max(p_trans) and pconst>= min(p_trans):
-        pts = p_plane_intersection_12(P1,P2,pconst*sqrt(3))
+        pts = p_plane_intersection_12(P1,P2,pconst*sqrt(3),offset)
     elif pconst> max(p_trans):
         pts = p_plane_intersection_6(P1,pconst*sqrt(3))
     elif pconst < min(p_trans):
@@ -154,7 +138,7 @@ class Plane:
 
         x = np.linalg.pinv(A)@b
         
-        # Solutions parameters
+        # Solution of the plane fitting parameters
         bc = x[2]
         k = x[1]
         self.k = k
@@ -164,13 +148,13 @@ class Plane:
         self.be = be
         self.phyC = arcsin(3*bc/(6*self.Vo+bc))
         self.phyE = arcsin(3*be/(6*self.Vo-be))
-        #if np.isin(60*pi/180, self.t)== True :
-        #    self.phyE = arcsin(3*be/(6*self.Vo-be))
-        #elif np.isin(60*pi/180, self.t)== False:
-        #    self.phyE = self.phyC
+        if np.isin(60*pi/180, self.t)== True :
+            self.phyE = arcsin(3*be/(6*self.Vo-be))
+        elif np.isin(60*pi/180, self.t)== False:
+            self.phyE = self.phyC
         self.sol = np.array([bc, be, k, self.Vo, self.phyC*180/pi, self.phyE*180/pi])
         
-        # Computation of Planes Coefficients
+        # Fitting parameters and coefficients for Paul-Mohr-Coulomb
         self.cc = (self.bc*(3-sin(self.phyC)))/(6*cos(self.phyC))
         self.ce = (self.be*(3-sin(self.phyE)))/(6*cos(self.phyE))
         

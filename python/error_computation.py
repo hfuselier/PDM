@@ -4,8 +4,7 @@ from convert import convert
 from pmc2 import *
 
 def error_computation(P1,P2):
-
-    ## Error based on Asig1+Bsig2+Csig3=1
+    ## Error based on AsigI+BsigII+CsigIII=1
     P1_coeff = [P1.A,P1.B,P1.C]
     P2_coeff = [P2.A,P2.B,P2.C]
     sP1 = np.dot(P1.data[:,:3],P1_coeff) #yi P1
@@ -15,12 +14,9 @@ def error_computation(P1,P2):
     err_P1 = sP1-1
     err_P2 = sP2-1
     err = sP-1
-    sum_err_P1 = np.sum(abs(err_P1))
-    mean_err_P1 = np.mean(abs(err_P1))
-    sum_err_P2 = np.sum(abs(err_P2))
-    mean_err_P2 = np.mean(abs(err_P2))
-    sum_err = np.sum(abs(err))
-    mean_err = np.mean(abs(err))
+    mean_err_P1 = np.mean(np.square(err_P1))
+    mean_err_P2 = np.mean(np.square(err_P2))
+    mean_err = np.mean(np.square(err))
     
     return mean_err, mean_err_P1, mean_err_P2
 

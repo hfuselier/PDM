@@ -86,7 +86,7 @@ class Plane_MC:
         self.t = get_t(self.data)
         self.t = self.t * pi/180
         
-        
+        # Fitting parameters and coefficients for Mohr-Coulomb
         self.Co = data[0,0]
         self.K = (get_C(data)[:,0]-self.Co)/get_C(data)[:,2]
         K = []

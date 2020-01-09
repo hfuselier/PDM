@@ -19,7 +19,7 @@ def brute_force_two_sets(data_a,data_b,data_c):
             P2_a = data_a[:i,:]
             P1_b = data_b[j:,:]
             P2_b = data_b[:j,:]
-            P1, P2 = create_P1_and_P2_iteration(P1_a,P2_a,P1_b,P2_b,P1_c,P2_c)
+            P1, P2 = create_P1_and_P2(P1_a,P2_a,P1_b,P2_b,P1_c,P2_c)
             mean_err, mean_err_P1, mean_err_P2 = error_computation(P1,P2)
             mean_error.append(mean_err)
             mean_error_P1.append(mean_err_P1)
@@ -58,7 +58,7 @@ def brute_force_three_sets(data_a,data_b,data_c):
                 P2_b=data_b[:j,:]
                 P1_c=data_c[k:,:]
                 P2_c=data_c[:k,:]
-                P1, P2 = create_P1_and_P2_iteration(P1_a,P2_a,P1_b,P2_b,P1_c,P2_c) 
+                P1, P2 = create_P1_and_P2(P1_a,P2_a,P1_b,P2_b,P1_c,P2_c) 
                 mean_err, mean_err_P1, mean_err_P2 = error_computation(P1,P2)
                 mean_error.append(mean_err)
                 mean_error_P1.append(mean_err_P1)
@@ -105,7 +105,7 @@ def planes_def(data,d):
         
     
     ## RESULTS
-    P1_init, P2_init = create_P1_and_P2_iteration(P1_C,P2_C,P1_E,P2_E,P1_o,P2_o)
+    P1_init, P2_init = create_P1_and_P2(P1_C,P2_C,P1_E,P2_E,P1_o,P2_o)
 
     if P1_init.Vo < P2_init.Vo :
         P1 = P2_init
@@ -117,8 +117,8 @@ def planes_def(data,d):
     print(P1.sol)
     print(P2.sol)
     
-    S_P1 = standard_dev(P1)
-    S_P2 = standard_dev(P2)
+    S_P1 = standard_dev(P1,'PMC')
+    S_P2 = standard_dev(P2,'PMC')
     
     
     return P1, P2, S_P1, S_P2
