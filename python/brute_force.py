@@ -46,7 +46,6 @@ def brute_force_three_sets(data_a,data_b,data_c):
     mean_error = []
     mean_error_P1 = []
     mean_error_P2 = []
-    a=0
     
     for i in tqdm(range(data_a.shape[0]-1,0,-1)) :
         for j in range(data_b.shape[0]-1,0,-1) :

@@ -385,19 +385,54 @@ The addition of the intermediate stress in the Paul-Mohr-Coulomb general equatio
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Bi-linear fitting program}
 
-The fitting of a six-parameters Paul-Mohr-Coulomb failure surface requires to create two data sets from the initial database of experiments results, one for each plane. Once defined, these data sets are used in for the fitting of each plane, following the procedure presented in Section \ref{ch2:pmcfit}. This repartition of the data points into different planes is a challenging step of the failure criterion fitting, as it should give the optimal solution for the database considered. 
-****** Smthg about the fact that we want to develop a solution that works for all databases (i.e. for any rocks) *********
+The fitting of a six-parameters Paul-Mohr-Coulomb failure surface requires to create two datasets from the initial database of experiments results, one for each plane. Once defined, these datasets are used for planes fitting, following the procedure presented in Section \ref{ch2:pmcfit}. This repartition of the data points into different planes is a challenging step of the failure criterion fitting, as it should give the optimal solution for the database considered. 
 
-It can be summarize with the following question: 
+One of this study objective was to create a program that automatically allocates data points to one of both planes, with the aim of getting a distribution that provide the best fitting for Paul-Mohr-Coulomb criterion. Moreover, it was crucial that this program was develop not only for the rock tested for this study (i.e. Dunnville Sandstone), but for any rock with available experimental data. 
 
-How to automatize the repartition of data point into $P1$ or $P2$ ? 
+This problem can be summarize by the following question:
+\begin{center}
+    \emph{How to automatize the allocation of data point into $P1$ or $P2$ in order to provide the most accurate fitting of Paul-Mohr-Coulomb criterion ?}
+\end{center}
+In the following paragraphs, the algorithm created to solve this problem will be detailed. The final solution developed was implemented in a program using the programming language Python, which resources can be found in APPENDIX B. 
 
-In the following section, the analytical theory used to create the program will be describe.
-The solution developed was implemented in a program using the programming language Python. 
+\subsubsection{Algorithm construction}
 
-\subsubsection{$Brute\_force.py$}
+The algorithm developed to solve the problem presented above belongs to the \emph{Brute-force} family. This category of algorithms is based on the following principal: every possibility offered by the database is tried and the one that gives the best solution to the problem is selected. The amount of data available in the case of rock testing ($n_{max}\sim 50$) is small enough to use this type of algorithm without having issues related to too high complexity. 
 
+In the case of this study, the algorithm will test all the possible variations of data allocations to the $P1$ or $P2$ datasets which can be created form the rock database. For each possible combination, planes $P1$ and $P2$ are created by the computation of their coefficient and fitting parameters defined for Paul-Mohr-Coulomb, following the procedure presented in \ref{ch2:pmcfit}. Then, the mean square error ($MSE$) is computed for each combination of the datasets. Finally the datasets configuration that provide the minimal $MSE$ is selected as the solution of the two planes fitting problem.  
 
+The algorithm proposed in this study can be apply to any rock testing database that contains results of the three principal stresses and the three invariants at failure (cf. Table \ref{tb5:database}). Indeed, the rock database is the only input that is required to run this algorithm. 
+
+\subsubsection{Computation of the mean square error}
+
+The error used in the computation of $MSE$ is equal to the distance of a data point, defined by $\sigma_I$, $\sigma_{II}$ and $\sigma_{III}$, from its belonging plane, defined by Equation \ref{eq2:PMC}:
+\begin{equation}\label{eq5:error}
+    error_{i} = A^{(j)}\sigma_I^{i}+B^{(j)}\sigma_{II}^{i}+C^{(j)}\sigma_{III}^{i} - 1
+\end{equation}
+where $i$ is the index of the data point in the database and $j$ indicates the plane number in which the data is allocated (i.e. $j=1$ for $P1$ and $j=2$ for $P2$). The Mean Square Error of a certain dataset combination $k$ is then computed as follow:
+\begin{equation}\label{eq5:MSE}
+    MSE_k = \frac{1}{n}\sum_{i=1}^{n} e_i^2
+\end{equation}
+
+The dataset combination $k$ that obtains the minimal $MSE$ value provides the best fitting solution for Paul-Mohr-Coulomb failure surface for the considered rock. 
+% \begin{algorithm}
+%     \caption{Euclid’s algorithm}\label{euclid}
+%     \begin{algorithmic}[1]
+%     \Procedure{Euclid}{$a,b$}\Comment{The g.c.d. of a and b}
+%     \State $r\gets a\bmod b$
+%     \While{$r\not=0$}\Comment{We have the answer if r is 0}
+%     \State $a\gets b$
+%     \State $b\gets r$
+%     \State $r\gets a\bmod b$
+%     \EndWhile\label{euclidendwhile}
+%     \State \textbf{return} $b$\Comment{The gcd is b}
+%     \EndProcedure
+% \end{algorithmic}
+% \end{algorithm}
+
+\subsubsection{Program resources}
+
+The algorithm was implemented in the programming language Python. The resources on the program developed to solve the two planes fitting problem are gathered in APPENDIX B. It contains the Python files required to run the program and a \emph{README} document that explains how to use the program. Moreover, all the code files are commented in detail to ease their use and understanding.  
 
 \subsection{Dunnville Sandstone}
 
