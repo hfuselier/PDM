@@ -361,34 +361,45 @@ The three parameters criterion definition in terms of the three principal stress
     \label{tb5:pmc6p_pyramids}
 \end{table}
 
-The complete graphical representation of the Paul-Mohr-Coulomb failure surface is composed of the $(p-q)$ plane, the $(\sigma_2-\sigma_1)$ plane, the $\pi$-plane and the principal stresses three-dimensional space. The transition between $P2$ and $P1$ is best presented in the $(p-q)$ plane, where they intersect on the compression side (i.e. $q > 0$) at the mean stress value $p_c$ and on the extension side (i.e. $q < 0$) at $p_e$. A sketch of the 6-12-6 sided failure surface in the $(p-q)$ plane is presented in Figure \ref{fig5:6pmc_pq} and schematic representations as well as more details on the four failure surfaces types are provided in APPENDIX B REF{APPENDIX B}.
+The complete graphical representation of the Paul-Mohr-Coulomb failure surface is composed of the $(p-q)$ plane, the $(\sigma_2-\sigma_1)$ plane, the $\pi$-plane and the principal stresses three-dimensional space. The transition between $P2$ and $P1$ is well represented in the $(p-q)$ plane, where they intersect on the compression side (i.e. $q > 0$) at the mean stress value $p_c$ and on the extension side (i.e. $q < 0$) at $p_e$. In the case of the failure surface type (ii), these transitions points have different values leading to a 12 sided transition zone on the pyramid for mean stress values $p \in \left[p_c;p_e\right]$. Sketches of the 6-12-6 sided failure surface in different planes and in the three-dimensional space are presented in Figure \ref{fig5:6pmc_typeii}, where the $(\sqrt{3}p-\sigma^*)$ plane is equivalent to the $(p-q)$ plane. More schematic representations and details on the four failure surfaces types are provided in APPENDIX B REF{APPENDIX B}.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\columnwidth]{ch5/6pmc_pq}
-    \caption{Paul-Mohr-Coulomb 6-12-6 sided failure surface in $(p-q)$ plane}
-    \label{fig5:6pmc_pq}
+    \includegraphics[width=\columnwidth]{ch5/pmc6_typeii}
+    \caption{Paul-Mohr-Coulomb 6-12-6 sided failure surface graphical representations}
+    \label{fig5:6pmc_typeii}
 \end{figure}
 
-The integration of the intermediate stress in the Paul-Mohr-Coulomb general equation (cf. Equation \ref{eq2:PMC}) makes relevant the representation of the criterion in the $(\sigma_2-\sigma_1)$ plane. Indeed, this plane presents the advantage to gather the data points for axisymmetric experiments, shown on compression and extension lines, as well as true-triaxial ones in the same plot. The Paul-Mohr-Coulomb failure surfaces are plotted for a chosen value of $\sigma_3$, using the following equation, based the rearrangement of Equation \ref{eq2:PMC}:
+The addition of the intermediate stress in the Paul-Mohr-Coulomb general equation (cf. Equation \ref{eq2:PMC}) makes relevant the representation of the criterion in the $(\sigma_2-\sigma_1)$ plane. Indeed, this plane presents the advantage to gather the data points for axisymmetric experiments, shown on compression and extension lines, as well as true-triaxial data in the same plot (cf. Figure \ref{fig5:6pmc_sig2sig1}). The Paul-Mohr-Coulomb failure surfaces are plotted for a chosen value of $\sigma_3$, using the following equation, based the rearrangement of Equation \ref{eq2:PMC}:
 
 \begin{equation}\label{eq5:pmc_sig2sig1}
     \sigma_1 = \frac{1}{A}\left(1-B\sigma_{2}-C\sigma_{3}\right)
 \end{equation}
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\columnwidth]{ch5/6pmc_sig2sig1}
+    \includegraphics[width=0.6\columnwidth]{ch5/pmc6_sig2sig1_ske}
     \caption{Paul-Mohr-Coulomb 6-12-6 sided failure surface in $(\sigma_2-\sigma_1)$ plane}
     \label{fig5:6pmc_sig2sig1}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Bi-linear fitting program}
+
+The fitting of a six-parameters Paul-Mohr-Coulomb failure surface requires to create two data sets from the initial database of experiments results, one for each plane. Once defined, these data sets are used in for the fitting of each plane, following the procedure presented in Section \ref{ch2:pmcfit}. This repartition of the data points into different planes is a challenging step of the failure criterion fitting, as it should give the optimal solution for the database considered. 
+****** Smthg about the fact that we want to develop a solution that works for all databases (i.e. for any rocks) *********
+
+It can be summarize with the following question: 
+
+How to automatize the repartition of data point into $P1$ or $P2$ ? 
+
+In the following section, the analytical theory used to create the program will be describe.
+The solution developed was implemented in a program using the programming language Python. 
+
+\subsubsection{$Brute\_force.py$}
 
 
-\subsection{Development of the program}
 
-. The fitting procedure presented in 4.3.1. should then be applied to the two set of data points, resulting in different values of $\phi_c$,$\phi_e$ and $V_0$ for each plane.
-
-\subsection{Fitting of Dunnville Sandstone}
+\subsection{Dunnville Sandstone}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
