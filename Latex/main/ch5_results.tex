@@ -102,7 +102,7 @@ From this fitting, the coefficient $K_p$ was determined and the other parameters
     K_p = 2.55 \quad \textrm{and} \quad C_0 = \SI{29.7}{\mega\pascal}
 \end{equation}
 \begin{equation}
-    \phi = \frac{K_p-1}{K_p+1} = 25.9^\circ
+    \phi = \frac{K_p-1}{K_p+1} = \SI{25.9}{\degree}
 \end{equation}
 \begin{equation}
     c = \frac{C_0(1-sin\phi)}{2cos\phi} = \SI{9.30}{\mega\pascal}
@@ -199,7 +199,7 @@ Finally, the Hoek-Brown criterion is presented in the $\pi$-plane, obtained foll
 The mean standard deviation misfit obtained with the Hoek-Brown failure criterion is $9.37$ [\si{\mega\pascal}]. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Paul-Mohr-Coulomb failure criterion}
+\subsection{Paul-Mohr-Coulomb failure criterion}\label{ch5:3p_pmc}
 
 The fitting presented in this section is referred as the "3 parameters Paul-Mohr-Coulomb criterion", as it accounts only 
 Contrary to the previous criteria, the Paul-Mohr-Coulomb failure criterion is formulated in terms the three principal stresses (cf. Equations \ref{eq2:PMC} and \ref{eq2:PMC_dev}) and non-unique strength parameters (i.e. $\phi_{c,e}$, $c_{c,e}$, $V_0$), therefore, the fitting was done using all tests results from the database (i.e. $\theta = 0^\circ$). 
@@ -304,12 +304,58 @@ The mean standard deviation misfits obtained for the three failure criteria show
     \caption{Summary of the mean standard deviation misfits obtained for the three failure criteria evaluated}
     \label{tb5:stand_dev}
 \end{table}
- 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Bi-linear Paul-Mohr-Coulomb failure criterion}\label{ch5:PMC}
 
-Published data from rock testing in conventional triaxial and multi axial testing showed that the failure envelop is non-linear. This non-linearity can be approximated by fitting the experiments data using two planes instead of one, resulting in six parameters describing the envelop. 
+Published data from multi axial experiments on multiple rocks showed that the failure envelop that describe them best is not linear over a large range of mean stress. However, popular failure theories as Mohr-Coulomb or Hoek-Brown, are either linear or do not provide an accurate prediction for all mean stresses. In this study, Paul-Mohr-Coulomb failure criteria is chosen to respond to this issue by approximating the nonlinear failure surface in a piecewise linear manner, resulting in a failure surface defined by six parameters. 
 
-The six-parameters fitting splits the data points in two sets in order to create two planes. These planes will give a better approximation of the failure envelop. The fitting procedure presented in 4.3.1. should then be applied to the two set of data points, resulting in different values of $\phi_c$,$\phi_e$ and $V_0$ for each plane.  
+\subsection{Paul-Mohr-Coulomb with six parameters}
+
+The Paul-Mohr-Coulomb failure criterion presented in the Section \ref{ch5:3p_pmc} is referred to as Paul-Mohr-Coulomb with three parameters, which failure surface is a plane defined by the general equation of the criterion (cf. Equation \ref{eq2:PMC_dev}), using three strength parameters : $V_0$, $\phi_c$ and $\phi_e$. The Paul-Mohr-Coulomb failure surface defined in a piecewise manner is, therefore, made of a minimum of two plane each expressed using three strength parameters, leading to the six parameters criterion.
+
+The three parameters criterion definition in terms of the three principal stresses describes a regular 6-sided pyramid in the principal stresses three-dimensional space (cf. Section \ref{ch2:background}). Therefore, by adding a plane to the failure surface, the six parameters criterion describes two irregular 6-sided pyramids. Each plane is then defined by the parameters presented in Table \ref{tb5:pmc6p_planeparam}, where $P2$ indicates the plane that approximate data points at low mean stress and $P1$ the ones at higher mean stress. Table \ref{tb5:pmc6p_pyramids} present four types of Paul-Mohr-Coulomb failure surfaces which can be defined according to the values of the parameters. For all types, the following conditions apply: 
+\begin{equation}
+    V_0^{(1)} > V_0^{(2)} \quad \textrm{and} \quad \SI{0}{\degree} \leq \phi_{c,e}^{(i)} \leq \SI{60}{\degree}
+\end{equation}
+
+\begin{table}
+    \centering 
+    \begin{tabular}{ccc}
+        \hline 
+        Plane & $P1$ & $P2$  \\
+        \hline
+        \hline
+        Friction angle in compression & $\phi_{c}^{(1)}$ & $\phi_{c}^{(2)}$ \\
+        Friction angle in extension & $\phi_{e}^{(1)}$ & $\phi_{e}^{(2)}$ \\ Theoretical uniaxial tensile strength & $V_0^{(1)}$ & $V_0^{(2)}$ \\
+        \hline
+    \end{tabular}
+    \captionsetup{justification=centering}
+    \caption{Parameters of the planes defining the failure surface of Paul-Mohr-Coulomb criterion}
+    \label{tb5:pmc6p_planeparam}
+\end{table}
+
+\begin{table}
+    \centering 
+    \begin{tabular}{cc}
+        \hline 
+        Type of failure surface & Parameters conditions   \\
+        \hline
+        \hline
+        12-sided & $V_0^{(1)} = V_0^{(2)}$ \\
+        6-12-6 sided & $\phi_{c}^{(1)} < \phi_{c}^{(2)}$, $\phi_{e}^{(1)}$ < $\phi_{e}^{(2)}$, $p_c \neq p_e$\\ 
+        6-12 sided & ($\phi_{c}^{(1)} < \phi_{c}^{(2)}$, $\phi_{e}^{(1)} \geq \phi_{e}^{(2)}$) or ($\phi_{c}^{(1)} \geq \phi_{c}^{(2)}$, $\phi_{e}^{(1)} < \phi_{e}^{(2)}$)\\
+        \hline
+    \end{tabular}
+    \captionsetup{justification=centering}
+    \caption{Parameters of the planes defining the failure surface of Paul-Mohr-Coulomb criterion}
+    \label{tb5:pmc6p_pyramids}
+\end{table}
+
+In order to create two planes, the six-parameters fitting splits the data points in two sets 
+
+
+
 
 The integration of the intermediate stress in the Paul-Mohr-Coulomb general equation (cf. Equation \ref{eq2:PMC}) makes relevant the representation of the criterion in the $(\sigma_2-\sigma_1)$ plane. Indeed, this plane presents the advantage to gather the data points for axisymmetric experiments, shown on compression and extension lines, as well as true-triaxial ones in the same plot. The Paul-Mohr-Coulomb failure surfaces are plotted for a chosen value of $\sigma_3$, using the following equation, based the rearrangement of Equation \ref{eq2:PMC}:
 
@@ -324,4 +370,12 @@ with:
     C = \frac{-1+\sin \phi_e}{2V_0\sin \phi_e} = -\num{5.4d-2} \\
 \end{align}
 
+\subsection{Development of the program}
+
+. The fitting procedure presented in 4.3.1. should then be applied to the two set of data points, resulting in different values of $\phi_c$,$\phi_e$ and $V_0$ for each plane.
+
+\subsection{Fitting of Dunnville Sandstone}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
