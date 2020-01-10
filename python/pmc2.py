@@ -137,6 +137,7 @@ class Plane:
         b = self.q*np.cos(self.t)
 
         x = np.linalg.pinv(A)@b
+        self.x = x
         
         # Solution of the plane fitting parameters
         bc = x[2]
@@ -152,19 +153,21 @@ class Plane:
             self.phyE = arcsin(3*be/(6*self.Vo-be))
         elif np.isin(60*pi/180, self.t)== False:
             self.phyE = self.phyC
-        self.sol = np.array([bc, be, k, self.Vo, self.phyC*180/pi, self.phyE*180/pi])
+        self.sol = np.array([self.Vo, self.phyC*180/pi, self.phyE*180/pi])
+       
         
         # Fitting parameters and coefficients for Paul-Mohr-Coulomb
         self.cc = (self.bc*(3-sin(self.phyC)))/(6*cos(self.phyC))
         self.ce = (self.be*(3-sin(self.phyE)))/(6*cos(self.phyE))
+        self.mc = (6*sin(self.phyC)/(3-sin(self.phyC)))
+        self.me = (6*sin(self.phyE)/(3+sin(self.phyE)))
+        self.param = np.array([self.mc, self.me])
+        self.str = np.array([self.bc, self.be, self.cc, self.ce])
         
         self.Mc = (1+sin(self.phyC))/(1-sin(self.phyC))
         self.Me = (1+sin(self.phyE))/(1-sin(self.phyE))
         self.Cc = (2*self.cc*cos(self.phyC))/(1-sin(self.phyC))
         self.Ce = (2*self.ce*cos(self.phyE))/(1-sin(self.phyE))
-        
-        self.mc = (6*sin(self.phyC)/(3-sin(self.phyC)))
-        self.me = (6*sin(self.phyE)/(3+sin(self.phyE)))
         
         self.Nc = (1-sin(self.phyC))/(2*sin(self.phyC))
         self.Ne = (1-sin(self.phyE))/(2*sin(self.phyE))
@@ -172,6 +175,7 @@ class Plane:
         self.A = ((1-sin(self.phyC))/(2*sin(self.phyC)))/self.Vo
         self.B = ((sin(self.phyC)-sin(self.phyE))/(2*sin(self.phyC)*sin(self.phyE)))/self.Vo
         self.C = -((1+sin(self.phyE))/(2*sin(self.phyE)))/self.Vo
+        self.coeff = np.array([self.A, self.B, self.C])
               
         
         

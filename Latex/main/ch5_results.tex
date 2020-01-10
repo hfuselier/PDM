@@ -15,7 +15,7 @@ This database was used for the evaluation of Mohr-Coulomb,Hoek-Brown and Paul-Mo
     \centering
     \begin{tabular}{cccccccc}
         \hline 
-        Test & Bedding & $\sigma_I$ [\si{MPA}] & $\sigma_{II}$ [\si{MPA}] &$\sigma_{III}$ [\si{MPA}] & $p$ [\si{MPA}] & $q$ [\si{MPA}] & $\theta$ [\si{\degree}] \\
+        Test & Bedding & $\sigma_I$ [\si{MPa}] & $\sigma_{II}$ [\si{MPa}] &$\sigma_{III}$ [\si{MPa}] & $p$ [\si{MPa}] & $q$ [\si{MPa}] & $\theta$ [\si{\degree}] \\
         \hline
         \hline
         Published TC-1 & \(\perp\) & 29.7 & 0.0 & 0.0 & 9.9 & 29.7 & 0 \\
@@ -201,8 +201,7 @@ The mean standard deviation misfit obtained with the Hoek-Brown failure criterio
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Paul-Mohr-Coulomb failure criterion}\label{ch5:3p_pmc}
 
-The fitting presented in this section is referred as the "3 parameters Paul-Mohr-Coulomb criterion", as it accounts only 
-Contrary to the previous criteria, the Paul-Mohr-Coulomb failure criterion is formulated in terms the three principal stresses (cf. Equations \ref{eq2:PMC} and \ref{eq2:PMC_dev}) and non-unique strength parameters (i.e. $\phi_{c,e}$, $c_{c,e}$, $V_0$), therefore, the fitting was done using all tests results from the database (i.e. $\theta = 0^\circ$). 
+Contrary to the previous criteria, the Paul-Mohr-Coulomb failure criterion is formulated in terms the three principal stresses (cf. Equations \ref{eq2:PMC} and \ref{eq2:PMC_dev}) and non-unique strength parameters (i.e. $\phi_{c,e}$, $c_{c,e}$, $V_0$), therefore, the fitting was done using all tests results from the database. 
 
 From the least-square solution fitting describe in Chapter 2 (cf. Section \ref{ch2:pmcfit}, Equations \ref{eq2:PMCfinalform} and \ref{eq2:pmc_be}), the following solution could be obtained:
 \begin{equation}
@@ -263,6 +262,9 @@ In the $(p-q)$ plane, the Paul-Mohr-Coulomb failure criterion is plotted using E
 \begin{equation}\label{eq5:pmc_mc}
     m_c=\frac{6 \sin \phi_{c}}{3-\sin \phi_{c}} = 0.81
 \end{equation}
+\begin{equation}\label{eq5:pmc_me}
+    m_e=\frac{6 \sin \phi_{e}}{3-\sin \phi_{e}} = 0.63
+\end{equation}
 
 \begin{figure}[p]
     \centering
@@ -310,7 +312,7 @@ The mean standard deviation misfits obtained for the three failure criteria show
 
 Published data from multi axial experiments on multiple rocks showed that the failure envelop that describe them best is not linear over a large range of mean stress. However, popular failure theories as Mohr-Coulomb or Hoek-Brown, are either linear or do not provide an accurate prediction for all mean stresses. In this study, Paul-Mohr-Coulomb failure criteria is chosen to respond to this issue by approximating the nonlinear failure surface in a piecewise linear manner, resulting in a failure surface defined by six parameters.
 
-\subsection{Paul-Mohr-Coulomb with six parameters}
+\subsection{Paul-Mohr-Coulomb with six parameters}\label{ch5:PMC_theo_6p}
 
 The theoretical background on the six parameters Paul-Mohr-Coulom criterion presented in this section is based on the work of Labuz et al. (2018) \cite{Labuz2018}.
 
@@ -357,11 +359,11 @@ The three parameters criterion definition in terms of the three principal stress
         \hline
     \end{tabular}
     \captionsetup{justification=centering}
-    \caption{Parameters of the planes defining the failure surface of Paul-Mohr-Coulomb criterion}
+    \caption{Types of failure surfaces for the six parameters Paul-Mohr-Coulomb criterion}
     \label{tb5:pmc6p_pyramids}
 \end{table}
 
-The complete graphical representation of the Paul-Mohr-Coulomb failure surface is composed of the $(p-q)$ plane, the $(\sigma_2-\sigma_1)$ plane, the $\pi$-plane and the principal stresses three-dimensional space. The transition between $P2$ and $P1$ is well represented in the $(p-q)$ plane, where they intersect on the compression side (i.e. $q > 0$) at the mean stress value $p_c$ and on the extension side (i.e. $q < 0$) at $p_e$. In the case of the failure surface type (ii), these transitions points have different values leading to a 12 sided transition zone on the pyramid for mean stress values $p \in \left[p_c;p_e\right]$. Sketches of the 6-12-6 sided failure surface in different planes and in the three-dimensional space are presented in Figure \ref{fig5:6pmc_typeii}, where the $(\sqrt{3}p-\sigma^*)$ plane is equivalent to the $(p-q)$ plane. More schematic representations and details on the four failure surfaces types are provided in APPENDIX B REF{APPENDIX B}.
+The complete graphical representation of the Paul-Mohr-Coulomb failure surface is composed of the $(p-q)$ plane, the $(\sigma_2-\sigma_1)$ plane, the $\pi$-plane and the principal stresses three-dimensional space. The transition between $P2$ and $P1$ is well represented in the $(p-q)$ plane, where they intersect on the compression side (i.e. $q > 0$) at the mean stress value $p_c$ and on the extension side (i.e. $q < 0$) at $p_e$. In the case of the failure surface type (ii), these transitions points have different values leading to a 12 sided transition zone on the pyramid for mean stress values $p \in \left[p_c;p_e\right]$. Sketches of the 6-12-6 sided failure surface in different planes and in the three-dimensional space are presented in Figure \ref{fig5:6pmc_typeii}, where the $(\sqrt{3}p-\sigma^*)$ plane is equivalent to the $(p-q)$ plane. More schematic representations and details on the four failure surfaces types are provided in APPENDIX C REF{APPENDIX C}.
 
 \begin{figure}
     \centering
@@ -393,13 +395,13 @@ This problem can be summarize by the following question:
 \begin{center}
     \emph{How to automatize the allocation of data point into $P1$ or $P2$ in order to provide the most accurate fitting of Paul-Mohr-Coulomb criterion ?}
 \end{center}
-In the following paragraphs, the algorithm created to solve this problem will be detailed. The final solution developed was implemented in a program using the programming language Python, which resources can be found in APPENDIX B. 
+In the following paragraphs, the algorithm created to solve this problem will be described.
 
 \subsubsection{Algorithm construction}
 
-The algorithm developed to solve the problem presented above belongs to the \emph{Brute-force} family. This category of algorithms is based on the following principal: every possibility offered by the database is tried and the one that gives the best solution to the problem is selected. The amount of data available in the case of rock testing ($n_{max}\sim 50$) is small enough to use this type of algorithm without having issues related to too high complexity. 
+The algorithm developed to solve the problem presented above belongs to the \emph{Brute-force} algorithm family. This category is based on the following principal: every possibility offered by the database is tried and the one that gives the best solution to the problem is selected. The amount of data available in the case of rock testing ($n_{max}\sim 50$) is small enough to use this type of algorithm without having issues related to too high complexity. 
 
-In the case of this study, the algorithm will test all the possible variations of data allocations to the $P1$ or $P2$ datasets which can be created form the rock database. For each possible combination, planes $P1$ and $P2$ are created by the computation of their coefficient and fitting parameters defined for Paul-Mohr-Coulomb, following the procedure presented in \ref{ch2:pmcfit}. Then, the mean square error ($MSE$) is computed for each combination of the datasets. Finally the datasets configuration that provide the minimal $MSE$ is selected as the solution of the two planes fitting problem.  
+In the case of this study, the algorithm will test all the possible variations of data allocations to the $P1$ or $P2$ datasets which can be created form the rock database. For each possible combination, planes $P1$ and $P2$ are created by the computation of their coefficient and fitting parameters defined for Paul-Mohr-Coulomb, following the procedure presented in \ref{ch2:pmcfit}. Then, the Mean Square Error ($MSE$) is computed for each combination of datasets. Finally the data allocation variation that provides the minimal $MSE$ is selected as the solution of the two planes fitting problem.  
 
 The algorithm proposed in this study can be apply to any rock testing database that contains results of the three principal stresses and the three invariants at failure (cf. Table \ref{tb5:database}). Indeed, the rock database is the only input that is required to run this algorithm. 
 
@@ -407,34 +409,110 @@ The algorithm proposed in this study can be apply to any rock testing database t
 
 The error used in the computation of $MSE$ is equal to the distance of a data point, defined by $\sigma_I$, $\sigma_{II}$ and $\sigma_{III}$, from its belonging plane, defined by Equation \ref{eq2:PMC}:
 \begin{equation}\label{eq5:error}
-    error_{i} = A^{(j)}\sigma_I^{i}+B^{(j)}\sigma_{II}^{i}+C^{(j)}\sigma_{III}^{i} - 1
+    err_{i} = A^{(j)}\sigma_I^{i}+B^{(j)}\sigma_{II}^{i}+C^{(j)}\sigma_{III}^{i} - 1
 \end{equation}
 where $i$ is the index of the data point in the database and $j$ indicates the plane number in which the data is allocated (i.e. $j=1$ for $P1$ and $j=2$ for $P2$). The Mean Square Error of a certain dataset combination $k$ is then computed as follow:
 \begin{equation}\label{eq5:MSE}
-    MSE_k = \frac{1}{n}\sum_{i=1}^{n} e_i^2
+    MSE_k = \frac{1}{n}\sum_{i=1}^{n} err_i^2
 \end{equation}
-
 The dataset combination $k$ that obtains the minimal $MSE$ value provides the best fitting solution for Paul-Mohr-Coulomb failure surface for the considered rock. 
-% \begin{algorithm}
-%     \caption{Euclid’s algorithm}\label{euclid}
-%     \begin{algorithmic}[1]
-%     \Procedure{Euclid}{$a,b$}\Comment{The g.c.d. of a and b}
-%     \State $r\gets a\bmod b$
-%     \While{$r\not=0$}\Comment{We have the answer if r is 0}
-%     \State $a\gets b$
-%     \State $b\gets r$
-%     \State $r\gets a\bmod b$
-%     \EndWhile\label{euclidendwhile}
-%     \State \textbf{return} $b$\Comment{The gcd is b}
-%     \EndProcedure
-% \end{algorithmic}
-% \end{algorithm}
 
 \subsubsection{Program resources}
 
-The algorithm was implemented in the programming language Python. The resources on the program developed to solve the two planes fitting problem are gathered in APPENDIX B. It contains the Python files required to run the program and a \emph{README} document that explains how to use the program. Moreover, all the code files are commented in detail to ease their use and understanding.  
+This algorithm was implemented in the programming language Python. The resources on the program developed to solve the two planes fitting problem are gathered in APPENDIX B. It contains the Python files required to run the program and a \emph{README} document that explains how to use the program. Moreover, all the code files are commented in detail to ease their use and understanding.  
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dunnville Sandstone}
+
+The program presented in the previous section was applied to the experimental results database of Dunnville Sandstone (cf. Table \ref{tb5:database}). The six parameters Paul-Mohr-Coulomb failure surface obtained is presented in the following paragraphs through its representation in the $(p-q)$, $(\sigma_2-\sigma_1)$, $\pi$- planes and in the principal stresses three-dimensional space. 
+
+\subsubsection{Strength parameters computation}
+
+The solution obtained from the least-square solution fitting describe in Chapter 2 (cf. Section \ref{ch2:pmcfit}, Equations \ref{eq2:PMCfinalform} and \ref{eq2:pmc_be}) is presented in Table \ref{tb5:dunn_sol1}. 
+
+\begin{table} [p]
+    \centering 
+    \begin{tabular}{ccccc}
+        \hline 
+        Plane & $x_1^{(i)}$ & $x_2^{(i)}$ & $x_3^{(i)}$ \\
+        \hline
+        \hline
+        $P1$ & 0.54 & -1.02 & 47.08 \\
+        $P2$ & 1.39 & -1.10 & 15.47 \\
+        \hline
+    \end{tabular}
+    \captionsetup{justification=centering}
+    \caption{$P1$ and $P2$ least-square solutions $x$ for Dunnville sandstone}
+    \label{tb5:dunn_sol1}
+\end{table}
+
+The strength parameters for Paul-Mohr-Coulomb failure criteria could be computed from Equations \ref{eq2:pmc_vo} to \ref{eq2:pmc_c}. The values obtained are gathered in Table \ref{tb5:dunn_strpara}. 
+
+\begin{table} [p]
+    \centering 
+    \begin{tabular}{cccccc}
+        \hline 
+        Plane & $b_c^{(i)}$ [\si{MPa}] & $b_e^{(i)}$ [\si{MPa}] & $V_0^{(i)}$ [\si{MPa}] & $\phi_c^{(i)}$ [\si{\degree}] & $\phi_e^{(i)}$ [\si{\degree}] \\
+        \hline
+        \hline
+        $P1$ & 47.1 & 34.1 & $86.9$ & $14.4$ & $12.1$\\
+        $P2$ & 15.5 & 10.7 & $11.1$ & $34.3$ & $34.8$ \\
+        \hline
+    \end{tabular}
+    \captionsetup{justification=centering}
+    \caption{$P1$ and $P2$ strength parameters for Dunnville sandstone}
+    \label{tb5:dunn_strpara}
+\end{table}
+
+\subsubsection{Graphical representation of the failure surface}
+
+Knowing the strength parameters, the Paul-Mohr-Coulomb failure surface could be plotted in the $(p-q)$ plane using Equations \ref{eq2:PMC_pq} to \ref{eq2:pmc_b_pq} applied to each plane. The values of parameters $m_{c,e}$ and $c_{c,e}$ are presented in Table \ref{tb5:dunn_pq_para} and the $(p-q)$ plane plot is shown in Figure \ref{fig5:pmc6p_pq}.
+
+\begin{table} [p]
+    \centering 
+    \begin{tabular}{ccccc}
+        \hline 
+        Plane & $m_c^{(i)}$ [-] & $m_e^{(i)}$ [-] & $c_c^{(i)}$ [\si{MPa}] & $c_e^{(i)}$ [\si{MPa}] \\
+        \hline
+        \hline
+        $P1$ & 0.54 & 0.39 & 22.3 & 16.2 \\
+        $P2$ & 1.39 & 0.96 & 7.61 & 5.26\\
+        \hline
+    \end{tabular}
+    \captionsetup{justification=centering}
+    \caption{$P1$ and $P2$ fitting parameters for Dunnville sandstone}
+    \label{tb5:dunn_pq_para}
+\end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{ch5/pmc6p_pq}
+    \caption{Paul-Mohr-Coulomb failure surface in the $(p-q)$ plane for Dunnville Sandstone}
+    \label{fig5:pmc6p_pq}
+\end{figure}
+
+The failure surface can also be plotted in the $(\sigma_2-\sigma_1)$ plane. Equation \ref{eq5:pmc_sig2sig1} provides the planes equation in this coordinates system using the general expression of the Paul-Mohr-Coulomb criterion, which coefficients $A$, $B$ and $C$ are presented in Table \ref{tb5:dunn_abc}.
+
+\begin{table} 
+    \centering 
+    \begin{tabular}{ccccc}
+        \hline 
+        Plane & $A^{(i)}$ & $B^{(i)}$ & $B^{(i)}$ \\
+        \hline
+        \hline
+        $P1$ & \num{1.74d-2} & \num{4.26d-3} & \num{-3.32d-2} \\
+        $P2$ & \num{3.47d-2} & \num{-8.31d-4} & \num{-1.24d-1} \\
+        \hline
+    \end{tabular}
+    \captionsetup{justification=centering}
+    \caption{Paul-Mohr-Coulomb general equation coefficients for Dunnville sandstone}
+    \label{tb5:dunn_abc}
+\end{table}
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
