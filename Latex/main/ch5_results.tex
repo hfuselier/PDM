@@ -308,9 +308,11 @@ The mean standard deviation misfits obtained for the three failure criteria show
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Bi-linear Paul-Mohr-Coulomb failure criterion}\label{ch5:PMC}
 
-Published data from multi axial experiments on multiple rocks showed that the failure envelop that describe them best is not linear over a large range of mean stress. However, popular failure theories as Mohr-Coulomb or Hoek-Brown, are either linear or do not provide an accurate prediction for all mean stresses. In this study, Paul-Mohr-Coulomb failure criteria is chosen to respond to this issue by approximating the nonlinear failure surface in a piecewise linear manner, resulting in a failure surface defined by six parameters. 
+Published data from multi axial experiments on multiple rocks showed that the failure envelop that describe them best is not linear over a large range of mean stress. However, popular failure theories as Mohr-Coulomb or Hoek-Brown, are either linear or do not provide an accurate prediction for all mean stresses. In this study, Paul-Mohr-Coulomb failure criteria is chosen to respond to this issue by approximating the nonlinear failure surface in a piecewise linear manner, resulting in a failure surface defined by six parameters.
 
 \subsection{Paul-Mohr-Coulomb with six parameters}
+
+The theoretical background on the six parameters Paul-Mohr-Coulom criterion presented in this section is based on the work of Labuz et al. (2018) \cite{Labuz2018}.
 
 The Paul-Mohr-Coulomb failure criterion presented in the Section \ref{ch5:3p_pmc} is referred to as Paul-Mohr-Coulomb with three parameters, which failure surface is a plane defined by the general equation of the criterion (cf. Equation \ref{eq2:PMC_dev}), using three strength parameters : $V_0$, $\phi_c$ and $\phi_e$. The Paul-Mohr-Coulomb failure surface defined in a piecewise manner is, therefore, made of a minimum of two plane each expressed using three strength parameters, leading to the six parameters criterion.
 
@@ -327,7 +329,10 @@ The three parameters criterion definition in terms of the three principal stress
         \hline
         \hline
         Friction angle in compression & $\phi_{c}^{(1)}$ & $\phi_{c}^{(2)}$ \\
-        Friction angle in extension & $\phi_{e}^{(1)}$ & $\phi_{e}^{(2)}$ \\ Theoretical uniaxial tensile strength & $V_0^{(1)}$ & $V_0^{(2)}$ \\
+        \\
+        Friction angle in extension & $\phi_{e}^{(1)}$ & $\phi_{e}^{(2)}$ \\ 
+        \\
+        Theoretical uniaxial tensile strength & $V_0^{(1)}$ & $V_0^{(2)}$ \\
         \hline
     \end{tabular}
     \captionsetup{justification=centering}
@@ -342,9 +347,13 @@ The three parameters criterion definition in terms of the three principal stress
         Type of failure surface & Parameters conditions   \\
         \hline
         \hline
-        12-sided & $V_0^{(1)} = V_0^{(2)}$ \\
-        6-12-6 sided & $\phi_{c}^{(1)} < \phi_{c}^{(2)}$, $\phi_{e}^{(1)}$ < $\phi_{e}^{(2)}$, $p_c \neq p_e$\\ 
-        6-12 sided & ($\phi_{c}^{(1)} < \phi_{c}^{(2)}$, $\phi_{e}^{(1)} \geq \phi_{e}^{(2)}$) or ($\phi_{c}^{(1)} \geq \phi_{c}^{(2)}$, $\phi_{e}^{(1)} < \phi_{e}^{(2)}$)\\
+        (i) 6-sided & $V_0^{(1)} = V_0^{(2)}$ \\
+        \\
+        (ii) 6-12-6 sided & $\phi_{c}^{(1)} < \phi_{c}^{(2)}$, $\phi_{e}^{(1)}$ < $\phi_{e}^{(2)}$, $p_c \neq p_e$\\ 
+        \\
+        (iii) 6-12 sided & ($\phi_{c}^{(1)} < \phi_{c}^{(2)}$, $\phi_{e}^{(1)} \geq \phi_{e}^{(2)}$) or ($\phi_{c}^{(1)} \geq \phi_{c}^{(2)}$, $\phi_{e}^{(1)} < \phi_{e}^{(2)}$)\\
+        \\
+        (iv) 6-12-6 sided & $\phi_{c}^{(1)} < \phi_{c}^{(2)}$, $\phi_{e}^{(1)}$ < $\phi_{e}^{(2)}$, $p_c = p_e$\\ 
         \hline
     \end{tabular}
     \captionsetup{justification=centering}
@@ -352,23 +361,28 @@ The three parameters criterion definition in terms of the three principal stress
     \label{tb5:pmc6p_pyramids}
 \end{table}
 
-In order to create two planes, the six-parameters fitting splits the data points in two sets 
+The complete graphical representation of the Paul-Mohr-Coulomb failure surface is composed of the $(p-q)$ plane, the $(\sigma_2-\sigma_1)$ plane, the $\pi$-plane and the principal stresses three-dimensional space. The transition between $P2$ and $P1$ is best presented in the $(p-q)$ plane, where they intersect on the compression side (i.e. $q > 0$) at the mean stress value $p_c$ and on the extension side (i.e. $q < 0$) at $p_e$. A sketch of the 6-12-6 sided failure surface in the $(p-q)$ plane is presented in Figure \ref{fig5:6pmc_pq} and schematic representations as well as more details on the four failure surfaces types are provided in APPENDIX B REF{APPENDIX B}.
 
-
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\columnwidth]{ch5/6pmc_pq}
+    \caption{Paul-Mohr-Coulomb 6-12-6 sided failure surface in $(p-q)$ plane}
+    \label{fig5:6pmc_pq}
+\end{figure}
 
 The integration of the intermediate stress in the Paul-Mohr-Coulomb general equation (cf. Equation \ref{eq2:PMC}) makes relevant the representation of the criterion in the $(\sigma_2-\sigma_1)$ plane. Indeed, this plane presents the advantage to gather the data points for axisymmetric experiments, shown on compression and extension lines, as well as true-triaxial ones in the same plot. The Paul-Mohr-Coulomb failure surfaces are plotted for a chosen value of $\sigma_3$, using the following equation, based the rearrangement of Equation \ref{eq2:PMC}:
 
 \begin{equation}\label{eq5:pmc_sig2sig1}
-    \sigma_1 = \frac{1}{A}\left(1-B\sigma_2-C\sigma_3\right)
+    \sigma_1 = \frac{1}{A}\left(1-B\sigma_{2}-C\sigma_{3}\right)
 \end{equation}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\columnwidth]{ch5/6pmc_sig2sig1}
+    \caption{Paul-Mohr-Coulomb 6-12-6 sided failure surface in $(\sigma_2-\sigma_1)$ plane}
+    \label{fig5:6pmc_sig2sig1}
+\end{figure}
 
-with:
-\begin{align}
-    A = \frac{1-\sin \phi_c}{2V_0\sin \phi_c} = \num{2.5d-2}\\
-    B = \frac{\sin \phi_c - \sin \phi_e}{2V_0 \sin \phi_e \sin \phi_c} = \num{7.1d-4} \\
-    C = \frac{-1+\sin \phi_e}{2V_0\sin \phi_e} = -\num{5.4d-2} \\
-\end{align}
+
 
 \subsection{Development of the program}
 
