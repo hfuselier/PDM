@@ -85,7 +85,7 @@ The standard deviation $s_{i}$ of one test series $i$ formed by $j$ experiments 
     s_{i}=\sqrt{\frac{1}{n} \sum_{j}\left(\sigma_{I,j}^{\mathrm{calc}}-\sigma_{I,j}^{\mathrm{test}}\right)^{2}}
 \end{equation}
 
-Finally, the mean standard deviation misfit is computed following Equation \ref{eq5:mean_standdev}, where $m$ is the number of test series. The smallest the $\bar{S}$ is , the better is the "accuracy" of the model for the rock compared to other criteria. 
+Finally, the mean standard deviation misfit is computed following Equation \ref{eq5:mean_standdev}, where $m$ is the number of test series. The smallest the $\bar{S}$ is , the better is the prediction of the model for the rock compared to other criteria. A criterion that would perfectly fit the data will present no misfits. 
 
 \begin{equation}\label{eq5:mean_standdev}
     \bar{S}=\frac{1}{m} \sum_{i} s_{i}
@@ -385,7 +385,7 @@ The addition of the intermediate stress in the Paul-Mohr-Coulomb general equatio
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Bi-linear fitting program}
+\subsection{Bi-linear fitting program}\label{ch5:algo}
 
 The fitting of a six-parameters Paul-Mohr-Coulomb failure surface requires to create two datasets from the initial database of experiments results, one for each plane. Once defined, these datasets are used for planes fitting, following the procedure presented in Section \ref{ch2:pmcfit}. This repartition of the data points into different planes is a challenging step of the failure criterion fitting, as it should give the optimal solution for the database considered. 
 
@@ -565,3 +565,15 @@ The program developed for the Paul-Mohr-Coulomb criterion was generalized so it 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 
+In this section, some remarks and comments are made on the work presented in this study. 
+
+The previous sections provide a comparison of the four failure criteria principally based on the computation of the mean standard deviation misfits $\bar{S}$. This quantitive comparison indicator is based on the computation of the error between the predicted and real values of the major stress, and report the precision of the prediction provided by a failure criterion. Another comparison could also be relative to the failure surface. Indeed, a more rigorous evaluation  of a failure criterion can be made by the computation of the distance between a data point and the failure surface. This type of error computation was used in this work in the \emph{Brute-force} algorithm developed for the six parameters Paul-Mohr-Coulomb fitting (cf. Section \ref{ch5:algo}). In this case, as well as for Mohr-Coulomb, the computation of the "point-plane" distance is made possible and convenient thanks to the explicit general equation of the planes that forms the failure surface. However, in the case of Hoek-Brown and other criteria defined by implicit equations, it becomes challenging to go through the mathematical derivations required. An interesting addition to this work would be to look at all the criteria evaluated here from the point of view of the "data-failure surface" distance, and to compare the quantitative indicators of the their accuracy.
+
+The comparison of the three failure criteria revealed the importance of taking into account the intermediate stress in their formulation. First, the evaluation of the Mohr-Coulomb and Paul-Mohr-Coulomb indicates that even with the use of a linear criterion to approximate a non-linear failure surface, the one defined by a general equation in terms of the three principal stresses gives a better approximation of the data points. Moreover, the comparison between the Hoek-Brown and Paul-Mohr-Coulomb fittings reveals that a linear criterion that takes into account $\sigma_{II}$ gives a better fitting of the data from true triaxial experiments, which state of stress is more representative of what undergoes the rock in-situ. 
+
+The work presented in this study showed that the six parameters Paul-Mohr-Coulomb failure criterion provides an accurate approximation of the failure surface as well as a good prediction of the state of stress at failure compared to popular criteria as Mohr-Coulomb and Hoek-Brown. Nonetheless, one criticism can be addressed to this criterion regarding the amount of experiments required to construct the bi-linear failure surface. Indeed, in order to built the failure surface of the three parameters Paul-Mohr-Coulomb criterion, three data points are needed, leading to a requirement of six points for the six parameters criterion. These six data points corresponds to the same number of experiments, ideally of different procedures, that is needed to be performed on the same rock. By carrying out this study in an very well equipped research environment, it was possible to perform multiple experiments under different conditions. However, this is hardly the case in the majority of rock mechanics and geo-engineering applications for which that amount of data is not always available. From this point of view, Mohr-Coulomb and Hoek-brown are more convenient to apply to a small amount of data, which is why they are popular and widely use. 
+
+On the $\pi$-plane representations of the failure criteria (cf. Figure \ref{fig5:pmc6p_pi_plane}) the data point of the true triaxial experiment under plane strain condition (i.e. $p = 48.3$ \si{MPa}) presents an eccentricity from the failure surface but also from the "alignment" or "group" of other true-triaxial data (mainly performed under constant mean stress). Two possible explanation are proposed here. One can be that a mistake was made either during the experiment or in the analysis of its results. The second notices the possibility that the failure surface underestimate data from this type of experiments. Both highlight the need of an more detailed investigation on true triaxial experiments performed under various state of stress. 
+
+5. Prediction is crucial for engineering solutions but also for experiments !
+> need to be careful with criterion because they over estimate at high mean stresses 
