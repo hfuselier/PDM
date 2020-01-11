@@ -152,12 +152,12 @@ Finally, the Mohr-Coulomb criterion is presented in the $\pi$-plane, obtained fo
     \label{fig5:mc_pi_plane}
 \end{figure} 
 
-The mean standard deviation misfit obtained with the Mohr-Coulomb failure criterion is $14.0$ [\si{\mega\pascal}]. 
+The mean standard deviation misfit obtained with the Mohr-Coulomb failure criterion is $14.0$ \si{\mega\pascal}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hoek-Brown failure criterion}
 
-The Hoek-Brown failure criterion is also formulated in terms two principal stresses (cf. Equations \ref{eq2:HB-crit}) and unique strength parameters (i.e. $m$, $C_0$), therefore, the fitting was done using only axisymmetric triaxial compression tests results (i.e. $\theta = 0^\circ$). 
+The Hoek-Brown failure criterion is also formulated in terms two principal stresses (cf. Equations \ref{eq2:HB-crit}) and unique strength parameters (i.e. $m$, $C_0$). Therefore, the fitting was done using only axisymmetric triaxial compression tests results (i.e. $\theta = 0^\circ$). 
 
 From this fitting, the strength parameter $m$ was determined and $V_0$ was computed: 
 
@@ -196,12 +196,12 @@ Finally, the Hoek-Brown criterion is presented in the $\pi$-plane, obtained foll
     \label{fig5:hb_pi_plane}
 \end{figure} 
 
-The mean standard deviation misfit obtained with the Hoek-Brown failure criterion is $9.37$ [\si{\mega\pascal}]. 
+The mean standard deviation misfit obtained with the Hoek-Brown failure criterion is $9.37$ \si{\mega\pascal}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Paul-Mohr-Coulomb failure criterion}\label{ch5:3p_pmc}
 
-Contrary to the previous criteria, the Paul-Mohr-Coulomb failure criterion is formulated in terms the three principal stresses (cf. Equations \ref{eq2:PMC} and \ref{eq2:PMC_dev}) and non-unique strength parameters (i.e. $\phi_{c,e}$, $c_{c,e}$, $V_0$), therefore, the fitting was done using all tests results from the database. 
+Contrary to the previous criteria, the Paul-Mohr-Coulomb failure criterion is formulated in terms the three principal stresses (cf. Equations \ref{eq2:PMC} and \ref{eq2:PMC_dev}) and non-unique strength parameters (i.e. $\phi_{c,e}$, $c_{c,e}$, $V_0$). Therefore, the fitting was done using all tests results from the database. 
 
 From the least-square solution fitting describe in Chapter 2 (cf. Section \ref{ch2:pmcfit}, Equations \ref{eq2:PMCfinalform} and \ref{eq2:pmc_be}), the following solution could be obtained:
 \begin{equation}
@@ -283,18 +283,18 @@ Finally, the Paul-Mohr-Coulomb criterion is presented in the $\pi$-plane, obtain
     \label{fig5:pmc_pi_plane}
 \end{figure} 
 
-The mean standard deviation misfit obtained with the Paul-Mohr-Coulomb failure criterion is $13.2$ [\si{\mega\pascal}]. 
+The mean standard deviation misfit obtained with the Paul-Mohr-Coulomb failure criterion is $13.2$ \si{\mega\pascal}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comparison of the failure criteria}
 
-The mean standard deviation misfits obtained for the three failure criteria show that Hoek-Brown provide a better approximation of the data points (cf. Table \ref{tb5:stand_dev}). However, it should be kept in mind that this criterion was fitted only for data points related to axisymmetric compression experiments. Therefore, its prediction of true triaxial experiments is less accurate than the one provided by the Paul-Mohr-Coulomb criterion. This can be easily noticed with the observation of both predictions in the $\pi$-plane (cf. Figures \ref{fig5:hb_pi_plane} and \ref{fig5:pmc_pi_plane}). 
+The mean standard deviation misfits obtained for the three failure criteria show that Hoek-Brown provides a better approximation of the data points (cf. Table \ref{tb5:stand_dev}). However, it should be kept in mind that this criterion was fitted only for data points related to axisymmetric compression experiments. Therefore, its prediction of true triaxial experiments is less accurate than the one provided by the Paul-Mohr-Coulomb criterion. This can be easily noticed with the observation of both predictions in the $\pi$-plane (cf. Figures \ref{fig5:hb_pi_plane} and \ref{fig5:pmc_pi_plane}). 
 
 \begin{table}
     \centering
     \begin{tabular}{ccc}
         \hline 
-        Criterion & Mean standard deviation misfit $\bar{S}$ \\
+        Criterion & Mean standard deviation misfit $\bar{S}$ []\si{MPa}] \\
         \hline
         \hline
         Mohr-Coulomb & 14.0 \\
@@ -310,15 +310,15 @@ The mean standard deviation misfits obtained for the three failure criteria show
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Bi-linear Paul-Mohr-Coulomb failure criterion}\label{ch5:PMC}
 
-Published data from multi axial experiments on multiple rocks showed that the failure envelop that describe them best is not linear over a large range of mean stress. However, popular failure theories as Mohr-Coulomb or Hoek-Brown, are either linear or do not provide an accurate prediction for all mean stresses. In this study, Paul-Mohr-Coulomb failure criteria is chosen to respond to this issue by approximating the nonlinear failure surface in a piecewise linear manner, resulting in a failure surface defined by six parameters.
+Published data from multi axial experiments on multiple rocks showed that the failure envelop that describe them best is not linear over a large range of mean stress. However, popular failure theories as Mohr-Coulomb or Hoek-Brown, are either linear or do not provide an accurate prediction for all mean stresses. In this study, Paul-Mohr-Coulomb failure criteria is chosen to address this issue by approximating the nonlinear failure surface in a piecewise linear manner, resulting in a failure surface defined by six parameters.
 
 \subsection{Paul-Mohr-Coulomb with six parameters}\label{ch5:PMC_theo_6p}
 
 The theoretical background on the six parameters Paul-Mohr-Coulom criterion presented in this section is based on the work of Labuz et al. (2018) \cite{Labuz2018}.
 
-The Paul-Mohr-Coulomb failure criterion presented in the Section \ref{ch5:3p_pmc} is referred to as Paul-Mohr-Coulomb with three parameters, which failure surface is a plane defined by the general equation of the criterion (cf. Equation \ref{eq2:PMC_dev}), using three strength parameters : $V_0$, $\phi_c$ and $\phi_e$. The Paul-Mohr-Coulomb failure surface defined in a piecewise manner is, therefore, made of a minimum of two plane each expressed using three strength parameters, leading to the six parameters criterion.
+The Paul-Mohr-Coulomb failure criterion presented in the Section \ref{ch5:3p_pmc} is referred to as Paul-Mohr-Coulomb with three parameters, which failure surface is a plane defined by the general equation of the criterion (cf. Equation \ref{eq2:PMC_dev}), using three strength parameters : $V_0$, $\phi_c$ and $\phi_e$. The Paul-Mohr-Coulomb failure surface defined in a piecewise manner is, therefore, made of a minimum of two plane, each expressed using three strength parameters, leading to the six parameters criterion.
 
-The three parameters criterion definition in terms of the three principal stresses describes a regular 6-sided pyramid in the principal stresses three-dimensional space (cf. Section \ref{ch2:background}). Therefore, by adding a plane to the failure surface, the six parameters criterion describes two irregular 6-sided pyramids. Each plane is then defined by the parameters presented in Table \ref{tb5:pmc6p_planeparam}, where $P2$ indicates the plane that approximate data points at low mean stress and $P1$ the ones at higher mean stress. Table \ref{tb5:pmc6p_pyramids} present four types of Paul-Mohr-Coulomb failure surfaces which can be defined according to the values of the parameters. For all types, the following conditions apply: 
+The three parameters criterion definition in terms of the three principal stresses describes a regular 6-sided pyramid in the principal stresses three-dimensional space (cf. Section \ref{ch2:background}). By adding a plane to the failure surface, the six parameters criterion, therefore, describes two irregular 6-sided pyramids. Each plane is then defined by the parameters presented in Table \ref{tb5:pmc6p_planeparam}, where $P2$ indicates the plane that approximate data points at low mean stress and $P1$ the ones at higher mean stress. Table \ref{tb5:pmc6p_pyramids} present four types of Paul-Mohr-Coulomb failure surfaces which can be defined according to the values of the parameters. For all types, the following conditions apply: 
 \begin{equation}
     V_0^{(1)} > V_0^{(2)} \quad \textrm{and} \quad \SI{0}{\degree} \leq \phi_{c,e}^{(i)} \leq \SI{60}{\degree}
 \end{equation}
@@ -372,7 +372,7 @@ The complete graphical representation of the Paul-Mohr-Coulomb failure surface i
     \label{fig5:6pmc_typeii}
 \end{figure}
 
-The addition of the intermediate stress in the Paul-Mohr-Coulomb general equation (cf. Equation \ref{eq2:PMC}) makes relevant the representation of the criterion in the $(\sigma_2-\sigma_1)$ plane. Indeed, this plane presents the advantage to gather the data points for axisymmetric experiments, shown on compression and extension lines, as well as true-triaxial data in the same plot (cf. Figure \ref{fig5:6pmc_sig2sig1}). The Paul-Mohr-Coulomb failure surfaces are plotted for a chosen value of $\sigma_3$, using the following equation, based the rearrangement of Equation \ref{eq2:PMC}:
+The inclusion of the intermediate stress in the Paul-Mohr-Coulomb general equation (cf. Equation \ref{eq2:PMC}) makes relevant the representation of the criterion in the $(\sigma_2-\sigma_1)$ plane. Indeed, this plane presents the advantage to gather the data points for axisymmetric experiments, shown on compression and extension lines, as well as true-triaxial data in the same plot (cf. Figure \ref{fig5:6pmc_sig2sig1}). The Paul-Mohr-Coulomb failure surfaces are plotted for a chosen value of $\sigma_3$, using the following equation, based the rearrangement of Equation \ref{eq2:PMC}:
 
 \begin{equation}\label{eq5:pmc_sig2sig1}
     \sigma_1 = \frac{1}{A}\left(1-B\sigma_{2}-C\sigma_{3}\right)
@@ -389,7 +389,7 @@ The addition of the intermediate stress in the Paul-Mohr-Coulomb general equatio
 
 The fitting of a six-parameters Paul-Mohr-Coulomb failure surface requires to create two datasets from the initial database of experiments results, one for each plane. Once defined, these datasets are used for planes fitting, following the procedure presented in Section \ref{ch2:pmcfit}. This repartition of the data points into different planes is a challenging step of the failure criterion fitting, as it should give the optimal solution for the database considered. 
 
-One of this study objective was to create a program that automatically allocates data points to one of both planes, with the aim of getting a distribution that provide the best fitting for Paul-Mohr-Coulomb criterion. Moreover, it was crucial that this program was develop not only for the rock tested for this study (i.e. Dunnville Sandstone), but for any rock with available experimental data. 
+One of this study objective was to create a program that automatically allocates data points to one of both planes, with the aim of getting a distribution that provide the best fitting for Paul-Mohr-Coulomb criterion. Moreover, it was crucial that this program was develop not only for the rock tested in this study (i.e. Dunnville Sandstone), but for any rock with available experimental data. 
 
 This problem can be summarize by the following question:
 \begin{center}
@@ -560,14 +560,14 @@ Finally, Figure \ref{fig5:pmc6p_3d} shows the 6-12-6 sided pyramid obtained for 
 A summary of the Paul-Mohr-Coulomb six parameters solution and the mean standard deviation misfits obtained for Dunnville Sandstone is presented in Table \ref{tb5:dunn_summary}. The fittings provided by Mohr-Coulomb, Hoek-Brown, three and six parameters Paul-Mohr-Coulomb criteria can now be compared using the mean standard deviation misfits values obtained (cf. Table \ref{tb5:stand_dev}). 
 The six parameters Paul-Mohr-Coulomb criterion provides the best prediction with the least mean standard deviation misfits for the two planes. This can be explained by the combination of the intermediate stress inclusion in the failure criterion general equation and the approximation of the failure surface non linearity, giving the most accurate states of stress prediction at failure. The observation of the six parameters Paul-Mohr-Coulomb and Hoek-Brown fittings in the $(p-q)$ and $\pi$- planes also presents for the first one a better approximation of the true-triaxial data points, but also of the axisymmetric ones, which wasn't the case with the three parameters Paul-Mohr-Coulomb. 
 
-The program developed for the Paul-Mohr-Coulomb criterion was generalized so it can be used to fit of other rocks. A summary of the results obtained for rocks with available database from literature is provided in APPENDIX D REF{APPENDIX D}.
+The program developed for the Paul-Mohr-Coulomb criterion was generalized so that it can be used to fit of other rocks. A summary of the results obtained for rocks with available database from literature is provided in APPENDIX D REF{APPENDIX D}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 
 In this section, some remarks and comments are made on the work presented in this study. 
 
-The previous sections provide a comparison of the four failure criteria principally based on the computation of the mean standard deviation misfits $\bar{S}$. This quantitive comparison indicator is based on the computation of the error between the predicted and real values of the major stress, and report the precision of the prediction provided by a failure criterion. Another comparison could also be relative to the failure surface. Indeed, a more rigorous evaluation  of a failure criterion can be made by the computation of the distance between a data point and the failure surface. This type of error computation was used in this work in the \emph{Brute-force} algorithm developed for the six parameters Paul-Mohr-Coulomb fitting (cf. Section \ref{ch5:algo}). In this case, as well as for Mohr-Coulomb, the computation of the "point-plane" distance is made possible and convenient thanks to the explicit general equation of the planes that forms the failure surface. However, in the case of Hoek-Brown and other criteria defined by implicit equations, it becomes challenging to go through the mathematical derivations required. An interesting addition to this work would be to look at all the criteria evaluated here from the point of view of the "data-failure surface" distance, and to compare the quantitative indicators of the their accuracy.
+The previous sections provide a comparison of the four failure criteria principally based on the computation of the mean standard deviation misfits $\bar{S}$. This quantitive comparison indicator is based on the computation of the error between the predicted and real values of the major stress, and report the precision of the prediction provided by a failure criterion. Another comparison could also be relative to the failure surface. Indeed, a rigorous evaluation  of a failure criterion can be made by the computation of the distance between a data point and the failure surface. This type of error computation was used in this work in the \emph{Brute-force} algorithm developed for the six parameters Paul-Mohr-Coulomb fitting (cf. Section \ref{ch5:algo}). In this case, as well as for Mohr-Coulomb, the computation of the "point-plane" distance is made possible and convenient thanks to the explicit general equation of the planes that forms the failure surface. However, in the case of Hoek-Brown and other criteria defined by implicit equations, it becomes challenging to go through the mathematical derivations required to compute this distance. An interesting addition to this work would be to look at all the criteria evaluated here from the point of view of the "data-failure surface" distance, and to compare the quantitative indicators of the their accuracy.
 
 The comparison of the three failure criteria revealed the importance of taking into account the intermediate stress in their formulation. First, the evaluation of the Mohr-Coulomb and Paul-Mohr-Coulomb indicates that even with the use of a linear criterion to approximate a non-linear failure surface, the one defined by a general equation in terms of the three principal stresses gives a better approximation of the data points. Moreover, the comparison between the Hoek-Brown and Paul-Mohr-Coulomb fittings reveals that a linear criterion that takes into account $\sigma_{II}$ gives a better fitting of the data from true triaxial experiments, which state of stress is more representative of what undergoes the rock in-situ. 
 
