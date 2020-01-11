@@ -484,16 +484,7 @@ Knowing the strength parameters, the Paul-Mohr-Coulomb failure surface could be 
     \label{tb5:dunn_pq_para}
 \end{table}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\columnwidth]{ch5/pmc6p_pq}
-    \caption{Paul-Mohr-Coulomb failure surface in the $(p-q)$ plane for Dunnville Sandstone}
-    \label{fig5:pmc6p_pq}
-\end{figure}
-
-The failure surface can also be plotted in the $(\sigma_2-\sigma_1)$ plane. Equation \ref{eq5:pmc_sig2sig1} provides the planes equation in this coordinates system using the general expression of the Paul-Mohr-Coulomb criterion, which coefficients $A$, $B$ and $C$ are presented in Table \ref{tb5:dunn_abc}.
-
-\begin{table} 
+\begin{table} [p]
     \centering 
     \begin{tabular}{ccccc}
         \hline 
@@ -509,11 +500,68 @@ The failure surface can also be plotted in the $(\sigma_2-\sigma_1)$ plane. Equa
     \label{tb5:dunn_abc}
 \end{table}
 
+\begin{table} [p]
+    \centering 
+    \begin{tabular}{cccccc}
+        \hline 
+        Plane & $V_0^{(i)}$ [\si{MPa}] & $\phi_c^{(i)}$ [\si{\degree}] & $\phi_e^{(i)}$ [\si{\degree}] & $\bar{S}$ [\si{MPa}]\\
+        \hline
+        \hline
+        $P1$ & $86.9$ & $14.4$ & $12.1$ & 9.12\\
+        $P2$ & $11.1$ & $34.3$ & $34.8$ & 4.92\\
+        \hline
+    \end{tabular}
+    \captionsetup{justification=centering}
+    \caption{$P1$ and $P2$ strength parameters for Dunnville sandstone}
+    \label{tb5:dunn_summary}
+\end{table}
 
+\begin{figure} [p]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{ch5/pmc6p_pq}
+    \caption{Paul-Mohr-Coulomb failure surface in the $(p-q)$ plane for Dunnville Sandstone}
+    \label{fig5:pmc6p_pq}
+\end{figure}
 
+The failure surface can also be plotted in the $(\sigma_2-\sigma_1)$ plane. Equation \ref{eq5:pmc_sig2sig1} provides the planes equation in this coordinates system using the general expression of the Paul-Mohr-Coulomb criterion, which coefficients $A$, $B$ and $C$ are presented in Table \ref{tb5:dunn_abc}. Figure \ref{fig5:pmc6p_sig1sig2} presents the six parameters failure surface for Dunnville Sandstone in the  $(\sigma_2-\sigma_1)$ plane.
 
+\begin{figure} [p]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{ch5/pmc6p_sig1sig2}
+    \caption{Paul-Mohr-Coulomb failure surface in the $(\sigma_2-\sigma_1)$ plane for Dunnville Sandstone}
+    \label{fig5:pmc6p_sig1sig2}
+\end{figure}
 
+The failure surface planes are also presented in the $\pi$-plane, obtained following the procedure described in Section \ref{ch2:PMC}. Figure \ref{fig5:pmc6p_pi_plane} shows the failure criterion in the $\pi$-plane at different mean stresses $p$ that correspond to true-triaxial experiments mean stresses at failure (i.e. $0^\circ < \theta < 60^\circ$ in Table \ref{tb5:database}). In addition, Figure \ref{fig5:pmc6p_pi_transi} presents the projection of the $P2$,$P2-P1$ transition and $P1$ pyramids on the $\pi$-plane. 
 
+\begin{figure} [p]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{ch5/pmc6p_pi_pts2}
+    \caption{Paul-Mohr-Coulomb failure surface in the $\pi$-plane for Dunnville Sandstone}
+    \label{fig5:pmc6p_pi_plane}
+\end{figure}
+\begin{figure} [p]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{ch5/pmc6p_pi_transi2}
+    \caption{6-12-6 sided pyramid projection in the $\pi$-plane for Dunnville Sandstone}
+    \label{fig5:pmc6p_pi_transi}
+\end{figure}
+
+Finally, Figure \ref{fig5:pmc6p_3d} shows the 6-12-6 sided pyramid obtained for Dunnville Sandstone in the three-dimensional space. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{ch5/pmc6p_3d1}
+    \includegraphics[width=\columnwidth]{ch5/pmc6p_3d2}
+    \caption{Paul-Mohr-Coulomb 6-12-6 sided failure surface pyramid for Dunnville Sandstone}
+    \label{fig5:pmc6p_3d}
+\end{figure}
+
+A summary of the Paul-Mohr-Coulomb six parameters solution and the mean standard deviation misfits obtained for Dunnville Sandstone is presented in Table \ref{tb5:dunn_summary}. The fittings provided by Mohr-Coulomb, Hoek-Brown, three and six parameters Paul-Mohr-Coulomb criteria can now be compared using the mean standard deviation misfits values obtained (cf. Table \ref{tb5:stand_dev}). 
+The six parameters Paul-Mohr-Coulomb criterion provides the best prediction with the least mean standard deviation misfits for the two planes. This can be explained by the combination of the intermediate stress inclusion in the failure criterion general equation and the approximation of the failure surface non linearity, giving the most accurate states of stress prediction at failure. The observation of the six parameters Paul-Mohr-Coulomb and Hoek-Brown fittings in the $(p-q)$ and $\pi$- planes also presents for the first one a better approximation of the true-triaxial data points, but also of the axisymmetric ones, which wasn't the case with the three parameters Paul-Mohr-Coulomb. 
+
+The program developed for the Paul-Mohr-Coulomb criterion was generalized so it can be used to fit of other rocks. A summary of the results obtained for rocks with available database from literature is provided in APPENDIX D REF{APPENDIX D}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
+
