@@ -38,23 +38,24 @@ class Plane_HB:
         self.t = self.t * pi/180
        
         # Fitting parameters and coefficients for Hoek-Brown
-        self.Co = data[0,0] 
-        self.mc = (self.Co/get_C(data)[:,2])*(np.square((get_C(data)[:,0]-get_C(data)[:,2])/self.Co)-1)
+        #self.Co = data[0,0] 
+        #self.mc = (self.Co/get_C(data)[:,2])*(np.square((get_C(data)[:,0]-get_C(data)[:,2])/self.Co)-1)
         
-        mtC = []
-        bset = []
-        err = []
-        for i in range(self.mc.size):
-                if np.isnan(self.mc[i]) == False and np.isinf(self.mc[i]) == False :
-                    mtC.append(self.mc[i])
-        for j in np.linspace(int(np.min(mtC)), int(np.max(mtC)), num=100):
-            bset.append(j)
-            diff_calc = get_C(data)[:,2]+self.Co*np.sqrt((j/self.Co)*get_C(data)[:,2]+1)-get_C(data)[:,0]
-            diff = np.mean(diff_calc)
-            err.append(diff)
-        err = np.array(err)
-        m = bset[np.argmin(abs(err))]
-        self.m = m
+        #mtC = []
+        #bset = []
+        #err = []
+        #for i in range(self.mc.size):
+        #        if np.isnan(self.mc[i]) == False and np.isinf(self.mc[i]) == False :
+        #            mtC.append(self.mc[i])
+        #for j in np.linspace(int(np.min(mtC)), int(np.max(mtC)), num=100):
+        #    bset.append(j)
+        #    diff_calc = get_C(data)[:,2]+self.Co*np.sqrt((j/self.Co)*get_C(data)[:,2]+1)-get_C(data)[:,0]
+        #    diff = np.mean(diff_calc)
+        #    err.append(diff)
+        #err = np.array(err)
+        #m = bset[np.argmin(abs(err))]
+        self.Co = 42.35 
+        self.m = 3.1025
         self.Vo = self.Co/self.m
         
         self.sol = np.array([self.Co,self.m,self.Vo])
