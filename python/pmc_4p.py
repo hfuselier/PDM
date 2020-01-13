@@ -22,16 +22,6 @@ def create_P1_and_P2(P1_C,P2_C,P1_E,P2_E,P1_o,P2_o):
     P2 = Plane((P2_C,P2_E,P2_o))
     
     return P1, P2
-            
-def qCfit(P,x): # Compute q for plane fitting of compression data (p-q coordinate system)
-    phyCP = P.phyC
-    VoP = P.Vo
-    return (6*sin(phyCP)/(3-sin(phyCP)))*x+(6*VoP*tan(phyCP)*cos(phyCP)/(3-sin(phyCP)));
-
-def qEfit(P,x): # Compute q for plane fitting of extension data (p-q coordinate system)
-    phyEP = P.phyE
-    VoP = P.Vo
-    return -(6*sin(phyEP)/(3+sin(phyEP)))*x-(6*VoP*tan(phyEP)*cos(phyEP)/(3+sin(phyEP)));
 
 def sig1(P,x,y): # Compute sig for plane fitting (sig2-sig1 coordinate system)
     return (1/P.Nc)*(P.Vo+P.Nc*x+P.Ne*(y-x)+y)
@@ -148,7 +138,6 @@ class Plane:
         self.bc = bc
         self.be = be
         self.phyC = arcsin(3*bc/(6*self.Vo+bc))
-        self.phyE = arcsin(3*be/(6*self.Vo-be))
         if np.isin(60*pi/180, self.t)== True :
             self.phyE = arcsin(3*be/(6*self.Vo-be))
         elif np.isin(60*pi/180, self.t)== False:
