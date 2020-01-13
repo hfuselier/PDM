@@ -1,8 +1,42 @@
 import numpy as np
 from load import load_data
 from convert import convert
-from pmc2 import *
+from pmc import *
 from error_computation import *
+
+def brute_force_one_set(data_a,data_b,data_c):
+    bp_set = []
+    P1_b = data_b
+    P2_b = data_b
+    P1_c = data_c
+    P2_c = data_c
+    mean_error = []
+    mean_error_P1 = []
+    mean_error_P2 = []
+    
+    for i in tqdm(range(data_a.shape[0]-1,0,-1)):
+        bp_set.append([i])
+        P1_a = data_a[i:,:]
+        P2_a = data_a[:i,:]
+        P1, P2 = create_P1_and_P2(P1_a,P2_a,P1_b,P2_b,P1_c,P2_c)
+        mean_err, mean_err_P1, mean_err_P2 = error_computation(P1,P2)
+        mean_error.append(mean_err)
+        mean_error_P1.append(mean_err_P1)
+        mean_error_P2.append(mean_err_P2)
+
+    mean_error = np.array(mean_error)
+    mean_error_P1 = np.array(mean_error_P1)
+    mean_error_P2 = np.array(mean_error_P2)
+    bp_set = np.array(bp_set)
+    min_error_index = np.nanargmin(mean_error)
+    bpa=bp_set[min_error_index]
+    P1_a=data_a[int(bpa):,:]
+    P2_a=data_a[:int(bpa),:]
+    Err = mean_error[min_error_index]
+    Err_P1 = mean_error_P1[min_error_index]
+    Err_P2 = mean_error_P2[min_error_index]
+    
+    return Err,Err_P1, Err_P2, P1_a, P2_a, P1_b, P2_b, P1_c, P2_c
 
 def brute_force_two_sets(data_a,data_b,data_c):
     bp_set = []
@@ -93,14 +127,16 @@ def planes_def(data,d):
     data_o = get_o(data)[np.argsort(get_o(data)[:, 5])] # sorted with teta (Lode angle)
     
     ## ITERATIONS
-    if lin_C == 0 :
+    if lin_C != 0 and lin_E == 0 and lin_o == 0:
+        Err, Err_P1, Err_P2, P1_E, P2_E, P1_o, P2_o, P1_C, P2_C = brute_force_one_set(data_C,data_E,data_o)
+    if lin_C == 0 and lin_E != 0 and lin_o != 0:
         Err, Err_P1, Err_P2, P1_E, P2_E, P1_o, P2_o, P1_C, P2_C = brute_force_two_sets(data_E,data_o,data_C)
-    if lin_E == 0 :
+    if lin_E == 0 and lin_C != 0 and lin_o != 0:
         Err, Err_P1, Err_P2, P1_C, P2_C, P1_o, P2_o, P1_E, P2_E = brute_force_two_sets(data_C,data_o,data_E)
-    if lin_o == 0 :
+    if lin_o == 0 and lin_C != 0 and lin_E != 0:
         Err, Err_P1, Err_P2, P1_C, P2_C, P1_E, P2_E, P1_o, P2_o = brute_force_two_sets(data_C,data_E,data_o)
     if lin_C != 0 and lin_E != 0 and lin_o != 0 :
-        Err, Err_P1, Err_P2, P1_C, P2_C, P1_E, P2_E, P1_o, P2_o =brute_force_three_sets(data_C,data_E,data_o)
+        Err, Err_P1, Err_P2, P1_C, P2_C, P1_E, P2_E, P1_o, P2_o = brute_force_three_sets(data_C,data_E,data_o)
         
     
     ## RESULTS

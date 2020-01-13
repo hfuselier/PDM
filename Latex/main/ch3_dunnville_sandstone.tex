@@ -207,7 +207,7 @@ The following procedure was followed to setup and run the conventional triaxial 
     \sigma_a < \sigma_r
 \end{equation}
 
-\subsection{Tests results}
+\subsection{Results}
 
 Five conventional triaxial compression tests ($\sigma_r =  5,10,20,40$ and $\SIlist{60}{MPa}$) and three conventional triaxial extension tests ($\sigma_r = 35,40$ and $\SIlist{60}{MPa}$) were performed. The test results are summarized in Table \ref{tb3:CTC-CTE-results} and the stress-strain relationships for all tests are shown in Fig \ref{fig3:8}
 
@@ -241,7 +241,7 @@ Five conventional triaxial compression tests ($\sigma_r =  5,10,20,40$ and $\SIl
     \label{fig3:8}
 \end{figure} 
 
-\subsubsection{Conventional triaxial tests}
+\subsubsection{Conventional triaxial compression tests}
 
 \paragraph{Stress vs. strain plot}
 From \SIrange{0}{20}{MPa} of confining stress, the rock is in the brittle domain as the axial stress is dropping after reaching maximal axial stress. At higher confining pressures ($\sigma_r > \SI{40}{\mega\pascal}$ and $\sigma_r < \SI{60}{\mega\pascal}$), however, rock is transitioning from a brittle to ductile response as represented by the post-peak drop in stresses as seen in Fig. \ref{fig3:8}. Finally, the rock shows a ductile behavior under a confining stress of \SI{60}{MPa}, were the axial stress does not reach a peak value.
@@ -292,7 +292,7 @@ Fig \ref{fig3:10} shows a plot of the radial strain vs. the axial strain measure
 
 \paragraph{Failure surfaces}
 
-REWRITE *****Table \ref{tb3:photoCTC} presents pictures of the CTC tests specimens after failure, where failure surfaces are observable. For all the tests, the failure angle is about \ang{60}, which correspond well to the theory associated with the Mohr-Coulomb failure criterion of isotropic rock under triaxial compression.*******
+Table \ref{tb3:photoCTC} presents pictures of the CTC tests specimens after failure, where failure surfaces are observable. In ideal conditions with no friction at the interface with the applied stress, the specimen should show splitting in the direction of the major stress (Figure \ref{fig3:splitting}). Although the interface between the specimens and the platens was lubricated using stearic acid, some friction remained and a majority of the tested specimens shows failure angles of $\sim \ang{60}$. The specimen tested at a confining pressure of $\SI{60}{\mega\pascal}$ shows multiple fractures at the top and bottom, as well as horizontal splitting. At this value of confining stress, the rock behavior becomes ductile and begin to yield, leading to compaction of the solids constituting it. 
 
 \begin{table}
     \centering
@@ -304,17 +304,23 @@ REWRITE *****Table \ref{tb3:photoCTC} presents pictures of the CTC tests specime
      \includegraphics[width=0.17\columnwidth]{ch3/CT_failAng-001} &
      \includegraphics[width=0.19\columnwidth]{ch3/CT_failAng-002} &
      \includegraphics[width=0.16\columnwidth]{ch3/CT_failAng-003} &
-     \includegraphics[width=0.2\columnwidth]{ch3/ctc10} \\
+     \includegraphics[width=0.2\columnwidth]{ch3/ctc10_tab} \\
      \hline
-     $\theta = \ang{66}$ & $\theta = \ang{63}$  &  $\theta = \ang{57}$ & $\theta = \ang{58}$ & $\theta = multiple$ \\
+     $\theta = \ang{66}$ & $\theta = \ang{63}$  &  $\theta = \ang{57}$ & $\theta = \ang{58}$ & $\theta \simeq \ang{0}$ \\
      \hline
     \end{tabular}
     \caption{Failure surfaces for conventional triaxial compression tests}
     \label{tb3:photoCTC}
 \end{table}
 
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\columnwidth]{ch3/split}
+    \caption{Theoretical specimen failure}
+    \label{fig3:splitting}
+\end{figure} 
 
-\subsubsection{Conventional triaxial tests}
+\subsubsection{Conventional triaxial extension tests}
 
 \paragraph{Stress vs. strain plot}
 
@@ -326,7 +332,8 @@ Fig \ref{fig3:8} presents the axial stress vs. axial strain curves for the exten
 
 \paragraph{Failure surfaces}
 
-REWRITE ******Table \ref{tb3:photoCTE} presents pictures of the CTE tests specimens after failure. From Mohr-Coulomb theory, the expected orientation of the failure surface for isotropic rocks under triaxial compression is horizontal. The tested specimen show failures surfaces close to horizontal. The observable variations for \SI{35}{MPa} and \SI{60}{MPa} come from the small anisotropy due to the rock bedding, as the angles correspond to the bedding angles. ******* 
+Table \ref{tb3:photoCTE} presents pictures of the CTE tests specimens after failure. In ideal conditions with no friction at the interface with the applied stress, the specimen should show splitting in the direction of the major stress (Figure \ref{fig3:splitting}). The tested specimens shows failure angles close to horizontal splitting. The small deviation from this ideal condition can be explained by a remaining friction between the membrane and the specimen, and the localized anisotropy, as failure seems to follow the bedding planes orientation. 
+
 
 \begin{table}
     \centering

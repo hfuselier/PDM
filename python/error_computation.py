@@ -1,7 +1,7 @@
 import numpy as np
 from load import load_data
 from convert import convert
-from pmc2 import *
+from pmc import *
 
 def error_computation(P1,P2):
     ## Error based on AsigI+BsigII+CsigIII=1
@@ -67,7 +67,7 @@ def standard_dev(P,criterion):
                 # Hoek-Brown criterion
                 elif criterion == 'HB':
                     sig_calc = P.data[j,2]+P.Co*np.sqrt((P.m/P.Co)*P.data[j,2]+1)
-                setE = setE + np.square(sig_test-sig_calc)
+                seto = seto + np.square(sig_test-sig_calc)
         
         if nC ==0:
             sC=0 
