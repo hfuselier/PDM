@@ -87,7 +87,7 @@ class Plane_MC:
         self.t = self.t * pi/180
         
         # Fitting parameters and coefficients for Mohr-Coulomb
-        self.Co = 41.784
+        self.Co = 43.092
         #self.K = (get_C(data)[:,0]-self.Co)/get_C(data)[:,2]
         #K = []
         #err = []
@@ -102,7 +102,7 @@ class Plane_MC:
         #    err.append(diff)
         #err = np.array(err)
         #Kp = bset[np.argmin(abs(err))]
-        self.Kp = 2.026
+        self.Kp = 2.119
         self.phi = arcsin((self.Kp-1)/(self.Kp+1))
         self.Vo = self.Co/(self.Kp-1) 
         self.c = self.Co*(1-sin(self.phi))/(2*cos(self.phi))

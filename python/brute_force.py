@@ -32,11 +32,11 @@ def brute_force_one_set(data_a,data_b,data_c):
     bpa=bp_set[min_error_index]
     P1_a=data_a[int(bpa):,:]
     P2_a=data_a[:int(bpa),:]
-    Err = mean_error[min_error_index]
-    Err_P1 = mean_error_P1[min_error_index]
-    Err_P2 = mean_error_P2[min_error_index]
+    #Err = mean_error[min_error_index]
+    #Err_P1 = mean_error_P1[min_error_index]
+    #Err_P2 = mean_error_P2[min_error_index]
     
-    return Err,Err_P1, Err_P2, P1_a, P2_a, P1_b, P2_b, P1_c, P2_c
+    return P1_a, P2_a, P1_b, P2_b, P1_c, P2_c
 
 def brute_force_two_sets(data_a,data_b,data_c):
     bp_set = []
@@ -69,11 +69,11 @@ def brute_force_two_sets(data_a,data_b,data_c):
     P2_a=data_a[:int(bpa),:]
     P1_b=data_b[int(bpb):,:]
     P2_b=data_b[:int(bpb),:]
-    Err = mean_error[min_error_index]
-    Err_P1 = mean_error_P1[min_error_index]
-    Err_P2 = mean_error_P2[min_error_index]
+    #Err = mean_error[min_error_index]
+    #Err_P1 = mean_error_P1[min_error_index]
+    #Err_P2 = mean_error_P2[min_error_index]
     
-    return Err,Err_P1, Err_P2, P1_a, P2_a, P1_b, P2_b, P1_c, P2_c
+    return P1_a, P2_a, P1_b, P2_b, P1_c, P2_c #Err,Err_P1, Err_P2, 
 
 def brute_force_three_sets(data_a,data_b,data_c):
     bp_set = [] 
@@ -109,11 +109,11 @@ def brute_force_three_sets(data_a,data_b,data_c):
     P2_b=data_b[:int(bpb),:]
     P1_c=data_c[int(bpc):,:]
     P2_c=data_c[:int(bpc),:]
-    Err = mean_error[min_error_index]
-    Err_P1 = mean_error_P1[min_error_index]
-    Err_P2 = mean_error_P2[min_error_index]
+    #Err = mean_error[min_error_index]
+    #Err_P1 = mean_error_P1[min_error_index]
+    #Err_P2 = mean_error_P2[min_error_index]
     
-    return Err, Err_P1, Err_P2, P1_a, P2_a, P1_b, P2_b, P1_c, P2_c
+    return P1_a, P2_a, P1_b, P2_b, P1_c, P2_c #Err, Err_P1, Err_P2, 
 
 def planes_def(data,d):
     
@@ -128,15 +128,15 @@ def planes_def(data,d):
     
     ## ITERATIONS
     if lin_C != 0 and lin_E == 0 and lin_o == 0:
-        Err, Err_P1, Err_P2, P1_C, P2_C, P1_E, P2_E, P1_o, P2_o = brute_force_one_set(data_C,data_E,data_o)
+        P1_C, P2_C, P1_E, P2_E, P1_o, P2_o = brute_force_one_set(data_C,data_E,data_o)
     if lin_C == 0 and lin_E != 0 and lin_o != 0:
-        Err, Err_P1, Err_P2, P1_E, P2_E, P1_o, P2_o, P1_C, P2_C = brute_force_two_sets(data_E,data_o,data_C)
+        P1_E, P2_E, P1_o, P2_o, P1_C, P2_C = brute_force_two_sets(data_E,data_o,data_C)
     if lin_E == 0 and lin_C != 0 and lin_o != 0:
-        Err, Err_P1, Err_P2, P1_C, P2_C, P1_o, P2_o, P1_E, P2_E = brute_force_two_sets(data_C,data_o,data_E)
+        P1_C, P2_C, P1_o, P2_o, P1_E, P2_E = brute_force_two_sets(data_C,data_o,data_E)
     if lin_o == 0 and lin_C != 0 and lin_E != 0:
-        Err, Err_P1, Err_P2, P1_C, P2_C, P1_E, P2_E, P1_o, P2_o = brute_force_two_sets(data_C,data_E,data_o)
+        P1_C, P2_C, P1_E, P2_E, P1_o, P2_o = brute_force_two_sets(data_C,data_E,data_o)
     if lin_C != 0 and lin_E != 0 and lin_o != 0 :
-        Err, Err_P1, Err_P2, P1_C, P2_C, P1_E, P2_E, P1_o, P2_o = brute_force_three_sets(data_C,data_E,data_o)
+        P1_C, P2_C, P1_E, P2_E, P1_o, P2_o = brute_force_three_sets(data_C,data_E,data_o)
         
     
     ## RESULTS

@@ -54,8 +54,14 @@ class Plane_HB:
         #    err.append(diff)
         #err = np.array(err)
         #m = bset[np.argmin(abs(err))]
-        self.Co = 42.35 
-        self.m = 3.1025
+        
+        ## All points
+        #self.Co = 42.35 
+        #self.m = 3.1025
+        
+        ## Six points
+        self.Co = 41.40
+        self.m = 3.6479
         self.Vo = self.Co/self.m
         
         self.sol = np.array([self.Co,self.m,self.Vo])
