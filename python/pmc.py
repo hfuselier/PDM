@@ -155,7 +155,7 @@ class Plane:
         
         # Fitting parameters and coefficients for Paul-Mohr-Coulomb
         self.cc = (self.bc*(3-sin(self.phyC)))/(6*cos(self.phyC))
-        self.ce = (self.be*(3-sin(self.phyE)))/(6*cos(self.phyE))
+        self.ce = (self.be*(3+sin(self.phyE)))/(6*cos(self.phyE))
         self.mc = (6*sin(self.phyC)/(3-sin(self.phyC)))
         self.me = (6*sin(self.phyE)/(3+sin(self.phyE)))
         self.param = np.array([self.mc, self.me])

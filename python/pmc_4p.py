@@ -17,9 +17,9 @@ def get_t(data): # Gives Lodge angle of all the points
     return data[:,5]
 
 # Creates fitting Planes P2 and P1
-def create_P1_and_P2(P1_C,P2_C,P1_E,P2_E,P1_o,P2_o): 
-    P1 = Plane((P1_C,P1_E,P1_o))
-    P2 = Plane((P2_C,P2_E,P2_o))
+def create_P1_and_P2(P1_C,P2_C): 
+    P1 = Plane(P1_C)
+    P2 = Plane(P2_C)
     
     return P1, P2
 
@@ -98,10 +98,7 @@ def p_planes(pconst,P1,P2,p_trans,offset):
 # From the Plane class we get all necessary data for P1 or P2
 class Plane:
     def __init__(self,data):
-        if type(data)==tuple:
-            self.data = np.concatenate(data,axis=0)
-        else:
-            self.data = data
+        self.data = data
         
         self.sig123 = self.data[:,:3].transpose()
         self.pts = np.zeros(self.sig123.shape)
@@ -134,22 +131,19 @@ class Plane:
         k = x[1]
         self.k = k
         self.Vo = bc/x[0]
-        be = 2*bc/(1-sqrt(3)*k)
+        #be = 2*bc/(1-sqrt(3)*k)
         self.bc = bc
-        self.be = be
         self.phyC = arcsin(3*bc/(6*self.Vo+bc))
-        if np.isin(60*pi/180, self.t)== True :
-            self.phyE = arcsin(3*be/(6*self.Vo-be))
-        elif np.isin(60*pi/180, self.t)== False:
-            self.phyE = self.phyC
+        self.phyE = self.phyC
+        self.be = 6*self.Vo*sin(self.phyE)/(3+sin(self.phyE))
         self.sol = np.array([self.Vo, self.phyC*180/pi, self.phyE*180/pi])
        
         
         # Fitting parameters and coefficients for Paul-Mohr-Coulomb
         self.cc = (self.bc*(3-sin(self.phyC)))/(6*cos(self.phyC))
-        self.ce = (self.be*(3-sin(self.phyE)))/(6*cos(self.phyE))
-        self.mc = (6*sin(self.phyC)/(3-sin(self.phyC)))
-        self.me = (6*sin(self.phyE)/(3+sin(self.phyE)))
+        self.ce = (self.be*(3+sin(self.phyE)))/(6*cos(self.phyE))
+        self.mc = self.bc/self.Vo
+        self.me = self.be/self.Vo
         self.param = np.array([self.mc, self.me])
         self.str = np.array([self.bc, self.be, self.cc, self.ce])
         

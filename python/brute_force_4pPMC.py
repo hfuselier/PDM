@@ -1,15 +1,12 @@
 import numpy as np
 from load import load_data
 from convert import convert
-from pmc2 import *
-from error_computation import *
+from pmc_4p import *
+from error_computation import error_computation
+from error_computation_4pPMC import *
 
-def brute_force_one_set(data_a,data_b,data_c):
+def brute_force_one_set(data_a):
     bp_set = []
-    P1_b = data_b
-    P2_b = data_b
-    P1_c = data_c
-    P2_c = data_c
     mean_error = []
     mean_error_P1 = []
     mean_error_P2 = []
@@ -18,7 +15,7 @@ def brute_force_one_set(data_a,data_b,data_c):
         bp_set.append([i])
         P1_a = data_a[i:,:]
         P2_a = data_a[:i,:]
-        P1, P2 = create_P1_and_P2(P1_a,P2_a,P1_b,P2_b,P1_c,P2_c)
+        P1, P2 = create_P1_and_P2(P1_a,P2_a)
         mean_err, mean_err_P1, mean_err_P2 = error_computation(P1,P2)
         mean_error.append(mean_err)
         mean_error_P1.append(mean_err_P1)
@@ -36,14 +33,22 @@ def brute_force_one_set(data_a,data_b,data_c):
     Err_P1 = mean_error_P1[min_error_index]
     Err_P2 = mean_error_P2[min_error_index]
     
-    return Err,Err_P1, Err_P2, P1_a, P2_a, P1_b, P2_b, P1_c, P2_c
+    return P1_a, P2_a
+
+def allocation(P1,P2,data_E,data_o):
+    P1_data = []
+    P2_data = []
+    data = np.concatenate([data_E,data_o])
+    for i in range(data.shape[0]):
+        err_P1, err_P2 = error_computation_4p(P1,P2,data[i,:])
+        if err_P1 < err_P2:
+            P1_data.append(data[i,:])
+        elif err_P1 > err_P2:
+            P2_data.append(data[i,:])
+
+    return P1_data,P2_data
 
 def planes_def(data,d):
-    
-    lin_C = d['pC'].size
-    lin_E = d['pE'].size
-    lin_o = d['po'].size
-    print(lin_C,lin_E,lin_o)
     
     ## INITIALIZATION
     data_C = get_C(data)[np.argsort(get_C(data)[:, 3])] # sorted with p (mean stress)
@@ -51,33 +56,27 @@ def planes_def(data,d):
     data_o = get_o(data)[np.argsort(get_o(data)[:, 5])] # sorted with teta (Lode angle)
     
     ## ITERATIONS
-    if lin_C != 0 and lin_E == 0 and lin_o == 0:
-        Err, Err_P1, Err_P2, P1_E, P2_E, P1_o, P2_o, P1_C, P2_C = brute_force_one_set(data_C,data_E,data_o)
-    if lin_C == 0 and lin_E != 0 and lin_o != 0:
-        Err, Err_P1, Err_P2, P1_E, P2_E, P1_o, P2_o, P1_C, P2_C = brute_force_two_sets(data_E,data_o,data_C)
-    if lin_E == 0 and lin_C != 0 and lin_o != 0:
-        Err, Err_P1, Err_P2, P1_C, P2_C, P1_o, P2_o, P1_E, P2_E = brute_force_two_sets(data_C,data_o,data_E)
-    if lin_o == 0 and lin_C != 0 and lin_E != 0:
-        Err, Err_P1, Err_P2, P1_C, P2_C, P1_E, P2_E, P1_o, P2_o = brute_force_two_sets(data_C,data_E,data_o)
-    if lin_C != 0 and lin_E != 0 and lin_o != 0 :
-        Err, Err_P1, Err_P2, P1_C, P2_C, P1_E, P2_E, P1_o, P2_o = brute_force_three_sets(data_C,data_E,data_o)
-        
-    
+    P1_C, P2_C = brute_force_one_set(data_C) 
     ## RESULTS
-    P1_init, P2_init = create_P1_and_P2(P1_C,P2_C,P1_E,P2_E,P1_o,P2_o)
-
+    P1_init, P2_init = create_P1_and_P2(P1_C,P2_C)
     if P1_init.Vo < P2_init.Vo :
         P1 = P2_init
         P2 = P1_init
     elif P1_init.Vo > P2_init.Vo :
         P1 = P1_init
-        P2 = P2_init
-    
+        P2 = P2_init 
     print(P1.sol)
     print(P2.sol)
     
-    S_P1 = standard_dev(P1,'PMC')
-    S_P2 = standard_dev(P2,'PMC')
+    ## ALLOCATIONS OF E AND o DATA TO P1 OR P2
+    P1_data, P2_data = allocation(P1,P2,data_E,data_o)
+    P1_data = np.concatenate([P1.data,P1_data])
+    P2_data = np.concatenate([P2.data,P2_data])
+    print(P1_data)
+    print(P2_data)
+    
+    S_P1 = standard_dev_4p(P1,P1_data)
+    S_P2 = standard_dev_4p(P2,P2_data)
     
     
     return P1, P2, S_P1, S_P2

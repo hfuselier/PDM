@@ -128,7 +128,7 @@ def planes_def(data,d):
     
     ## ITERATIONS
     if lin_C != 0 and lin_E == 0 and lin_o == 0:
-        Err, Err_P1, Err_P2, P1_E, P2_E, P1_o, P2_o, P1_C, P2_C = brute_force_one_set(data_C,data_E,data_o)
+        Err, Err_P1, Err_P2, P1_C, P2_C, P1_E, P2_E, P1_o, P2_o = brute_force_one_set(data_C,data_E,data_o)
     if lin_C == 0 and lin_E != 0 and lin_o != 0:
         Err, Err_P1, Err_P2, P1_E, P2_E, P1_o, P2_o, P1_C, P2_C = brute_force_two_sets(data_E,data_o,data_C)
     if lin_E == 0 and lin_C != 0 and lin_o != 0:
