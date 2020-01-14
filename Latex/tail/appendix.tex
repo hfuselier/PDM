@@ -1,25 +1,83 @@
 \appendix
 \chapter{Notations}\label{App:A}
 The following symbols are used in the thesis:
-\begin{table}
-    \begin{tabular}{lp{\textwidth}}
+\begin{table}[h]
+    \begin{tabular}{ll}
         $A, B, C$ & material parameters used for Paul-Mohr-Coulomb failure criterion \\
+        $b$ & width of the prismatic specimen  \\
         $b_c$ & intercept of axisymmetric compression line in ($p-q$) plane \\
         $b_e$ & intercept of axisymmetric extension line in ($p-q$) plane \\
         $C_0$ & uniaxial compressive strength \\
         $c$ & cohesion \\
+        $d$ & cylindrical specimen diameter \\
         $E$ & Young's modulus \\
+        $err$ & distance between a data point and its fitted plane \\
+        $h$ & specimen height \\
         $I_1$ & first invariant of stress state \\
         $J_2$ & second invariant of stress state \\
         $J_3$ & third invariant of stress state \\
-        $k$ & slope of PMC failure line in $\pi$-plane \\
+        $k$ & slope of Paul-Mohr-Coulomb failure line in $\pi$-plane \\
+        $K_p$ & slope of the Mohr-Coulomb failure line in $(\sigma_3-\sigma_1)$ plane \\
+        $L$ & length of the prismatic specimen \\ 
+        $M_c$ & slope of the Paul-Mohr-Coulomb compression line in $(\sigma_3-\sigma_1)$ plane \\
+        $M_e$ & slope of the Paul-Mohr-Coulomb extension line in $(\sigma_3-\sigma_1)$ plane \\
+        $MSE$ & mean square error \\
         $m$ & parameter for Hoek-Brown criterion \\
-        $m_c$ & slope of the ??????? compression \\
-        $m_e$ & slope of the ??????? extension \\
-        
-    \end{tabular}\\
+        $m_c$ & slope of the axisymmetric compression line in the $(p-q)$ plane\\
+        $m_e$ & slope of the axisymmetric extension line in the $(p-q)$ plane\\
+        $p$ & mean stress\\
+        $p_c$ & mean stress of P1 and P2 intersection point in $(p-q)$ plane for compression \\
+        $p_e$ & mean stress of P1 and P2 intersection point in $(p-q)$ plane for extension \\  
+        $P1$ & plane 1 \\
+        $P2$ & plane 2 \\
+        $q$ & deviatoric stress \\
+        $q_c$ & deviatoric stress for triaxial compression \\
+        $q_e$ & deviatoric stress for triaxial extension \\
+    \end{tabular}
 \end{table}
-\chapter{pi-plane}
+
+\begin{table}
+    \begin{tabular}{ll}
+        $S_{ij}$ & deviator stress \\
+        $\bar{S}$ & mean standard deviation misfit \\
+        $s_i$ & standard deviation of the tests series $i$ \\
+        $V_0$ & theoretical isotropic tensile strength \\
+        $V_0^{(1)}$ & theoretical isotropic tensile strength for P1 \\
+        $V_0^{(2)}$ & theoretical isotropic tensile strength for P2 \\
+        $V_P$ & P-wave speed \\
+        $x_1, x_2, x_3$ & component of the vector solution from least-square fitting\\
+        $\alpha$ & $b_c/b_e$ \\
+        $\delta_{ij}$ & Kronecker delta \\
+        $\epsilon_{II}$ & intermediate principal strain \\
+        $\epsilon_a$ & axial strain \\
+        $\epsilon_l$ & lateral strain \\
+        $\phi$ & friction angle \\
+        $\phi^{(1)}$ & friction angle for P1 \\
+        $\phi^{(2)}$ & friction angle for P2 \\
+        $\phi_c$ & friction angle for axisymmetric compression \\
+        $\phi_c^{(1)}$ & compression friction angle for P1 \\
+        $\phi_c^{(2)}$ & compression friction angle for P2 \\
+        $\phi_e$ & friction angle for axisymmetric extension \\
+        $\phi_e^{(1)}$ & extension friction angle for P1 \\
+        $\phi_e^{(2)}$ & extension friction angle for P2 \\
+        $\nu$ & Poisson's ratio \\
+        $\theta$ & Lode angle (angle from $\sigma_1^*$ in the $\pi$-plane) \\
+        $\rho$ & dry density \\
+        $\sigma$ & normal stress \\
+        $\sigma_a$ & axial stress \\
+        $\sigma_r$ & radial stress \\
+        $\sigma_{ij}$ & stress component \\
+        $\sigma_{1,2}$ & stress at the end of phase 1 of the constant mean stress true-triaxial experiment \\
+        $\sigma_{I},\sigma_{II},\sigma_{III} $ & major, intermediate and minor principal stresses\\
+        $\sigma_{1},\sigma_{2},\sigma_{3} $ & principal stresses with no regard to magnitude\\
+        $\sigma_{1}^*,\sigma_{2}^*,\sigma_{3}^* $ & projection of the principal stress axes in $\pi$-plane \\
+        $\sigma_{I,j}^{test}$ & major stress of data point $j$ \\
+        $\sigma_{I,j}^{calc}$ & predicted major stress \\
+        $\tau$ & shear stress \\
+    \end{tabular}
+\end{table}
+
+\chapter{\texorpdfstring{$\pi$}{pi} -plane}
 \chapter{PMC failure surfaces type}
 \chapter{Python code}
 \chapter{PMC for rocks in literature}

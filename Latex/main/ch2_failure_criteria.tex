@@ -19,10 +19,10 @@ Equation \ref{eq2:rockfail} can be simplified in the case of isotropic materials
 where $\sigma_{I}$, $\sigma_{II}$ and $\sigma_{III}$ are the major, intermediate and minor principal stresses. In addition, other stress invariants can be used:
 
 \begin{equation}\label{eq2:fijjconst}
-    f\left(I_{I}, J_{II}, J_{III} \right)=\text { constant }
+    f\left(I_{1}, J_{2}, J_{3} \right)=\text { constant }
 \end{equation}
 
-$I_{I}$ is the first invariant of the stress tensor $\sigma_{ij}$, $J_{II}$ and $J_{III}$ are respectively, the second and third invariants of the deviatoric stress tensor $S_{ij}=\sigma_{ij}-p\delta_{ij}$: 
+$I_{1}$ is the first invariant of the stress tensor $\sigma_{ij}$, $J_{2}$ and $J_{3}$ are respectively, the second and third invariants of the deviatoric stress tensor $S_{ij}=\sigma_{ij}-p\delta_{ij}$: 
 
 \begin{equation}
    I_1 = \sigma_{I} + \sigma_{II} + \sigma_{III}
@@ -49,7 +49,7 @@ with
 \end{equation}
 
 \begin{equation}\label{eq2:theta}
-    \theta=\frac{1}{3} \arccos \left(\frac{3 \sqrt{3}}{2} \frac{J_{3}}{J_{2}^{3 / 2}}\right)=\arctan \left[\frac{\sqrt{3}\left(\sigma_{M}-\sigma_{M}\right)}{2 \sigma_{I}-\sigma_{I I}-\sigma_{M I}}\right]
+    \theta=\frac{1}{3} \arccos \left(\frac{3 \sqrt{3}}{2} \frac{J_{3}}{J_{2}^{3 / 2}}\right)=\arctan \left[\frac{\sqrt{3}\left(\sigma_{II}-\sigma_{III}\right)}{2 \sigma_{I}-\sigma_{II}-\sigma_{III}}\right]
 \end{equation}
 
 The Lode angle is a measure of the stress state: $0^{\circ} \leq \theta \leq 60^{\circ}$ , particularly $\theta = 0^{\circ}$  for axisymmetric compression $\sigma_{II} = \sigma_{III} $ and $\theta = 60^{\circ}$ in the case of axisymmetric extension ($\sigma_{II} = \sigma_{I} $). 
@@ -160,18 +160,18 @@ By rearranging Equation \ref{eq2:MCfinalform} and incorporating the conditions f
 Expanding and substituting Equation \ref{eq2:p2} and \ref{eq2:p2} into \ref{eq2:MCcrit}, the following equation is obtained:: 
 
 \begin{equation}
-    q(3-\sin \phi) = 6p \sin \phi + 6 c\cos \phi
+    q_c(3-\sin \phi) = 6p \sin \phi + 6 c\cos \phi
 \end{equation}
 
 Finally, the Mohr-Coulomb failure surface formulation in the $(p-q)$ plane is defined by Equation \ref{eq2:q-CTC} for CTC:
 
 \begin{equation}\label{eq2:q-CTC}
-    q=\frac{6 \sin \phi}{3-\sin \phi} p+\frac{6 \operatorname{ccos} \phi}{3-\sin \phi} 
+    q_c=\frac{6 \sin \phi}{3-\sin \phi} p+\frac{6 \operatorname{ccos} \phi}{3-\sin \phi} 
 \end{equation}
 
 Following the same approach as that for CTC, the M-C criterion for CTE may be written as:
 \begin{equation}\label{eq2:q-CTE}
-    q=\frac{6 \sin \phi}{3+\sin \phi} p+\frac{6 c \cos \phi}{3+\sin \phi}
+    q_e=\frac{6 \sin \phi}{3+\sin \phi} p+\frac{6 c \cos \phi}{3+\sin \phi}
 \end{equation}
 
 or in the condensed form: 
@@ -266,8 +266,8 @@ By rearranging and inserting $p$  and $q$ in Equation \ref{eq2:HB-crit-pq}, impl
 
 
 \begin{align}
-    q&=\frac{1}{6}\left(\pm \sqrt{C_{0}} \sqrt{C_{0} m^{2}+36 C_{0}+36 m p}-C_{0} m\right) \label{eq2:HB-q-CTC} \\
-    q&=\frac{1}{3}\left(\pm \sqrt{C_{0}^{2} m^{2}+9 C_{0}^{2}+9 C_{0} m p}+C_{0} m\right) \label{eq2:HB-q-CTE}
+    q_c&=\frac{1}{6}\left(\pm \sqrt{C_{0}} \sqrt{C_{0} m^{2}+36 C_{0}+36 m p}-C_{0} m\right) \label{eq2:HB-q-CTC} \\
+    q_e&=\frac{1}{3}\left(\pm \sqrt{C_{0}^{2} m^{2}+9 C_{0}^{2}+9 C_{0} m p}+C_{0} m\right) \label{eq2:HB-q-CTE}
 \end{align}
 
 The Hoek-Brown criterion surface fitting in the $(p-q)$ plane is presented in Figure \ref{fig2:hb_pq}, where the positive root of Equation \ref{eq2:HB-q-CTC} and the negative root of Equation \ref{eq2:HB-q-CTE} are considered.
@@ -352,11 +352,11 @@ Paul-Mohr-Coulomb failure surfaces in $(\sigma_3 -\sigma_1)$ coordinates system 
 The PMC in the $(p-q)$ coordinate system for axisymmetric loading may be defined as:
 
 \begin{equation}\label{eq2:pmc-q-CTC}
-    q=\frac{6 \sin \phi_{c}}{3-\sin \phi_{c}} p+\frac{6 c_{c} \cos \phi_{c}}{3-\sin \phi_{c}}
+    q_c=\frac{6 \sin \phi_{c}}{3-\sin \phi_{c}} p+\frac{6 c_{c} \cos \phi_{c}}{3-\sin \phi_{c}}
 \end{equation}
 
 \begin{equation}\label{eq2:pmc-q-CTE}
-    q=\frac{6 \sin \phi_{e}}{3+\sin \phi_{e}} p+\frac{6 c_{e} \cos  \phi_{e}}{3+\sin \phi_{e}}
+    q_e=\frac{6 \sin \phi_{e}}{3+\sin \phi_{e}} p+\frac{6 c_{e} \cos  \phi_{e}}{3+\sin \phi_{e}}
 \end{equation}
 
 or in the indicial form as:
