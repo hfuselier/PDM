@@ -149,9 +149,6 @@ def planes_def(data,d):
         P1 = P1_init
         P2 = P2_init
     
-    print(P1.sol)
-    print(P2.sol)
-    
     S_P1 = standard_dev(P1,'PMC')
     S_P2 = standard_dev(P2,'PMC')
     

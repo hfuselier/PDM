@@ -1,6 +1,7 @@
 import numpy as np
 from numpy import sin, tan ,cos, pi, sqrt, arcsin
 from tqdm.auto import tqdm
+from convert import *
 
 def get_C(data): # Gives all points from conventional compression (CTC)
     return data[data[:,5] == 0]
@@ -113,6 +114,7 @@ class Plane:
         else:
             self.data = data
         
+        self.d = convert(self.data)
         self.sig123 = self.data[:,:3].transpose()
         self.pts = np.zeros(self.sig123.shape)
         
@@ -148,7 +150,11 @@ class Plane:
         self.bc = bc
         self.be = be
         self.phyC = arcsin(3*bc/(6*self.Vo+bc))
-        self.phyE = arcsin(3*be/(6*self.Vo-be))
+        if self.d['E'].size == 0:
+            self.phyE = self.phyC
+            self.be = 6*self.Vo*sin(self.phyE)/(3+sin(self.phyE))
+        elif self.d['E'].size != 0:
+            self.phyE = arcsin(3*be/(6*self.Vo-be))
         self.sol = np.array([self.Vo, self.phyC*180/pi, self.phyE*180/pi])
        
         

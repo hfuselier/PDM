@@ -48,7 +48,7 @@ class Plane_HB:
         #self.m = 3.6479
         
         self.Vo = self.Co/self.m
-        self.sol = np.array([self.Co,self.m,self.Vo])
+        self.sol = np.array([self.m,self.Co,self.Vo])
         
         ## Alternative way to define m by fixing C_0 from experiments
         #self.Co = data[0,0] 

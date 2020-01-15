@@ -217,6 +217,64 @@ Section (vi) : $\sigma_I = \sigma_1$, $\sigma_{II} = \sigma_3$ and $\sigma_{III}
 
 
 \chapter{Fitting program}\label{App:C}
+
+The resources of the program developed for failure criteria fitting are available at the following address: https://github.com/hfuselier/PDM/tree/master/python.
+
+Its objective is to provide a fitting solution and representations of the failure surface in three-dimensions and in the $\pi$-plane for the Paul-Mohr-Coulomb failure criterion. The development of the program was considered to enable the fitting of the three-parameter, six-parameter and simplified Paul-Mohr-Coulomb criterion. The README.txt file explains how to use the program for the evaluation  of the Paul-Mohr-Coulomb failure criterion and the comparison with the Mohr-Coulomb and Hoek-Brown failure criteria. 
+
+The files gather in the "python" folder are organized as presented in Table \ref{tbC:files}.
+\begin{table}[b!]
+    \centering
+    \caption{Organization of the program}
+    \begin{tabular}{cc}
+        \hline
+        Application & Associated files\\
+        \hline
+        \hline
+        Paul-Mohr-Coulomb with three parameters & $pmc.py$,\\
+         & $brute\_force.py$, \\
+         & $error\_computation.py$,\\
+         & $Plot\_one\_plane.ipynb$\\
+         \\
+        Paul-Mohr-Coulomb with six parameters & $pmc.py$, \\
+         & $brute\_force.py$, \\
+         & $error\_computation.py$,\\
+         & $Plot\_3D\_6-12-6.ipynb$\\
+        \\
+        Simplified Paul-Mohr-Coulomb & $pmc\_4p.py$,\\
+        & $brute\_force\_4p.py$, \\
+        & $error\_computation\_4p.py$,\\
+        & $Plot\_3D\_6-12-6.ipynb$\\
+       \\
+    \end{tabular}
+    \label{tbC:files}
+\end{table}
+\begin{table}
+    \centering
+    \begin{tabular}{cc}
+        \hline
+        Application & Associated files\\
+        \hline
+        \hline
+        Mohr-Coulomb fitting with all data & $mc.py$, \\
+         & $error\_computation.py$,\\
+         & $Plot\_one\_plane.ipynb$\\
+        \\
+        Hoek-Brown fitting with all data & $hb.py$, \\
+         & $error\_computation.py$,\\
+         & $Plot\_one\_plane.ipynb$\\
+        \\
+        Mohr-Coulomb fitting with six data & $mc.py$, \\
+         & $error\_computation\_4p.py$,\\
+         & $Plot\_one\_plane.ipynb$\\
+        \\
+        Hoek-Brown fitting with six data & $hb.py$, \\
+         & $error\_computation\_4p.py$,\\
+         & $Plot\_one\_plane.ipynb$
+    \end{tabular}
+\end{table}
+
+
 \chapter{Paul-Mohr-Coulomb failure surface}\label{App:D}
 
 \begin{figure}
@@ -234,3 +292,4 @@ Section (vi) : $\sigma_I = \sigma_1$, $\sigma_{II} = \sigma_3$ and $\sigma_{III}
 \end{figure}
 
 \chapter{PMC for rocks in literature}\label{App:E}
+
