@@ -59,7 +59,7 @@ Equations \ref{eq2:fsigconst}, \ref{eq2:fijjconst} and \ref{eq2:fpqtconst} sugge
 \begin{figure}[tb]
     \centering
     \includegraphics[width=\columnwidth]{ch2/pyramid.png}
-    \caption{Failure surface in (a) the principal stress space and (b) the $\pi$-plane \cite[Labuz 2018]{Labuz2018}}
+    \caption{Failure surface in (a) the principal stress space and (b) the $\pi$-plane \cite{Labuz2018}}
     \label{fig2:pyramid}
 \end{figure}
 
@@ -119,8 +119,8 @@ Fig \ref{fig2:mc_sig1sig3} presents the graphical construction of Mohr-Coulomb e
 
 \begin{figure}[tb]
     \centering
-    \includegraphics[width=\columnwidth]{ch2/mc_sig1sig3}
-    \caption{Mohr-Coulomb criterion failure surface in  $(\sigma_3 -\sigma_1)$ plane}
+    \includegraphics[width=0.75\columnwidth]{ch2/mc_sig1sig3}
+    \caption{Schematic representation of the Mohr-Coulomb criterion failure surface in $(\sigma_3 -\sigma_1)$ plane}
     \label{fig2:mc_sig1sig3}
 \end{figure}
 
@@ -157,7 +157,7 @@ By rearranging Equation \ref{eq2:MCfinalform} and incorporating the conditions f
     \left(\sigma_a - \sigma_r\right) = \left(\sigma_a+\sigma_r\right)\sin \phi + 2 c\cos \phi
 \end{equation}
 
-Expanding and substituting Equation \ref{eq2:p2} and \ref{eq2:p2} into \ref{eq2:MCcrit}, the following equation is obtained:: 
+Expanding and substituting Equation \ref{eq2:p2} and \ref{eq2:p2} into \ref{eq2:MCcrit}, the following equation is obtained:
 
 \begin{equation}
     q_c(3-\sin \phi) = 6p \sin \phi + 6 c\cos \phi
@@ -170,6 +170,7 @@ Finally, the Mohr-Coulomb failure surface formulation in the $(p-q)$ plane is de
 \end{equation}
 
 Following the same approach as that for CTC, the M-C criterion for CTE may be written as:
+
 \begin{equation}\label{eq2:q-CTE}
     q_e=\frac{6 \sin \phi}{3+\sin \phi} p+\frac{6 c \cos \phi}{3+\sin \phi}
 \end{equation}
@@ -199,18 +200,18 @@ Figure \ref{fig2:mc_pq} presents the graphical construction of the failure surfa
 
 \begin{figure}[tb]
     \centering
-    \includegraphics[width=\columnwidth]{ch2/mc_pq}
-    \caption{Schematic representation of Mohr-Coulomb criterion failure surface in  $(p-s)$plane}
+    \includegraphics[width=0.9\columnwidth]{ch2/mc_pq}
+    \caption{Schematic representation of Mohr-Coulomb criterion failure surface in the $(p-q)$plane}
     \label{fig2:mc_pq}
 \end{figure} 
 
 \subsubsection{Mohr-Coulomb in the \texorpdfstring{$\pi$}{pi}-plane}\label{ch2:MC_pi}
 
-The Mohr-Coulomb failure envelope in the $\pi$-plane is presented in Figure \ref{fig2:mc_pi}. The failure surfaces can be obtained by inserting Equation \ref{eq2:sig1} and \ref{eq2:sig3} in the criterion formulation defined by \ref{eq2:MCcondenseform}. The obtained expressions and their development are presented in APPENDIX B REF{APPENDIX B}. 
+The Mohr-Coulomb failure envelope in the $\pi$-plane is presented in Figure \ref{fig2:mc_pi}. The failure surfaces can be obtained by inserting Equation \ref{eq2:sig1} and \ref{eq2:sig3} in the criterion formulation defined by \ref{eq2:MCcondenseform}. The obtained expressions and their development are presented in Appendix \ref{App:B}. 
 
 \begin{figure}[tb]
     \centering
-    \includegraphics[width=\columnwidth]{ch2/mc_pi}
+    \includegraphics[width=0.75\columnwidth]{ch2/mc_pi}
     \caption{Schematic representation of Mohr-Coulomb criterion failure surface in  $\pi$plane}
     \label{fig2:mc_pi}
 \end{figure} 
@@ -228,7 +229,6 @@ Hoek and Brown (1980) \cite{Hoek1980} define $m$ and $s$  as constants that depe
 \subsubsection{Hoek-Brown in the \texorpdfstring{$(\sigma_3 -\sigma_1)$}{sigma 3 - sigma 1} plane}
 
 In $(\sigma_3 -\sigma_1)$ coordinate system, and for the axisymmetric triaxial compression tests, the Hoek-Brown criterion may be written as:
-
 \begin{equation}\label{eq2:HBsig1_CTC}
     \sigma_{a}=\sigma_{r}+C_{0} \sqrt{m \frac{\sigma_{r}}{C_{0}}+1}
 \end{equation}
@@ -249,7 +249,7 @@ Figure \ref{fig2:hb_sig1sig3} presents the Hoek-Brown failure surfaces in the $(
 
 \begin{figure}[tb]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ch2/hb_sig1sig3}
+    \includegraphics[width=0.75\columnwidth]{ch2/hb_sig1sig3}
     \caption{Schematic representation of Hoek-Brown criterion failure surface in $(\sigma_3 -\sigma_1)$ plane.}
     \label{fig2:hb_sig1sig3}
 \end{figure} 
@@ -274,18 +274,18 @@ The Hoek-Brown criterion surface fitting in the $(p-q)$ plane is presented in Fi
 
 \begin{figure}[tb]
     \centering
-    \includegraphics[width=\columnwidth]{ch2/hb_pq}
+    \includegraphics[width=0.8\columnwidth]{ch2/hb_pq}
     \caption{Schematic representation of Hoek-Brown criterion failure surface in $(p-q)$ plane.}
     \label{fig2:hb_pq}
 \end{figure} 
 
 \subsubsection{Hoek-Brown in the \texorpdfstring{$\pi$}{pi} plane}\label{ch2:HB_pi}
 
-The Hoek-Brown failure criterion in the $\pi$-plane is presented in Figure \ref{fig2:hb_pi} The failure surfaces can be obtained by inserting Equation \ref{eq2:sig1} and \ref{eq2:sig3} in \ref{eq2:HB-crit}. The obtained expressions and their development are presented in APPENDIX B REF{APPENDIX B}. In Figure \ref{fig2:hb_pi}, the surfaces are exaggerated to show the non-linearity of the criterion.  
+The Hoek-Brown failure criterion in the $\pi$-plane is presented in Figure \ref{fig2:hb_pi} The failure surfaces can be obtained by inserting Equation \ref{eq2:sig1} and \ref{eq2:sig3} in \ref{eq2:HB-crit}. The obtained expressions and their development are presented in Appendix \ref{App:B}. In Figure \ref{fig2:hb_pi}, the surfaces are exaggerated to show the non-linearity of the criterion.  
 
 \begin{figure}[tb]
     \centering
-    \includegraphics[width=\columnwidth]{ch2/hb_pi}
+    \includegraphics[width=0.75\columnwidth]{ch2/hb_pi}
     \caption{Schematic representation of Hoek-Brown criterion failure surface in $\pi$ plane.}
     \label{fig2:hb_pi}
 \end{figure} 
@@ -342,7 +342,7 @@ Paul-Mohr-Coulomb failure surfaces in $(\sigma_3 -\sigma_1)$ coordinates system 
 
 \begin{figure}[tb]
     \centering
-    \includegraphics[width=\columnwidth]{ch2/pmc_sig1sig3}
+    \includegraphics[width=0.75\columnwidth]{ch2/pmc_sig1sig3}
     \caption{Schematic representation of Paul-Mohr-Coulomb criterion failure surface in $(\sigma_3 -\sigma_1)$ plane.}
     \label{fig2:pmc_sig1sig3}
 \end{figure} 
@@ -360,7 +360,6 @@ The PMC in the $(p-q)$ coordinate system for axisymmetric loading may be defined
 \end{equation}
 
 or in the indicial form as:
-
 \begin{equation}\label{eq2:PMC_pq}
     q = m_{c,e}p+b_{c,e}
 \end{equation}
@@ -377,7 +376,7 @@ Figure 2.3 for Mohr-Coulomb can be used to represent Paul-Mohr-Coulomb criterion
 
 \subsubsection{Paul-Mohr-Coulomb in the \texorpdfstring{$\pi$}{pi} plane}\label{ch2:PMC_pi}
 
-The representation of the Paul-Mohr-Coulomb failure criterion in the $\pi$-plane is similar to Mohr-Coulomb presented in Figure \ref{fig2:mc_pi}. The failure surfaces can be obtained by inserting Equation \ref{eq2:sig1} and \ref{eq2:sig3} in \ref{eq2:PMC_dev}. The obtained expressions and their development are presented in Appendix %\ref{App:A}. 
+The representation of the Paul-Mohr-Coulomb failure criterion in the $\pi$-plane is similar to Mohr-Coulomb presented in Figure \ref{fig2:mc_pi}. The failure surfaces can be obtained by inserting Equation \ref{eq2:sig1} and \ref{eq2:sig3} in \ref{eq2:PMC_dev}. The obtained expressions and their development are presented in Appendix \ref{App:B}. 
 
 \section{Paul-Mohr-Coulomb fitting }\label{ch2:pmcfit}
 

@@ -18,13 +18,14 @@ Dunnville Sandstone is composed of 90\% of medium-grained quartz and a small amo
 \begin{figure}[tb]
     \centering
     \includegraphics[width=0.4\columnwidth]{ch3/20191016_151842}
-    \includegraphics[width=0.2\columnwidth]{ch3/20191017_105210}
+    \includegraphics[width=0.15\columnwidth]{ch3/20191017_105210}
     \caption{Dunnville sandstone mineralogy}
     \label{fig3:1}
 \end{figure} 
 
 \begin{table}[h]
     \centering
+    \caption{Mineralogy of Dunnville Sandstone \cite{Tarokh2016}}
     \begin{tabular}{lc} \hline
         Mineral & Volume [\%] \\ \hline \hline
         Quartz & 90-95 \\ 
@@ -37,7 +38,6 @@ Dunnville Sandstone is composed of 90\% of medium-grained quartz and a small amo
         Hematite & Trace \\ 
         Iron-oxide & 1-2 \\ \hline
     \end{tabular}
-    \caption{Mineralogy of Dunnville Sandstone \cite{Tarokh2016}}
     \label{tb3:mineralogy}
 \end{table}
 
@@ -90,9 +90,9 @@ Where:
 Fig \ref{fig3:2} present the stress-strain plot obtained from the uniaxial compression test. The uniaxial compressive strength of the rock specimen is calculated as: 
 
 
-\begin{figure}[tb]
+\begin{figure}[p]
     \centering
-    \includegraphics[width=\columnwidth]{ch3/ucs.pdf}
+    \includegraphics[width=0.9\columnwidth]{ch3/ucs.pdf}
     \caption{Stress and Strain relationship for the uniaxial compression test}
     \label{fig3:2}
 \end{figure} 
@@ -109,10 +109,10 @@ Young’s modulus of the rock is computed using the loading-unloading cycle:
 
 Fig \ref{fig3:3} presents the specimen after the test. The failed specimen showed axial splitting and a failure surface with a conical shape. 
 
-\begin{figure}[tb]
+\begin{figure}[p]
     \centering
     \includegraphics[width=0.4\columnwidth]{ch3/ucs.png}
-    \caption{Stress and Strain relationship for the uniaxial compression test}
+    \caption{Failed specimen after the uniaxial compression test}
     \label{fig3:3}
 \end{figure} 
 
@@ -126,7 +126,7 @@ A Hoek -Franklin pressure cell was used to perform the conventional triaxial tes
 
 \begin{figure}[tb]
     \centering
-    \includegraphics[width=0.4\columnwidth]{ch3/20191008_171805}
+    \includegraphics[width=0.4\columnwidth]{ch3/hoekcell}
     \caption{Hoek-Franklin cell}
     \label{fig3:4}
 \end{figure} 
@@ -144,7 +144,7 @@ A rubber membrane was used to isolate the specimen and the loading platens from 
 
 \begin{figure}[tb]
     \centering
-    \includegraphics[width=0.4\columnwidth]{ch3/ctc10}
+    \includegraphics[width=0.3\columnwidth]{ch3/ctc10}
     \caption{Membrane hosting the rock specimen in the Hoek-Franklin cell}
     \label{fig3:6}
 \end{figure} 
@@ -163,7 +163,7 @@ In addition to standard preparation, one specimen (TC 9 at $\sigma_r = \SI{5.0}{
 
 \begin{figure}[tb]
     \centering
-    \includegraphics[width=0.4\columnwidth]{ch3/straingage.png}
+    \includegraphics[width=0.25\columnwidth]{ch3/straingage.png}
     \caption{Strain Gage set up on a CTC specimen}
     \label{fig3:7}
 \end{figure} 
@@ -213,6 +213,7 @@ Five conventional triaxial compression tests ($\sigma_r =  5,10,20,40$ and $\SIl
 
 \begin{table}
     \centering
+    \caption{Summary of CTC and CTE tests results}
     \begin{tabular}{cccccccc}
         \hline 
         Test & $\sigma_1$ [\si{MPA}] & $\sigma_2$ [\si{MPA}] &$\sigma_3$ [\si{MPA}] & $p$ [\si{MPA}] & $q$ [\si{MPA}] & $\theta$ [\si{\degree}] & $E_i$ [\si{MPA}] \\
@@ -230,13 +231,12 @@ Five conventional triaxial compression tests ($\sigma_r =  5,10,20,40$ and $\SIl
         TE 2  & 60    & 60 & 9.68 & 43.01 & 50.98 & 60 & 8695  \\
         \hline
     \end{tabular}
-    \caption{Summary of CTC and CTE tests results}
     \label{tb3:CTC-CTE-results}
 \end{table}
 
-\begin{figure}[tb]
+\begin{figure}[p]
     \centering
-    \includegraphics[width=\columnwidth]{ch3/CTC_summ}
+    \includegraphics[width=\columnwidth]{ch3/StressStrain_summ1}
     \caption{Summary of the stress-strain relationships for the triaxial compression and extension tests}
     \label{fig3:8}
 \end{figure} 
@@ -249,8 +249,9 @@ From \SIrange{0}{20}{MPa} of confining stress, the rock is in the brittle domain
 \paragraph{Mohr circles plot}
 The conventional triaxial compression results can also be presented on a Mohr plane, where the Mohr circles and the non-linear failure envelope are shown (Figure \ref{fig3:9}). This plot indicates that the friction angle for Dunnville sandstone is stress dependent and cannot be represented using the Mohr-Coulomb linear failure envelope for the entire range of possible stress states. The nonlinear failure envelope, however, may be linearized over small stress intervals as shown in Fig \ref{fig3:9}. The corresponding Mohr-Coulomb strength parameters (friction angle $\phi$ and cohesion intercept $c$) are summarized in Table \ref{tb3:MC-param}.
 
-\begin{table}
+\begin{table}[h]
     \centering
+    \caption{Mohr-Coulomb strength parameters for various stress regimes for Dunnville sandstone}
     \begin{tabular}{ccc}
         \hline
         Segment & [$\phi$ \si{\degree}] & $c$[\si{MPa}] \\
@@ -262,11 +263,10 @@ The conventional triaxial compression results can also be presented on a Mohr pl
         40 – 60 MPa & 4.72  & 36.94  \\
         \hline
     \end{tabular}
-    \caption{Mohr-Coulomb strength parameters for various stress regimes for Dunnville sandstone}
     \label{tb3:MC-param}
 \end{table}
 
-\begin{figure}[tb]
+\begin{figure}[hp]
     \centering
     \includegraphics[width=\columnwidth]{ch3/mohrcoulomb}
     \caption{Mohr-Coulomb circles for the conventional triaxial compression tests.}
@@ -283,9 +283,9 @@ Poisson’s ratio of Dunnville sandstone was computed using the results of the a
 
 Fig \ref{fig3:10} shows a plot of the radial strain vs. the axial strain measured during the test.
 
-\begin{figure}[tb]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=\columnwidth]{ch3/poisson}
+    \includegraphics[width=0.9\columnwidth]{ch3/poisson}
     \caption{Poisson's ratio of Dunnville sandstone}
     \label{fig3:10}
 \end{figure} 
@@ -296,6 +296,7 @@ Table \ref{tb3:photoCTC} presents photos of the CTC tests specimens after failur
 
 \begin{table}
     \centering
+    \caption{Failure surfaces for conventional triaxial compression tests}
     \begin{tabular}{|c|c|c|c|c|}
      \hline
      $\sigma_r = \SI{5}{MPa}$ & $\sigma_r = \SI{10}{MPa}$ &  $\sigma_r = \SI{20}{MPa}$ & $\sigma_r = \SI{40}{MPa}$ & $\sigma_r = \SI{60}{MPa}$ \\
@@ -309,16 +310,8 @@ Table \ref{tb3:photoCTC} presents photos of the CTC tests specimens after failur
      $\theta = \ang{66}$ & $\theta = \ang{63}$  &  $\theta = \ang{57}$ & $\theta = \ang{58}$ & $\theta \simeq \ang{0}$ \\
      \hline
     \end{tabular}
-    \caption{Failure surfaces for conventional triaxial compression tests}
     \label{tb3:photoCTC}
 \end{table}
-
-\begin{figure}[tb]
-    \centering
-    \includegraphics[width=0.7\columnwidth]{ch3/split}
-    \caption{Theoretical specimen failure}
-    \label{fig3:splitting}
-\end{figure} 
 
 \subsubsection{Conventional triaxial extension tests}
 
@@ -337,6 +330,7 @@ Table \ref{tb3:photoCTE} presents photos of the CTE tests specimens after failur
 
 \begin{table}
     \centering
+    \caption{Failure surfaces for conventional triaxial extension tests}
     \begin{tabular}{|c|c|c|}
      \hline
      $\sigma_r = \SI{35}{MPa}$ & $\sigma_r = \SI{40}{MPa}$ &  $\sigma_r = \SI{60}{MPa}$ \\
@@ -348,7 +342,6 @@ Table \ref{tb3:photoCTE} presents photos of the CTE tests specimens after failur
      $\theta = \ang{10}$ & $\theta = \ang{0}$  &  $\theta = \ang{27}$ \\
      \hline
     \end{tabular}
-    \caption{Failure surfaces for conventional triaxial extension tests}
     \label{tb3:photoCTE}
 \end{table}
 
