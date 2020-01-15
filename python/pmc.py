@@ -148,8 +148,7 @@ class Plane:
         self.bc = bc
         self.be = be
         self.phyC = arcsin(3*bc/(6*self.Vo+bc))
-        #self.phyE = arcsin(3*be/(6*self.Vo-be))
-        self.phyE = self.phyC
+        self.phyE = arcsin(3*be/(6*self.Vo-be))
         self.sol = np.array([self.Vo, self.phyC*180/pi, self.phyE*180/pi])
        
         

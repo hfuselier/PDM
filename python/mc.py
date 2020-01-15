@@ -87,7 +87,23 @@ class Plane_MC:
         self.t = self.t * pi/180
         
         # Fitting parameters and coefficients for Mohr-Coulomb
-        self.Co = 43.092
+        
+        # With only 6 points from CTC
+        #self.Co = 43.092
+        #self.Kp = 2.119
+        
+        # With all points from the database
+        self.Co = 41.78
+        self.Kp = 2.026
+        self.phi = arcsin((self.Kp-1)/(self.Kp+1))
+        self.Vo = self.Co/(self.Kp-1) 
+        self.c = self.Co*(1-sin(self.phi))/(2*cos(self.phi))
+        self.sol = np.array([self.phi*180/pi,self.c,self.Co,self.Kp,self.Vo])
+        self.A = 1/self.Co
+        self.B = 0
+        self.C = -self.Kp/self.Co
+        
+        # Alternative way to define Kp by fixing C_0 from experiments
         #self.K = (get_C(data)[:,0]-self.Co)/get_C(data)[:,2]
         #K = []
         #err = []
@@ -102,14 +118,6 @@ class Plane_MC:
         #    err.append(diff)
         #err = np.array(err)
         #Kp = bset[np.argmin(abs(err))]
-        self.Kp = 2.119
-        self.phi = arcsin((self.Kp-1)/(self.Kp+1))
-        self.Vo = self.Co/(self.Kp-1) 
-        self.c = self.Co*(1-sin(self.phi))/(2*cos(self.phi))
-        self.sol = np.array([self.phi*180/pi,self.c,self.Co,self.Kp,self.Vo])
-        self.A = 1/self.Co
-        self.B = 0
-        self.C = -self.Kp/self.Co
         
     def get_pC(self):
         return get_p(get_C(self.data))

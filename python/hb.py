@@ -38,9 +38,21 @@ class Plane_HB:
         self.t = self.t * pi/180
        
         # Fitting parameters and coefficients for Hoek-Brown
+        
+        ## All points
+        self.Co = 42.35 
+        self.m = 3.1025
+        
+        ## Six points
+        #self.Co = 41.40
+        #self.m = 3.6479
+        
+        self.Vo = self.Co/self.m
+        self.sol = np.array([self.Co,self.m,self.Vo])
+        
+        ## Alternative way to define m by fixing C_0 from experiments
         #self.Co = data[0,0] 
         #self.mc = (self.Co/get_C(data)[:,2])*(np.square((get_C(data)[:,0]-get_C(data)[:,2])/self.Co)-1)
-        
         #mtC = []
         #bset = []
         #err = []
@@ -54,17 +66,6 @@ class Plane_HB:
         #    err.append(diff)
         #err = np.array(err)
         #m = bset[np.argmin(abs(err))]
-        
-        ## All points
-        #self.Co = 42.35 
-        #self.m = 3.1025
-        
-        ## Six points
-        self.Co = 41.40
-        self.m = 3.6479
-        self.Vo = self.Co/self.m
-        
-        self.sol = np.array([self.Co,self.m,self.Vo])
         
     def get_pC(self):
         return get_p(get_C(self.data))
