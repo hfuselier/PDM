@@ -73,7 +73,7 @@ The database presented in Table \ref{tb5:database} is based on the work of Zeng 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Evaluation of the failure criteria}\label{ch5:evaluation}
 
-The Mohr-Coulomb, Hoek-Brown and Paul-Mohr-Coulomb failure criteria presented in Chapter \ref{ch2:title} were fitted to the experiment results of Dunnville sandstone from Table \ref{tb5:database}. A computation program was developed for the fittings using the programming language Python. All the resources needed to access the program files are listed in Appendix REF{APPENDIX B}. 
+The Mohr-Coulomb, Hoek-Brown and Paul-Mohr-Coulomb failure criteria presented in Chapter \ref{ch2:title} were fitted to the experiment results of Dunnville sandstone from Table \ref{tb5:database}. A computation program was developed for the fittings using the programming language Python. All the resources needed to access the program files are listed in Appendix \ref{App:C}. 
 
 The three failure criteria are evaluated through their representation in the three coordinates systems presented in Chapter \ref{ch2:title}, and their accuracy in terms of how good they fit the data. In this study, this "accuracy" is chosen to be evaluated by comparing the least mean standard deviation misfits, as proposed by Benz et al. (2008) \cite{Benz2008}. 
 
@@ -339,7 +339,9 @@ The three parameter criterion describes a regular 6-sided pyramid in the princip
 \end{table}
 
 \begin{table}
-    \centering 
+    \centering
+    \captionsetup{justification=centering}
+    \caption{Types of failure surfaces for the six parameters Paul-Mohr-Coulomb criterion}
     \begin{tabular}{cc}
         \hline 
         Type of failure surface & Parameters conditions   \\
@@ -354,12 +356,10 @@ The three parameter criterion describes a regular 6-sided pyramid in the princip
         (iv) 6-12-6 sided & $\phi_{c}^{(1)} < \phi_{c}^{(2)}$, $\phi_{e}^{(1)}$ < $\phi_{e}^{(2)}$, $p_c = p_e$\\ 
         \hline
     \end{tabular}
-    \captionsetup{justification=centering}
-    \caption{Types of failure surfaces for the six parameters Paul-Mohr-Coulomb criterion}
     \label{tb5:pmc6p_pyramids}
 \end{table}
 
-The complete graphical representation of the Paul-Mohr-Coulomb failure surface is composed of the $(p-q)$ plane, the $(\sigma_{II}-\sigma_{I})$ plane, the $\pi$-plane and the principal stresses three-dimensional space. The transition between $P2$ and $P1$ is well represented in the $(p-q)$ plane, where they intersect on the compression side at the mean stress value $p_c$ and on the extension side at $p_e$. In the case of the failure surface type (ii), these transitions points have different values leading to a 12 sided transition zone on the pyramid for mean stress values $p \in \left[p_c;p_e\right]$. Sketches of the 6-12-6 sided failure surface in different planes and in the three-dimensional space are presented in Figure \ref{fig5:6pmc_typeii}, where the $(\sqrt{3}p-\sigma_{1}^*)$ plane is equivalent to the $(p-q)$ plane. More schematic representations and details on the four failure surfaces types are provided in APPENDIX C REF{APPENDIX C}.
+The complete graphical representation of the Paul-Mohr-Coulomb failure surface is composed of the $(p-q)$ plane, the $(\sigma_{II}-\sigma_{I})$ plane, the $\pi$-plane and the principal stresses three-dimensional space. The transition between $P2$ and $P1$ is well represented in the $(p-q)$ plane, where they intersect on the compression side at the mean stress value $p_c$ and on the extension side at $p_e$. In the case of the failure surface type (ii), these transitions points have different values leading to a 12 sided transition zone on the pyramid for mean stress values $p \in \left[p_c;p_e\right]$. Sketches of the 6-12-6 sided failure surface in different planes and in the three-dimensional space are presented in Figure \ref{fig5:6pmc_typeii}, where the $(\sqrt{3}p-\sigma_{1}^*)$ plane is equivalent to the $(p-q)$ plane. More schematic representations and details on the four failure surfaces types are provided in Appendix \ref{App:D}.
 
 \begin{figure}
     \centering
@@ -413,7 +413,7 @@ The dataset combination $k$ that obtains the minimal $MSE$ value provides the be
 
 \subsubsection{Program resources}
 
-This algorithm was implemented in the programming language Python. The resources on the program developed to solve the two planes fitting problem are gathered in APPENDIX B. It contains the Python files required to run the program and a \emph{README} document that explains how to use the program. Moreover, all the code files are commented in detail to ease their use and understanding.  
+This algorithm was implemented in the programming language Python. The resources on the program developed to solve the two planes fitting problem are gathered in Appendix \ref{App:C}. It contains the Python files required to run the program and a \emph{README} document that explains how to use the program. Moreover, all the code files are commented in detail to ease their use and understanding.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dunnville sandstone}
@@ -426,6 +426,8 @@ The solution obtained from the least-square solution fitting describe in Chapter
 
 \begin{table} [p]
     \centering 
+    \captionsetup{justification=centering}
+    \caption{$P1$ and $P2$ least-square solutions $x$ for Dunnville sandstone}
     \begin{tabular}{ccccc}
         \hline 
         Plane & $x_1^{(i)}$ & $x_2^{(i)}$ & $x_3^{(i)}$ \\
@@ -435,8 +437,6 @@ The solution obtained from the least-square solution fitting describe in Chapter
         $P2$ & 1.39 & -1.10 & 15.47 \\
         \hline
     \end{tabular}
-    \captionsetup{justification=centering}
-    \caption{$P1$ and $P2$ least-square solutions $x$ for Dunnville sandstone}
     \label{tb5:dunn_sol1}
 \end{table}
 
@@ -444,6 +444,8 @@ The strength parameters for Paul-Mohr-Coulomb failure criteria could be computed
 
 \begin{table} [p]
     \centering 
+    \captionsetup{justification=centering}
+    \caption{$P1$ and $P2$ strength parameters for Dunnville sandstone}
     \begin{tabular}{cccccc}
         \hline 
         Plane & $b_c^{(i)}$ [\si{MPa}] & $b_e^{(i)}$ [\si{MPa}] & $V_0^{(i)}$ [\si{MPa}] & $\phi_c^{(i)}$ [\si{\degree}] & $\phi_e^{(i)}$ [\si{\degree}] \\
@@ -453,8 +455,6 @@ The strength parameters for Paul-Mohr-Coulomb failure criteria could be computed
         $P2$ & 15.5 & 10.7 & $11.1$ & $34.3$ & $34.8$ \\
         \hline
     \end{tabular}
-    \captionsetup{justification=centering}
-    \caption{$P1$ and $P2$ strength parameters for Dunnville sandstone}
     \label{tb5:dunn_strpara}
 \end{table}
 
@@ -464,6 +464,8 @@ Knowing the strength parameters, the Paul-Mohr-Coulomb failure surface could be 
 
 \begin{table} [p]
     \centering 
+    \captionsetup{justification=centering}
+    \caption{$P1$ and $P2$ fitting parameters for Dunnville sandstone}
     \begin{tabular}{ccccc}
         \hline 
         Plane & $m_c^{(i)}$ [-] & $m_e^{(i)}$ [-] & $c_c^{(i)}$ [\si{MPa}] & $c_e^{(i)}$ [\si{MPa}] \\
@@ -473,13 +475,13 @@ Knowing the strength parameters, the Paul-Mohr-Coulomb failure surface could be 
         $P2$ & 1.39 & 0.96 & 7.61 & 5.26\\
         \hline
     \end{tabular}
-    \captionsetup{justification=centering}
-    \caption{$P1$ and $P2$ fitting parameters for Dunnville sandstone}
     \label{tb5:dunn_pq_para}
 \end{table}
 
 \begin{table} [p]
     \centering 
+    \captionsetup{justification=centering}
+    \caption{Paul-Mohr-Coulomb general equation coefficients for Dunnville sandstone}
     \begin{tabular}{ccccc}
         \hline 
         Plane & $A^{(i)}$ & $B^{(i)}$ & $C^{(i)}$ \\
@@ -489,13 +491,13 @@ Knowing the strength parameters, the Paul-Mohr-Coulomb failure surface could be 
         $P2$ & \num{3.47d-2} & \num{-8.31d-4} & \num{-1.24d-1} \\
         \hline
     \end{tabular}
-    \captionsetup{justification=centering}
-    \caption{Paul-Mohr-Coulomb general equation coefficients for Dunnville sandstone}
     \label{tb5:dunn_abc}
 \end{table}
 
 \begin{table} [p]
     \centering 
+    \captionsetup{justification=centering}
+    \caption{Summary of $P1$ and $P2$ strength parameters for Dunnville sandstone}
     \begin{tabular}{cccccc}
         \hline 
         Plane & $V_0^{(i)}$ [\si{MPa}] & $\phi_c^{(i)}$ [\si{\degree}] & $\phi_e^{(i)}$ [\si{\degree}] & $\bar{S}$ [\si{MPa}]\\
@@ -505,8 +507,6 @@ Knowing the strength parameters, the Paul-Mohr-Coulomb failure surface could be 
         $P2$ & $11.1$ & $34.3$ & $34.8$ & 6.59\\
         \hline
     \end{tabular}
-    \captionsetup{justification=centering}
-    \caption{Summary of $P1$ and $P2$ strength parameters for Dunnville sandstone}
     \label{tb5:dunn_summary}
 \end{table}
 
@@ -554,7 +554,7 @@ Finally, Figure \ref{fig5:pmc6p_3d} shows the 6-12-6 sided pyramid obtained for 
 A summary of the Paul-Mohr-Coulomb six parameters solution and the mean standard deviation misfits obtained for Dunnville Sandstone is presented in Table \ref{tb5:dunn_summary}. The fittings provided by Mohr-Coulomb, Hoek-Brown, three and six parameters Paul-Mohr-Coulomb criteria can be compared using the mean standard deviation misfits values obtained (Table \ref{tb5:stand_dev}). 
 The six parameter Paul-Mohr-Coulomb criterion provides the best prediction with the least mean standard deviation misfits for the two planes. This can be explained by the combination of the intermediate stress inclusion in the failure criterion general equation and the approximation of the failure surface non linearity, giving the most accurate states of stress prediction at failure. The observation of the six parameter Paul-Mohr-Coulomb and Hoek-Brown fittings in the $(p-q)$ and $\pi$- planes also presents for the first one a better approximation of the true-triaxial data points, but also of the axisymmetric ones, which was not the case with the three parameter Paul-Mohr-Coulomb. 
 
-The program developed for the Paul-Mohr-Coulomb criterion was generalized so that it can be used to fit of other rocks. A summary of the results obtained for rocks with available database from literature is provided in APPENDIX D REF{APPENDIX D}.
+The program developed for the Paul-Mohr-Coulomb criterion was generalized so that it can be used to fit of other rocks. A summary of the results obtained for rocks with available database from literature is provided in Appendix \ref{App:E}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
