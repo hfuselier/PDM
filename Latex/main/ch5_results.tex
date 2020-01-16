@@ -5,7 +5,7 @@
 
 The main objective of this study was to evaluate three failure criteria Dunnville sandstone. As explained in the previous chapters, the empirical nature of most failure criteria requires a thick database of diverse multi-axial experiments for their development. 
 
-Dunnville sandstone has been used for several works in the past and particularly for multi-axial experiments \cite{Labuz2018}\cite{Zeng2019}\cite{Tarokh2016}. The tests performed in the scope of this study (cf. Chapter \ref{ch4:title}) presented the opportunity to enrich the existing database and to evaluate the failure criteria with data representative of Dunnville sandstone response.
+Dunnville sandstone has been used for several works in the past and particularly for multi-axial experiments \cite{Labuz2018}\cite{Zeng2019}\cite{Tarokh2016}. The tests performed in the scope of this study (see Chapter \ref{ch4:title}) presented the opportunity to enrich the existing database and to evaluate the failure criteria with data representative of Dunnville sandstone response.
 
 The database presented in Table \ref{tb5:database} is based on the work of Zeng et al. (2019) \cite{Zeng2019} and extended with the results of the experiments from this study. In this table, each experiment is associated with the following elements: the orientation of the bedding regarding the application of the axial stress, the three principal stresses  $\sigma_I$,$\sigma_{II}$,$\sigma_{III}$) and the stress invariants ($p$, $q$, $\theta$). This database was used for the evaluation of Mohr-Coulomb, Hoek-Brown and Paul-Mohr-Coulomb failure criteria.
 
@@ -157,7 +157,7 @@ The mean standard deviation misfit obtained with the Mohr-Coulomb failure criter
 
 The Hoek-Brown failure criterion is also formulated in terms of two principal stresses (Equations \ref{eq2:HB-crit}) and strength parameters ($m$, $C_0$). Therefore, the fitting was done using only axisymmetric triaxial compression tests results ($\theta = 0^\circ$). 
 
-From this fitting, the strength parameters $m$ and $C_0$was determined and $V_0$ was computed: 
+From this fitting, the strength parameters $m$ and $C_0$ was determined, and $V_0$ was computed: 
 
 \begin{equation}
     m = 3.10 \quad \textrm{and} \quad C_0 = \SI{42.35}{\mega\pascal}
@@ -166,7 +166,9 @@ From this fitting, the strength parameters $m$ and $C_0$was determined and $V_0$
     V_0 = \frac{C_0}{m} = \SI{13.65}{\mega\pascal}
 \end{equation}
 
-Knowing the strength parameters, the Hoek-Brown failure surface is plotted in the $(\sigma_3-\sigma_1)$ plane using Equations \ref{eq2:HBsig1_CTC} for the compression line and \ref{eq2:HBsig1_CTE} for extension (Figure \ref{fig5:mc_sig1sig3}).
+Knowing the strength parameters, the Hoek-Brown failure surface is plotted in the $(\sigma_3-\sigma_1)$ plane using Equations \ref{eq2:HBsig1_CTC} for the compression line and \ref{eq2:HBsig1_CTE} for extension (Figure \ref{fig5:mc_sig1sig3}). In the $(p-q)$ plane, the Hoek-Brown failure criterion is plotted using Equations \ref{eq2:HB-q-CTC} for compression and \ref{eq2:HB-q-CTE} for extension, and shown in Figure \ref{fig5:hb_pq}. These surfaces are expressed in terms of $m$ and $C_0$ previously defined. Finally, the Hoek-Brown criterion is presented in the $\pi$-plane, obtained following the procedure described in Section \ref{ch2:HB_pi}. Figure \ref{fig5:hb_pi_plane} shows Hoek-Brown failure criterion in the pi-plane at different values of the mean stress $p$.
+
+The mean standard deviation misfit obtained with the Hoek-Brown failure criterion is $17.5$ \si{\mega\pascal}. 
 
 \begin{figure}[p]
     \centering
@@ -175,16 +177,12 @@ Knowing the strength parameters, the Hoek-Brown failure surface is plotted in th
     \label{fig5:hb_sig1sig3}
 \end{figure} 
 
-In the $(p-q)$ plane, the Hoek-Brown failure criterion is plotted using Equations \ref{eq2:HB-q-CTC} for compression and \ref{eq2:HB-q-CTE} for extension, and shown in Figure \ref{fig5:hb_pq}. These surfaces are expressed in terms of $m$ and $C_0$ previously defined. 
-
 \begin{figure}[p]
     \centering
     \includegraphics[width=0.7\columnwidth]{ch5/hb_pq}
     \caption{Hoek-Brown criterion failure surface in  $(p-q)$ plane}
     \label{fig5:hb_pq}
 \end{figure} 
-
-Finally, the Hoek-Brown criterion is presented in the $\pi$-plane, obtained following the procedure described in Section \ref{ch2:HB_pi}. Figure \ref{fig5:hb_pi_plane} shows Hoek-Brown failure criterion in the pi-plane at different values of the mean stress $p$.
 
 \begin{figure}[tb]
     \centering
@@ -193,8 +191,6 @@ Finally, the Hoek-Brown criterion is presented in the $\pi$-plane, obtained foll
     \caption{Hoek-Brown criterion failure surface in  $\pi$-plane}
     \label{fig5:hb_pi_plane}
 \end{figure} 
-
-The mean standard deviation misfit obtained with the Hoek-Brown failure criterion is $17.5$ \si{\mega\pascal}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Paul-Mohr-Coulomb failure criterion with one plane}\label{ch5:3p_pmc}
@@ -364,7 +360,7 @@ The complete graphical representation of the Paul-Mohr-Coulomb failure surface i
 \begin{figure}
     \centering
     \includegraphics[width=\columnwidth]{ch5/pmc6_typeii}
-    \caption{Paul-Mohr-Coulomb 6-12-6 sided failure surface graphical representations}
+    \caption{Six-parameter Paul-Mohr-Coulomb featuring the evolution of the 6 sided to 12 sided to 6 sided pyramidal failure surface in the (a) $\sqrt{3}p - \sigma_1^*$ plane; (b) principal stress space, transparent view; (c) principal stress space, opaque view; (d) $\pi$-plane \cite{Labuz2018}}
     \label{fig5:6pmc_typeii}
 \end{figure}
 
@@ -422,7 +418,7 @@ The program presented in the previous section was applied to the experimental re
 
 \subsubsection{Strength parameters computation}
 
-The solution obtained from the least-square solution fitting describe in Chapter 2 (cf. Section \ref{ch2:pmcfit}, Equations \ref{eq2:PMCfinalform} and \ref{eq2:pmc_be}) is presented in Table \ref{tb5:dunn_sol1}. 
+The solution obtained from the least-square solution fitting describe in Chapter 2 (cf. Section \ref{ch2:pmcfit}, Equations \ref{eq2:PMCfinalform} and \ref{eq2:pmc_be}) is presented in Table \ref{tb5:dunn_sol1}. The strength parameters for Paul-Mohr-Coulomb failure criteria could be computed from Equations \ref{eq2:pmc_vo} to \ref{eq2:pmc_c}. The values obtained are gathered in Table \ref{tb5:dunn_strpara}. 
 
 \begin{table} [p]
     \centering 
@@ -439,8 +435,6 @@ The solution obtained from the least-square solution fitting describe in Chapter
     \end{tabular}
     \label{tb5:dunn_sol1}
 \end{table}
-
-The strength parameters for Paul-Mohr-Coulomb failure criteria could be computed from Equations \ref{eq2:pmc_vo} to \ref{eq2:pmc_c}. The values obtained are gathered in Table \ref{tb5:dunn_strpara}. 
 
 \begin{table} [p]
     \centering 
@@ -526,7 +520,7 @@ The failure surface can also be plotted in the $(\sigma_{II}-\sigma_{I})$ plane.
     \label{fig5:pmc6p_sig1sig2}
 \end{figure}
 
-The failure surface planes are also presented in the $\pi$-plane, obtained following the procedure described in Section \ref{ch2:PMC}. Figure \ref{fig5:pmc6p_pi_plane} shows the failure criterion in the $\pi$-plane at different mean stresses $p$ that correspond to true-triaxial experiments mean stresses at failure for $0^\circ < \theta < 60^\circ$ in Table \ref{tb5:database}. In addition, Figure \ref{fig5:pmc6p_pi_transi} presents the projection of the $P2$,$P2-P1$ transition and $P1$ pyramids on the $\pi$-plane. 
+The failure surface planes are also presented in the $\pi$-plane, obtained following the procedure described in Section \ref{ch2:PMC}. Figure \ref{fig5:pmc6p_pi_plane} shows the failure criterion in the $\pi$-plane at different mean stresses $p$ that correspond to true-triaxial experiments mean stresses at failure for $0^\circ < \theta < 60^\circ$ in Table \ref{tb5:database}. In addition, Figure \ref{fig5:pmc6p_pi_transi} presents the projection of the $P2$, $P2-P1$ transition and $P1$ pyramids on the $\pi$-plane. 
 
 \begin{figure} [p]
     \centering

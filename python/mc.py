@@ -95,6 +95,7 @@ class Plane_MC:
         # With all points from the database
         self.Co = 41.78
         self.Kp = 2.026
+        
         self.phi = arcsin((self.Kp-1)/(self.Kp+1))
         self.Vo = self.Co/(self.Kp-1) 
         self.c = self.Co*(1-sin(self.phi))/(2*cos(self.phi))
