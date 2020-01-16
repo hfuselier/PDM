@@ -150,12 +150,14 @@ class Plane:
         self.bc = bc
         self.be = be
         self.phyC = arcsin(3*bc/(6*self.Vo+bc))
-        if self.d['E'].size == 0:
-            self.phyE = self.phyC
-            self.be = 6*self.Vo*sin(self.phyE)/(3+sin(self.phyE))
-        elif self.d['E'].size != 0:
-            self.phyE = arcsin(3*be/(6*self.Vo-be))
+        self.phyE = arcsin(3*be/(6*self.Vo-be))
+        #if self.d['E'].size == 0:
+        #    self.phyE = self.phyC
+        #    self.be = 6*self.Vo*sin(self.phyE)/(3+sin(self.phyE))
+        #elif self.d['E'].size != 0:
+        #    self.phyE = arcsin(3*be/(6*self.Vo-be))
         self.sol = np.array([self.Vo, self.phyC*180/pi, self.phyE*180/pi])
+        
        
         
         # Fitting parameters and coefficients for Paul-Mohr-Coulomb

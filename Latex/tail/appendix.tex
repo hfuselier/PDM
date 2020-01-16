@@ -220,13 +220,13 @@ Section (vi) : $\sigma_I = \sigma_1$, $\sigma_{II} = \sigma_3$ and $\sigma_{III}
 
 The resources of the program developed for failure criteria fitting are available at the following address: https://github.com/hfuselier/PDM/tree/master/python.
 
-Its objective is to provide a fitting solution and representations of the failure surface in three-dimensions and in the $\pi$-plane for the Paul-Mohr-Coulomb failure criterion. The development of the program was considered to enable the fitting of the three-parameter, six-parameter and simplified Paul-Mohr-Coulomb criterion. The README.txt file explains how to use the program for the evaluation  of the Paul-Mohr-Coulomb failure criterion and the comparison with the Mohr-Coulomb and Hoek-Brown failure criteria. 
+Its objective is to provide a fitting solution and representations of the failure surface in a three-dimensional space and in the $\pi$-plane for the Paul-Mohr-Coulomb failure criterion. The development of the program was considered to enable the fitting of the three-parameter, six-parameter and simplified Paul-Mohr-Coulomb criterion. The "\_README.pdf" file explains how to use the program for the evaluation  of the Paul-Mohr-Coulomb failure criterion and its comparison with the Mohr-Coulomb and Hoek-Brown failure criteria. 
 
 The files gather in the "python" folder are organized as presented in Table \ref{tbC:files}.
-\begin{table}[b!]
+\begin{table}[!b]
     \centering
     \caption{Organization of the program}
-    \begin{tabular}{cc}
+    \begin{tabular}{ll}
         \hline
         Application & Associated files\\
         \hline
@@ -251,7 +251,7 @@ The files gather in the "python" folder are organized as presented in Table \ref
 \end{table}
 \begin{table}
     \centering
-    \begin{tabular}{cc}
+    \begin{tabular}{ll}
         \hline
         Application & Associated files\\
         \hline
@@ -277,19 +277,47 @@ The files gather in the "python" folder are organized as presented in Table \ref
 
 \chapter{Paul-Mohr-Coulomb failure surface}\label{App:D}
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
-    \includegraphics[width=\columnwidth]{6pmc_typeiii}
+    \includegraphics[width=0.97\columnwidth]{6pmc_typeiii}
+    \captionsetup{justification=centering}
     \caption{Paul-Mohr-Coulomb 6-12 sided failure surface graphical representations from Labuz et al. (2018) \cite{Labuz2018}}
     \label{fig5:6pmc_typeiii}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=\columnwidth]{6pmc_typeiv}
+    \captionsetup{justification=centering}
     \caption{Paul-Mohr-Coulomb 6-6 sided failure surface graphical representations from Labuz et al. (2018) \cite{Labuz2018}}
     \label{fig5:6pmc_typeiv}
 \end{figure}
 
-\chapter{PMC for rocks in literature}\label{App:E}
+\chapter{Paul-Mohr-Coulomb failure criteria for rocks from literature}\label{App:E}
+
+The Paul-Mohr-Coulomb failure criterion was evaluated for rocks with published data (from Labuz et al. (2018) \cite{Labuz2018}) that provide a 6-12-6 failure surface. The obtained results are presented in Table \ref{AppE:litt_rock}.
+
+
+
+
+
+\begin{table}[!ht]
+    \centering 
+    \captionsetup{justification=centering}
+    \caption{Values of the six PMC parameters for selected rock with a 6-12-6 sided failure surface}
+    \begin{tabular}{lcccccc}
+        \hline
+        Rock & $V_0^{(1)}$ [\si{\mega\pascal}] & $\phi_c^{(1)}$ [\si{\degree}] & $\phi_e^{(1)}$ [\si{\degree}] & $V_0^{(2)}$ [\si{\mega\pascal}] & $\phi_c^{(2)}$ [\si{\degree}] & $\phi_c^{(2)}$ [\si{\degree}]\\
+        \hline
+        \hline
+        Darley Dale sandstone & 76.3 & 30.9 &  32.2 & 18.3 & 44.9 & 48.4 \\
+        Berea sandstone & 84.1 & 28.3 &  25.9 & 13.2 & 47.7 & 53.0 \\
+        Indiana limestone & 31.0 & 27.2 &  28.1 & 9.68 & 43.9 & 44.3 \\
+        Taiwan siltstone & 61.3 & 28.8 &  28.9 & 10.5 & 48.4 & 39.8 \\
+        Coconino sandstone & 50.7 & 36.8 &  36.8 & 7.81 & 53.3 & 55.1 \\
+        Bentheim sandstone & 27.3 & 33.5 &  34.5 & 9.44 & 37.7 & 43.1 \\
+    \end{tabular}
+    \label{AppE:litt_rock}
+\end{table}
+
 

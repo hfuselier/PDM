@@ -1,10 +1,10 @@
 \chapter{Failure criteria}\label{ch2:title}
 
-Failure criteria aim to describe in the most accurate way rock failure under various states of stress. The most successful criteria are usually a generalization of experimental results, from a combination of axisymmetric and multi-axial tests. Indeed, failure criteria are a theoretical conjecture aimed to describe what is observed from material behavior. In this chapter, a presentation of the mathematical formulation of selected criteria is reviewed.
+Failure criteria aim to describe, in the most accurate way, failure under various states of stress. The most successful criteria are usually a generalization of experimental results, from a combination of axisymmetric and multi-axial tests. Indeed, failure criteria are a theoretical conjecture aimed to describe what is observed from material behavior. In this chapter, the mathematical formulations of selected criteria are reviewed.
 
 \section{Introduction}\label{ch2:background}
 
-Many investigators have attempted to develop models or mathematical expression to describe the failure of rock \cite{Labuz2018}. These criteria are usually of an empirical nature and stress based: 
+Many investigators have attempted to develop models or mathematical expressions to describe the failure of rock \cite{Labuz2018}. These criteria are usually of an empirical nature and stress based: 
 
 \begin{equation}\label{eq2:rockfail}
     f\left(\sigma_{x x}, \sigma_{y y}, \sigma_{z z}, \sigma_{x y}, \sigma_{y z}, \sigma_{z x}\right)=\text { constant }
@@ -34,7 +34,7 @@ $I_{1}$ is the first invariant of the stress tensor $\sigma_{ij}$, $J_{2}$ and $
     J_{3} = \left(\sigma_{I}-p\right)\left(\sigma_{I I}-p\right)\left(\sigma_{III}-p\right)
 \end{equation}
 
-Three others can be defined, and will be used in this thesis: the mean stress $p$ , the deviatoric stress $q$ and the Lode angle $\theta$:
+Three others can be defined, and will be used in this thesis: the mean stress $p$ , the deviatoric stress $q$, and the Lode angle $\theta$:
 
 \begin{equation} \label{eq2:fpqtconst}
     f(p,q,\theta) = \text{constant}
@@ -63,9 +63,7 @@ Equations \ref{eq2:fsigconst}, \ref{eq2:fijjconst} and \ref{eq2:fpqtconst} sugge
     \label{fig2:pyramid}
 \end{figure}
 
-Although the three-dimensional representation of the failure surface is the most complete, other views are often used. For example, two-dimensional coordinates systems such as $(\sigma_3 -\sigma_1)$, $(p-q)$ plane and the $\pi$-plane are simple to view.  
-
-The $\pi$-plane. is a section of the failure surface in the principal stress space, perpendicular to the hydrostatic axis. It is also called the equipressure plane, as the mean stress is constant over the plane. Moreover, the axes $(\sigma_1^*,\sigma_2^*,\sigma_3^*)$ are the projection of the coordinate axis on the $\pi$-plane (cf. \ref{fig2:pyramid}b.). Each point in principal stress space can be represented in polar coordinates in this plane. As the mean stress is constant over the $\pi$-plane, the point is at a distance $r$ from the origin of the hydrostatic axis and oriented at the Lodge angle $\theta$ from the  $\sigma_1^*$ axis. Then the principal coordinates of the same point on the $\pi$-plane can be written as: 
+Although the three-dimensional representation of the failure surface is the most complete, other views are often used. For example, two-dimensional coordinates systems such as $(\sigma_3 -\sigma_1)$, $(p-q)$ plane and the $\pi$-plane are simple to view. The $\pi$-plane is a section of the failure surface in the principal stress space, perpendicular to the hydrostatic axis. It is also called the equipressure plane, as the mean stress is constant over the plane. Moreover, the axes $(\sigma_1^*,\sigma_2^*,\sigma_3^*)$ are the projection of the coordinate axis on the $\pi$-plane (Figure \ref{fig2:pyramid}b.). Each point in principal stress space can be represented in polar coordinates in this plane. As the mean stress is constant over the $\pi$-plane, the point is at a distance $r$ from the origin of the hydrostatic axis and oriented at the Lodge angle $\theta$ from the  $\sigma_1^*$ axis. Then the principal coordinates of the same point on the $\pi$-plane can be written as: 
 
 \begin{align}
     \sigma_1 &= p + \frac{\sqrt{6}}{3}r\cos\left(\theta\right) \label{eq2:sig1}\\
@@ -73,12 +71,12 @@ The $\pi$-plane. is a section of the failure surface in the principal stress spa
     \sigma_3 &= p - \frac{\sqrt{6}}{3}r\sin\left(\frac{\pi}{6}+\theta\right) \label{eq2:sig3}
 \end{align}
 
-In the next sections, selected failure criteria will be presented along with their formulation in each coordinates system. 
+In the next sections, selected failure criteria will be presented along with their formulation in each coordinate system. 
 
 \section{Review}
 \subsection{Mohr-Coulomb criterion}
 
-The Mohr-Coulomb failure criterion (MC) is the most popular and widely used criterion. It provides a relationship between the shear stress and normal stress $\sigma$ acting on the failure plane. The failure envelope may be represented using two material parameters known as the internal failure angle $\theta$ and the cohesion $c$ :
+The Mohr-Coulomb failure criterion (MC) is the most popular and widely used criterion. It provides a relationship between the shear stress $\tau$ and normal stress $\sigma$ acting on the failure plane. The failure envelope may be represented using two material parameters known as the internal failure angle $\phi$ and the cohesion $c$ :
 
 \begin{equation}\label{eq2:mc_gene}
     \tau = \sigma \tan \phi + c
@@ -106,7 +104,7 @@ or alternatively
     \sigma_I = K_p \sigma_{III} + C_0
 \end{equation}
 
-where $K_p$ is the slope of the failure surface in $(\sigma_3 -\sigma_1)$ plane and $C_0$ is the uniaxial compression strength of the rock. 
+where $K_p$ is the slope of the failure surface in $(\sigma_{III} -\sigma_{I})$ plane and $C_0$ is the uniaxial compression strength of the rock. 
 
 \subsubsection{Mohr-Coulomb in the \texorpdfstring{$(\sigma_3 -\sigma_1)$}{sigma 3 - sigma 1} plane}
 
@@ -218,7 +216,7 @@ The Mohr-Coulomb failure envelope in the $\pi$-plane is presented in Figure \ref
 
 \subsection{Hoek-Brown criterion}
 
-The Hoek-Brown (HB) criterion is a non-linear model for isotropic rocks that does not account for the intermediate principal stress. The criterion may be written as:
+The Hoek-Brown (HB) criterion is a non-linear model for isotropic rock that does not account for the intermediate principal stress. The criterion may be written as:
 
 \begin{equation}\label{eq2:HB-crit}
     \sigma_{I}=\sigma_{III}+C_{0} \sqrt{m \frac{\sigma_{III}}{C_{0}}+s}
@@ -292,7 +290,7 @@ The Hoek-Brown failure criterion in the $\pi$-plane is presented in Figure \ref{
 
 \subsection{Paul-Mohr-Coulomb criterion}\label{ch2:PMC}
 
-The Paul-Mohr-Coulomb criterion (PMC) is a linear model in terms of the three principal stresses. Unlike Mohr-Coulomb and Hoek-Brown, the Paul-Mohr-Coulomb criterion may be used to represent the effect of all principal stresses on rock behavior at failure. Its formulation is based on the one developed by Mohr-Coulomb, for which the intermediate stress effect is added \cite{Paul1968}. The Paul-Mohr-Coulomb failure criterion have the following general expression:
+The Paul-Mohr-Coulomb criterion (PMC) is a linear model in terms of the three principal stresses. Unlike Mohr-Coulomb and Hoek-Brown, the Paul-Mohr-Coulomb criterion may be used to represent the effect of all principal stresses on rock behavior at failure. Its formulation is based on the one developed by Mohr-Coulomb, for which the intermediate stress effect is added \cite{Paul1968}. The Paul-Mohr-Coulomb failure criterion has the following general expression:
 
 \begin{equation}\label{eq2:PMC}
     A\sigma_I + B\sigma_{II}+C\sigma_{III} = 1
@@ -318,11 +316,11 @@ Equation \ref{eq2:PMC} can therefore be written in its complete form as follow:
     \sigma_{I}\left[\frac{1-\sin \phi_{c}}{2 V_{0} \sin \phi_{c}}\right]+\sigma_{II}\left[\frac{\sin \phi_{c}-\sin \phi_{e}}{2 V_{0} \sin \phi_{e} \sin \phi_{c}}\right]+\sigma_{III}\left[-\frac{1+\sin \phi_{e}}{2 V_{0} \sin \phi_{e}}\right]=1
 \end{equation}
 
-PMC refines failure criterion definition by considering different values of the rock properties. It is shown in Equation \ref{eq2:PMC_dev} by the subscripts $c$ and $e$, defining the variables for compression or extension.
+PMC refines failure criterion definition by considering different values of the rock strength parameters in compression and extension. For example, Paul-Mohr-Coulomb criterion defines two different friction angles: $\phi_c$ for compression and $\phi_e$ for extension. 
 
 \subsubsection{Paul-Mohr-Coulomb in the \texorpdfstring{$(\sigma_3 -\sigma_1)$}{sigma 3 - sigma 1} plane}\label{ch2:PMCsig1sig3}
 
-Paul-Mohr-Coulomb is based on the Mohr-Coulomb criterion, therefore its expression in the $(\sigma_3 -\sigma_1)$ plane is an adjustment of Equation \ref{eq2:PMC_dev} considering different friction angles and cohesion for compression and extension conditions: 
+Paul-Mohr-Coulomb is an extension of the Mohr-Coulomb criterion, therefore its expression in the $(\sigma_3 -\sigma_1)$ plane is an adjustment of Equation \ref{eq2:PMC_dev} considering different friction angles and cohesion for compression and extension conditions: 
 
 \begin{equation}\label{eq2:PMC_sig1sig3}
     \sigma_I = M_{c,e}\sigma_{III}+C_{c,e}
@@ -338,7 +336,7 @@ Where:
     C_{c,e} = \frac{2c_{c,e}\cos \phi_{c,e}}{1-\sin \phi_{c,e}}
 \end{equation}
 
-Paul-Mohr-Coulomb failure surfaces in $(\sigma_3 -\sigma_1)$ coordinates system are presented in Figure \ref{fig2:pmc_sig1sig3}. As the friction angle and the cohesion for compression and extension are different, Paul-Mohr-Coulomb is not necessarily symmetrical about the hydrostatic axis. The computation of $V_0$ will be discussed in section \ref{ch2:pmcfit}. 
+Paul-Mohr-Coulomb failure surfaces in $(\sigma_3 -\sigma_1)$ coordinates system are presented in Figure \ref{fig2:pmc_sig1sig3}. The computation of $V_0$ will be discussed in section \ref{ch2:pmcfit}. 
 
 \begin{figure}[tb]
     \centering
@@ -372,7 +370,7 @@ where the coefficients $m_{c,e}$ and $b_{c,e}$ are defined as follow:
     b_c=\frac{6 c_{c} \cos \phi_{c}}{3-\sin \phi_{c}}\quad \textrm{and} \quad b_e=\frac{6 c_{e} \cos \phi_{e}}{3+\sin \phi_{e}}
 \end{align}
 
-Figure 2.3 for Mohr-Coulomb can be used to represent Paul-Mohr-Coulomb criterion after $m_{c,e}$ and $b_{c,e}$ recalculated for it.
+Figure 2.3 for Mohr-Coulomb can be used to represent Paul-Mohr-Coulomb if $m_{c,e}$ and $b_{c,e}$ are used.
 
 \subsubsection{Paul-Mohr-Coulomb in the \texorpdfstring{$\pi$}{pi} plane}\label{ch2:PMC_pi}
 
@@ -380,11 +378,11 @@ The representation of the Paul-Mohr-Coulomb failure criterion in the $\pi$-plane
 
 \section{Paul-Mohr-Coulomb fitting }\label{ch2:pmcfit}
 
-Failure criterion are conjectural. They try to provide a mathematical formulation of rock behavior based on experiments. However, the results obtained from them are not direct measurements of the friction angle or cohesion. The data from strength testing give the state of stress at failure. The fitting parameters are computed from these stresses.
+Failure criterion are conjectural. They provide a mathematical formulation of rock behavior based on experiments. However, the results obtained from them are not direct measurements of the friction angle or cohesion. The data from strength testing give the state of stress at failure. The fitting parameters are computed from these stresses.
 
-The use of the Paul-Mohr-Coulomb requires that the model constants ($V_0$, $\phi$) be estimated by fitting the Paul-Mohr-Coulomb criterion to the measured data from conventional triaxial compression, conventional triaxial extension, and true triaxial tests. Labuz et al. \cite{Labuz2018} provide a detailed mathematical derivation of Equations \ref{eq2:sig1} to \ref{eq2:sig3} that leads to the expression of Paul-Mohr-Coulomb failure criterion in terms of the stress invariants $p$, $q$ and $\theta$. 
+The use of the Paul-Mohr-Coulomb requires that the model constants ($V_0$, $\phi_c$, $\phi_e$) be estimated by fitting the Paul-Mohr-Coulomb criterion to the measured data from conventional triaxial compression, conventional triaxial extension, and true triaxial tests. Labuz et al. \cite{Labuz2018} provide a detailed mathematical derivation of Equations \ref{eq2:sig1} to \ref{eq2:sig3} that leads to the expression of Paul-Mohr-Coulomb failure criterion in terms of the stress invariants $p$, $q$ and $\theta$. 
 
-Failure criterion fitting consist in the computation of the rock properties ($V_0$, $\phi$) from a mathematical formulation of the criterion written in terms of the three principal stresses. Labuz (2018) \cite{Labuz2018} and Folta (2016) \cite{Folta2016} provide detailed mathematical derivation of Equations \ref{eq2:sig1} - \ref{eq2:sig3} that leads to the expression of Paul-Mohr-Coulomb failure criterion in terms of the stress invariants $p$, $q$  and $\theta$. 
+Failure criterion fitting consists of the computation of the rock properties ($V_0$, $\phi$) from a mathematical formulation of the criterion written in terms of the three principal stresses. Labuz (2018) \cite{Labuz2018} and Folta (2016) \cite{Folta2016} provide detailed mathematical derivation of Equations \ref{eq2:sig1} - \ref{eq2:sig3} that leads to the expression of Paul-Mohr-Coulomb failure criterion in terms of the stress invariants $p$, $q$  and $\theta$. 
 
 The final formulation is given by Equation \ref{eq2:PMCfinalform}:
 
